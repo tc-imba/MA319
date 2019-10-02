@@ -1,0 +1,49 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{../ma319}
+\semester{Fall}
+\year{2019}
+\subtitlenumber{1}
+\author{刘逸灏 (515370910207)}
+
+\begin{document}
+\maketitle
+
+\section{1.1/6}
+
+对于$F(\xi)=F(x-at)$
+$$\xi=x-at,\quad \frac{\partial \xi}{\partial t}=-a,\quad \frac{\partial \xi}{\partial x}=1,$$
+$$\frac{\partial F}{\partial t}=\frac{\partial F}{\partial \xi}\cdot\frac{\partial \xi}{\partial t}=-aF'(\xi),$$
+$$\frac{\partial^2 F}{\partial t^2}=\frac{\partial}{\partial t}[-aF'(\xi)]=\frac{\partial}{\partial \xi}[-aF'(\xi)]\cdot\frac{\partial \xi}{\partial t}=a^2F''(\xi),$$
+$$\frac{\partial F}{\partial x}=\frac{\partial F}{\partial \xi}\cdot\frac{\partial \xi}{\partial x}=F'(\xi),$$
+$$\frac{\partial^2 F}{\partial x^2}=\frac{\partial}{\partial x}[F'(\xi)]=\frac{\partial}{\partial \xi}[F'(\xi)]\cdot\frac{\partial \xi}{\partial x}=F''(\xi).$$
+
+故$$\frac{\partial^2 F}{\partial t^2}-a^2\frac{\partial^2 F}{\partial x^2}=0.$$
+
+对于$G(\xi)=G(x+at)$
+$$\xi=x+at,\quad \frac{\partial \xi}{\partial t}=a,\quad \frac{\partial \xi}{\partial x}=1,$$
+$$\frac{\partial G}{\partial t}=\frac{\partial G}{\partial \xi}\cdot\frac{\partial \xi}{\partial t}=aG'(\xi),$$
+$$\frac{\partial^2 G}{\partial t^2}=\frac{\partial}{\partial t}[-aG'(\xi)]=\frac{\partial}{\partial \xi}[aG'(\xi)]\cdot\frac{\partial \xi}{\partial t}=a^2G''(\xi),$$
+$$\frac{\partial G}{\partial x}=\frac{\partial G}{\partial \xi}\cdot\frac{\partial \xi}{\partial x}=G'(\xi),$$
+$$\frac{\partial^2 G}{\partial x^2}=\frac{\partial}{\partial x}[G'(\xi)]=\frac{\partial}{\partial \xi}[G'(\xi)]\cdot\frac{\partial \xi}{\partial x}=G''(\xi).$$
+
+故$$\frac{\partial^2 G}{\partial t^2}-a^2\frac{\partial^2 G}{\partial x^2}=0.$$
+
+\section{1.1/7}
+
+$$u(x,y,t)=(t^2-x^2-y^2)^{1/2},\quad t^2-x^2-y^2>0.$$
+
+一阶偏导数为
+$$\frac{\partial u}{\partial t}=\frac{1}{2}(t^2-x^2-y^2)^{-1/2}\cdot 2t=\frac{t}{u},$$
+$$\frac{\partial u}{\partial x}=\frac{1}{2}(t^2-x^2-y^2)^{-1/2}\cdot -2x=-\frac{x}{u},$$
+$$\frac{\partial u}{\partial y}=\frac{1}{2}(t^2-x^2-y^2)^{-1/2}\cdot -2y=-\frac{y}{u}.$$
+
+二阶偏导数为
+$$\frac{\partial^2 u}{\partial t^2}=\frac{\partial}{\partial t}\frac{t}{u}=\frac{\partial t}{\partial t}\cdot \frac{1}{u}+\frac{\partial}{\partial t}\frac{1}{u}\cdot t=\frac{1}{u}-\frac{3t^2}{u^3},$$
+$$\frac{\partial^2 u}{\partial x^2}=-\frac{\partial}{\partial x}\frac{x}{u}=-\frac{\partial x}{\partial x}\cdot \frac{1}{u}-\frac{\partial}{\partial x}\frac{1}{u}\cdot t=-\frac{1}{u}-\frac{3x^2}{u^3},$$
+$$\frac{\partial^2 u}{\partial y^2}=-\frac{\partial}{\partial y}\frac{y}{u}=-\frac{\partial y}{\partial y}\cdot \frac{1}{u}-\frac{\partial}{\partial y}\frac{1}{u}\cdot t=-\frac{1}{u}-\frac{3y^2}{u^3}.$$
+
+故
+$$\frac{\partial^2 u}{\partial t^2}-\frac{\partial^2 u}{\partial x^2}-\frac{\partial^2 u}{\partial y^2}=\frac{3}{u}+\frac{-3t^2+3x^2+3y^2}{u^3}=\frac{3}{u}+\frac{-3u^2}{u^3}=0,$$
+$$\frac{\partial^2 u}{\partial t^2}=\frac{\partial^2 u}{\partial x^2}+\frac{\partial^2 u}{\partial y^2}.$$
+
+\end{document}
