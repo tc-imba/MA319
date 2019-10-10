@@ -1,0 +1,64 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{../ma319}
+\semester{Fall}
+\year{2019}
+\subtitlenumber{2}
+\author{刘逸灏 (515370910207)}
+
+\begin{document}
+\maketitle
+
+\section{1.2/3}
+
+方程的通解为
+$$u(x,t)=F(x-at)+G(x+at),$$
+
+代入初值条件得
+$$\varphi(x)=u|_{x-at=0}=F(0)+G(2x),$$
+$$\psi(x)=u|_{x+at=0}=F(2x)+G(0).$$
+
+故
+$$F(x)=\psi(x/2)-G(0),$$
+$$G(x)=\varphi(x/2)-F(0),$$
+$$\varphi(0)=\psi(0)=F(0)+G(0).$$
+
+$$u(x,t)=F(x-at)+G(x+at)=\psi\left(\frac{x-at}{2}\right)+\varphi\left(\frac{x+at}{2}\right)-\varphi(0).$$
+
+\section{1.2/4}
+
+非齐次初值问题的解为
+$$u(x,t)=\frac{\varphi(x-at)+\varphi(x+at)}{2}+\frac{1}{2a}\int_{x-at}^{x+at}\psi(\alpha)d\alpha+\frac{1}{2a}\int_0^t\int_{x-a(t-\tau)}^{x+a(t-\tau)}f(\xi,\tau)d\xi d\tau.$$
+
+其中与$\varphi(x)$和$\psi(x)$有关的定义域范围都是$[x-at,x+at]$.
+
+\subsection*{(1)}
+区间$[x_1,x_2]$的影响区域为$$x_1-at\leqslant x\leqslant x_2+at,$$
+
+不受影响的区域为$$x\leqslant x_1-at\quad\text{和}\quad x\geqslant x_2+at,$$
+
+对应的$\varphi(x)$和$\psi(x)$定义域范围是$$x\leqslant x_1\quad\text{和}\quad x\geqslant x_2.$$
+
+故当$\varphi(x)$和$\psi(x)$在$[x_1,x_2]$上变化时, 以上定义域内函数取值不变, 对应解也不变.
+
+\subsection*{(2)}
+
+区间$[x_1,x_2]$的决定区域为$$x_1+at\leqslant x\leqslant x_2-at,$$
+
+对应的$\varphi(x)$和$\psi(x)$定义域范围是$$x_1\leqslant x\leqslant x_2.$$
+
+故$[x_1,x_2]$上所给的初始条件唯一地确定该区间解的数值.
+
+\section{1.2/5}
+方程的通解为
+$$u(x,t)=F(x-at)+G(x+at),$$
+
+代入初值条件得
+$$\varphi(x)=u|_{t=0}=F(x)+G(x),$$
+$$0=u_t|_{t=0}=a[-F'(x)+G'(x)].$$
+$$0=u_x-ku_t\mid_{x=0}=F'(x-at)+G'(x+at)-ka[-F'(-at)+G'(at)].$$
+
+$$u(x,t)=\frac{\varphi(x-at)+\varphi(x+at)}{2}$$
+$$u_x(x,t)=\frac{\varphi'(x-at)+\varphi'(x+at)}{2}$$
+$$ku_t\mid_{x=0}=\frac{-ka\varphi'(-at)+ka\varphi'(at)}{2}$$
+
+\end{document}

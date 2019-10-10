@@ -46,4 +46,42 @@ $$\frac{\partial^2 u}{\partial y^2}=-\frac{\partial}{\partial y}\frac{y}{u}=-\fr
 $$\frac{\partial^2 u}{\partial t^2}-\frac{\partial^2 u}{\partial x^2}-\frac{\partial^2 u}{\partial y^2}=\frac{3}{u}+\frac{-3t^2+3x^2+3y^2}{u^3}=\frac{3}{u}+\frac{-3u^2}{u^3}=0,$$
 $$\frac{\partial^2 u}{\partial t^2}=\frac{\partial^2 u}{\partial x^2}+\frac{\partial^2 u}{\partial y^2}.$$
 
+\section{1.2/1}
+
+
+
+$$\left(1-\frac{x}{h}\right)^2\frac{\partial^2 u}{\partial t^2}=a^2\frac{\partial}{\partial x}\left[\left(1-\frac{x}{h}\right)^2\frac{\partial u}{\partial x}\right],$$
+$$(h-x)^2\frac{\partial^2 u}{\partial t^2}=a^2\frac{\partial}{\partial x}\left[(h-x)^2\frac{\partial u}{\partial x}\right].$$
+
+设$u(x,t)=v(x,t)/(h-x)$
+$$\frac{\partial^2 u}{\partial t^2}=\frac{1}{h-x}\frac{\partial^2 v}{\partial t^2},\quad (h-x)^2\frac{\partial^2 u}{\partial t^2}=(h-x)\frac{\partial^2 v}{\partial t^2}.$$
+$$\frac{\partial u}{\partial x}=\frac{\partial v}{\partial x}\cdot\frac{1}{h-x}+\frac{\partial}{\partial x}\left(\frac{1}{h-x}\right)\cdot v=\frac{1}{h-x}\frac{\partial v}{\partial x}+\frac{v}{(h-x)^2},$$
+$$\frac{\partial}{\partial x}\left[(h-x)^2\frac{\partial u}{\partial x}\right]=\frac{\partial}{\partial x}\left[(h-x)\frac{\partial v}{\partial x}+v\right]=
+\frac{\partial^2 v}{\partial x^2}\cdot(h-x)+\frac{\partial}{\partial x}(h-x)\cdot\frac{\partial v}{\partial x}+\frac{\partial v}{\partial x}=(h-x)\frac{\partial^2 v}{\partial x^2}.$$
+
+故
+$$\frac{\partial^2 v}{\partial t^2}-a^2\frac{\partial^2 v}{\partial x^2}=0.$$
+
+其通解可以写为
+$$v(x,t)=F(x-at)+G(x+at),$$
+$$u(x,t)=\frac{v(x,t)}{h-x}=\frac{F(x-at)+G(x+at)}{h-x}.$$
+
+且满足初值条件
+$$t=0:\quad v=(h-x)\varphi(x),\quad \frac{\partial v}{\partial t}=(h-x)\psi(x).$$
+
+代入达朗贝尔公式得
+$$v(x,t)=\frac{(h-x+at)\varphi(x-at)+(h-x-at)\varphi(x+at)}{2}+\frac{1}{2a}\int_{x-at}^{x+at}(h-\alpha)\psi(\alpha)d\alpha,$$
+$$u(x,t)=\frac{(h-x+at)\varphi(x-at)+(h-x-at)\varphi(x+at)}{2(h-x)}+\frac{1}{2a(h-x)}\int_{x-at}^{x+at}(h-\alpha)\psi(\alpha)d\alpha.$$
+
+\section{1.2/2}
+
+齐次波动方程初值问题的解仅由右传播波组成时
+$$G(x+at)=C_1,$$
+$$G(x)=\frac{1}{2}\varphi(x)+\frac{1}{2a}\int_{x_0}^x\psi(\alpha)d\alpha-\frac{C}{2a}=C_1.$$
+
+故初始条件$\varphi(x)$, $\psi(x)$需要满足
+$$\varphi(x)+\frac{1}{a}\int_{x_0}^x\psi(\alpha)d\alpha=C_2.$$
+其中$C$, $C_1$, $C_2$为常数.
+
+
 \end{document}
