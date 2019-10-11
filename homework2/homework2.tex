@@ -111,15 +111,62 @@ $$F((1-k)x)=\psi(x)-G((1+k)x)=\psi(x)-\frac{\varphi_0(0)+\varphi_0((1+k)x)}{2}-\
 $$F(x)=\psi\left(\frac{x}{1-k}\right)-\frac{1}{2}\varphi_0(0)-\frac{1}{2}\varphi_0\left(\frac{1+k}{1-k}x\right)-\frac{1}{2}\int_0^{\frac{1+k}{1-k}x}\varphi_1(\alpha)d\alpha+F(0).$$
 \begin{align*}
 u(x,t)&=F(x-t)+G(x+t)\\
-&=\psi\left(\frac{x-t}{1-k}\right)-\frac{1}{2}\varphi_0(0)-\frac{1}{2}\varphi_0\left(\frac{1+k}{1-k}(x-t)\right)-\frac{1}{2}\int_0^{\frac{1+k}{1-k}(x-t)}\varphi_1(\alpha)d\alpha+F(0)+\\
-&\quad\frac{\varphi_0(0)+\varphi_0(x+t)}{2}+\frac{1}{2}\int_{0}^{x+t}\varphi_1(\alpha)d\alpha-F(0)\\
-&=\psi\left(\frac{x-t}{1-k}\right)-\frac{1}{2}\varphi_0\left(\frac{1+k}{1-k}(x-t)\right)+\frac{1}{2}\varphi_0(x+t)+\frac{1}{2}\int_{\frac{1+k}{1-k}(x-t)}^{x+t}\varphi_1(\alpha)d\alpha.
+&=\psi\left(\frac{x-t}{1-k}\right)-\frac{1}{2}\varphi_0(0)-\frac{1}{2}\varphi_0\left(\frac{1+k}{1-k}(x-t)\right)-\frac{1}{2}\int_0^{\frac{1+k}{1-k}(x-t)}\varphi_1(\alpha)d\xi+F(0)\\
+&\quad+\frac{\varphi_0(0)+\varphi_0(x+t)}{2}+\frac{1}{2}\int_{0}^{x+t}\varphi_1(\xi)d\xi-F(0)\\
+&=\psi\left(\frac{x-t}{1-k}\right)-\frac{1}{2}\varphi_0\left(\frac{1+k}{1-k}(x-t)\right)+\frac{1}{2}\varphi_0(x+t)+\frac{1}{2}\int_{\frac{1+k}{1-k}(x-t)}^{x+t}\varphi_1(\xi)d\xi.
 \end{align*}
 
 故
 $$u(x,t)=\left\{\begin{aligned}
-&\frac{\varphi_0(x-t)+\varphi_0(x+t)}{2}+\frac{1}{2}\int_{x-t}^{x+t}\varphi_1(\alpha)d\alpha, & 0\leqslant t\leqslant x\\
-&\psi\left(\frac{x-t}{1-k}\right)-\frac{1}{2}\varphi_0\left(\frac{1+k}{1-k}(x-t)\right)+\frac{1}{2}\varphi_0(x+t)+\frac{1}{2}\int_{\frac{1+k}{1-k}(x-t)}^{x+t}\varphi_1(\alpha)d\alpha, & x<t<kx
+&\frac{\varphi_0(x-t)+\varphi_0(x+t)}{2}+\frac{1}{2}\int_{x-t}^{x+t}\varphi_1(\xi)d\xi, & 0\leqslant t\leqslant x\\
+&\psi\left(\frac{x-t}{1-k}\right)-\frac{1}{2}\varphi_0\left(\frac{1+k}{1-k}(x-t)\right)+\frac{1}{2}\varphi_0(x+t)+\frac{1}{2}\int_{\frac{1+k}{1-k}(x-t)}^{x+t}\varphi_1(\xi)d\xi, & x<t<kx
 \end{aligned}\right..$$
+
+\section{1.2/7}
+
+方程的通解为
+$$u(x,t)=F(x-t)+G(x+t),$$
+
+代入初值条件得
+$$\varphi(x)=u|_{t=x}=F(0)+G(2x),$$
+$$\psi(x)=u|_{t=f(x)}=F(x-f(x))+G(x+f(x)).$$
+
+解得
+$$G(x)=\varphi(x/2)-F(0),$$
+$$F(x-f(x))=\psi(x)-G(x+f(x))=\psi(x)-\varphi\left(\frac{x+f(x)}{2}\right)+F(0).$$
+
+设$g(x)=x-f(x)$, 由于$f'(x)\neq 1$, 易知$g'(x)\neq 0$, 即$g(x)$为连续单调函数, $g^{-1}(x)$存在.
+$$F(x-f(x))=F(g(x))=\psi(x)-\varphi\left(x-\frac{g(x)}{2}\right)+F(0),$$
+$$F(x)=\psi(g^{-1}(x))-\varphi\left(g^{-1}(x)-\frac{x}{2}\right)+F(0).$$
+
+故
+\begin{align*}
+u(x,t)&=F(x-t)+G(x+t)\\
+&=\psi(g^{-1}(x-t))-\varphi\left(g^{-1}(x-t)-\frac{x-t}{2}\right)+F(0)+\varphi\left(\frac{x+t}{2}\right)-F(0)\\
+&=\psi(g^{-1}(x-t))+\varphi\left(g^{-1}(x-t)-\frac{x-t}{2}\right)+\varphi\left(\frac{x+t}{2}\right).
+\end{align*}
+
+\section{1.2/8}
+
+代入Kirchhoff公式得
+\begin{align*}
+u(x,t)&=\frac{1}{2}\int_{x-t}^{x+t}\sin\xi d\xi+\frac{1}{2}\int_0^t\int_{x-(t-\tau)}^{x+(t-\tau)}\tau\sin\xi d\xi d\tau\\
+&=\frac{1}{2}[\cos(x-t)-\cos(x+t)]+\frac{1}{2}\int_0^t\tau[\cos(x-t+\tau)-\cos(x+t-\tau)]d\tau\\
+&=\frac{1}{2}[\cos(x-t)-\cos(x+t)]+\frac{1}{2}[\cos(-x)-t\sin(-x)-\cos(t-x)]-\frac{1}{2}[\cos x-t\sin x-\cos(t+x)]\\
+&=t\sin x.
+\end{align*}
+
+\section{1.2/9}
+
+代入Kirchhoff公式得
+\begin{align*}
+u(x,t)&=\frac{1}{2a}\int_{x-at}^{x+at}\frac{1}{1+\xi^2}d\xi+\frac{1}{2a}\int_0^t\int_{x-a(t-\tau)}^{x+a(t-\tau)}\frac{\tau\xi}{(1+\xi^2)^2}d\xi d\tau\\
+&=\frac{1}{2a}[\arctan(x+at)-\arctan(x-at)]+\frac{1}{4a}\int_0^t\tau\left[\frac{1}{1+[x-a(t-\tau)]^2}-\frac{1}{1+[x+a(t-\tau)]^2}\right]d\tau\\
+&=\frac{1}{2a}[\arctan(x+at)-\arctan(x-at)]+\frac{1}{4a^3}\left[(at-x)[\arctan x-\arctan(x-at)]+\frac{1}{2}\ln\frac{1+x^2}{1+(x-at)^2}\right]\\
+&\quad-\frac{1}{4a^3}\left[-(at+x)[\arctan x-\arctan(x+at)]+\frac{1}{2}\ln\frac{1+x^2}{1+(x+at)^2}\right]\\
+&=\frac{1}{2a}[\arctan(x+at)-\arctan(x-at)]+\frac{1}{8a^3}\ln\frac{1+(x+at)^2}{1+(x-at)^2}\\
+&\quad+\frac{1}{4a^3}[2at\arctan x+(x-at)\arctan(x-at)-(x+at)\arctan(x+at)]\\
+&=\frac{t}{2a^2}\arctan x+\frac{x-at-2a^2}{4a^3}\arctan(x-at)-\frac{x+at-2a^2}{4a^3}\arctan(x+at)+\frac{1}{8a^3}\ln\frac{1+(x+at)^2}{1+(x-at)^2}.
+\end{align*}
 
 \end{document}

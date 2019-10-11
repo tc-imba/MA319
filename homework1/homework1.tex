@@ -48,8 +48,6 @@ $$\frac{\partial^2 u}{\partial t^2}=\frac{\partial^2 u}{\partial x^2}+\frac{\par
 
 \section{1.2/1}
 
-
-
 $$\left(1-\frac{x}{h}\right)^2\frac{\partial^2 u}{\partial t^2}=a^2\frac{\partial}{\partial x}\left[\left(1-\frac{x}{h}\right)^2\frac{\partial u}{\partial x}\right],$$
 $$(h-x)^2\frac{\partial^2 u}{\partial t^2}=a^2\frac{\partial}{\partial x}\left[(h-x)^2\frac{\partial u}{\partial x}\right].$$
 
@@ -83,5 +81,25 @@ $$G(x)=\frac{1}{2}\varphi(x)+\frac{1}{2a}\int_{x_0}^x\psi(\alpha)d\alpha-\frac{C
 $$\varphi(x)+\frac{1}{a}\int_{x_0}^x\psi(\alpha)d\alpha=C_2.$$
 其中$C$, $C_1$, $C_2$为常数.
 
+\section*{例题}
+
+$$\left\{\begin{aligned}
+&\frac{\partial^2u}{\partial x\partial y}=0,\quad |x|<1,\quad |y|<1\\
+&u\mid_{y=x^2}=\varphi(x)\\
+&u_y\mid_{y=x^2}=\psi(x)
+\end{aligned}\right..$$
+
+方程的通解为
+$$u(x,y)=F(x)+G(y)+C,$$
+
+代入初值条件得
+$$\varphi(x)=u|_{y=x^2}=F(x)+G(x^2)+C,$$
+$$\psi(x)=u_y|_{y=x^2}=G'(x^2).$$
+
+故
+$$G'(x)=\psi(\sqrt{|x|}),$$
+$$G(x)=\int_{x_0}^x\psi(\sqrt{|\xi|})d\xi+C_1,$$
+$$F(x)=\varphi(x)-G(x^2)-C=\varphi(x)-\int_{x_0}^{x^2}\psi(\sqrt{|\xi|})d\xi-C_1-C,$$
+$$u(x,y)=F(x)+G(y)+C=\varphi(x)+\int_{x^2}^{y}\psi(\sqrt{|\xi|})d\xi.$$
 
 \end{document}
