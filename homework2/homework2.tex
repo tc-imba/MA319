@@ -73,18 +73,18 @@ $$u(x,t)=F(x-at)+G(x+at)=\frac{\varphi(x-at)+\varphi(x+at)}{2}.$$
 
 当$x-at<0$时
 \begin{align*}
-u(x,t)&=F(-(at-x))+G(x+at)\\
-&=\frac{1-ka}{1+ka}G(at-x)+F(0)+\frac{ka-1}{1+ka}G(0)+G(x+at)\\
-&=\frac{1-ka}{1+ka}\left[\frac{1}{2}\varphi(at-x)-\frac{F(0)-G(0)}{2}\right]+F(0)+\frac{ka-1}{1+ka}G(0)+\frac{1}{2}\varphi(x+at)-\frac{F(0)-G(0)}{2}\\
-&=\frac{1-ka}{2(1+ka)}\varphi(at-x)+\frac{1}{2}\varphi(x+at)+\frac{[-(1-ka)+(1+ka)]F(0)+[-(1-ka)+(1+ka)]G(0)}{2(1+ka)}\\
-&=\frac{1-ka}{2(1+ka)}\varphi(at-x)+\frac{1}{2}\varphi(x+at)+\frac{ka}{1+ka}\varphi(0).
+  u(x,t) & =F(-(at-x))+G(x+at)                                                                                                                                 \\
+         & =\frac{1-ka}{1+ka}G(at-x)+F(0)+\frac{ka-1}{1+ka}G(0)+G(x+at)                                                                                        \\
+         & =\frac{1-ka}{1+ka}\left[\frac{1}{2}\varphi(at-x)-\frac{F(0)-G(0)}{2}\right]+F(0)+\frac{ka-1}{1+ka}G(0)+\frac{1}{2}\varphi(x+at)-\frac{F(0)-G(0)}{2} \\
+         & =\frac{1-ka}{2(1+ka)}\varphi(at-x)+\frac{1}{2}\varphi(x+at)+\frac{[-(1-ka)+(1+ka)]F(0)+[-(1-ka)+(1+ka)]G(0)}{2(1+ka)}                               \\
+         & =\frac{1-ka}{2(1+ka)}\varphi(at-x)+\frac{1}{2}\varphi(x+at)+\frac{ka}{1+ka}\varphi(0).
 \end{align*}
 
 故
 $$u(x,t)=\frac{1}{2}\varphi(x+at)+\left\{\begin{aligned}
-&\frac{1}{2}\varphi(x-at), & x-at\geqslant 0\\
-&\frac{1-ka}{2(1+ka)}\varphi(at-x)+\frac{ka}{1+ka}\varphi(0), & x-at<0
-\end{aligned}\right..$$
+     & \frac{1}{2}\varphi(x-at),                                    & x-at\geqslant 0 \\
+     & \frac{1-ka}{2(1+ka)}\varphi(at-x)+\frac{ka}{1+ka}\varphi(0), & x-at<0
+  \end{aligned}\right..$$
 
 \section{1.2/6}
 
@@ -110,17 +110,17 @@ $$G(x)=\frac{\varphi_0(0)+\varphi_0(x)}{2}+\frac{1}{2}\int_{0}^{x}\varphi_1(\alp
 $$F((1-k)x)=\psi(x)-G((1+k)x)=\psi(x)-\frac{\varphi_0(0)+\varphi_0((1+k)x)}{2}-\frac{1}{2}\int_{0}^{(1+k)x}\varphi_1(\alpha)d\alpha+F(0),$$
 $$F(x)=\psi\left(\frac{x}{1-k}\right)-\frac{1}{2}\varphi_0(0)-\frac{1}{2}\varphi_0\left(\frac{1+k}{1-k}x\right)-\frac{1}{2}\int_0^{\frac{1+k}{1-k}x}\varphi_1(\alpha)d\alpha+F(0).$$
 \begin{align*}
-u(x,t)&=F(x-t)+G(x+t)\\
-&=\psi\left(\frac{x-t}{1-k}\right)-\frac{1}{2}\varphi_0(0)-\frac{1}{2}\varphi_0\left(\frac{1+k}{1-k}(x-t)\right)-\frac{1}{2}\int_0^{\frac{1+k}{1-k}(x-t)}\varphi_1(\alpha)d\xi+F(0)\\
-&\quad+\frac{\varphi_0(0)+\varphi_0(x+t)}{2}+\frac{1}{2}\int_{0}^{x+t}\varphi_1(\xi)d\xi-F(0)\\
-&=\psi\left(\frac{x-t}{1-k}\right)-\frac{1}{2}\varphi_0\left(\frac{1+k}{1-k}(x-t)\right)+\frac{1}{2}\varphi_0(x+t)+\frac{1}{2}\int_{\frac{1+k}{1-k}(x-t)}^{x+t}\varphi_1(\xi)d\xi.
+  u(x,t) & =F(x-t)+G(x+t)                                                                                                                                                                     \\
+         & =\psi\left(\frac{x-t}{1-k}\right)-\frac{1}{2}\varphi_0(0)-\frac{1}{2}\varphi_0\left(\frac{1+k}{1-k}(x-t)\right)-\frac{1}{2}\int_0^{\frac{1+k}{1-k}(x-t)}\varphi_1(\alpha)d\xi+F(0) \\
+         & \quad+\frac{\varphi_0(0)+\varphi_0(x+t)}{2}+\frac{1}{2}\int_{0}^{x+t}\varphi_1(\xi)d\xi-F(0)                                                                                       \\
+         & =\psi\left(\frac{x-t}{1-k}\right)-\frac{1}{2}\varphi_0\left(\frac{1+k}{1-k}(x-t)\right)+\frac{1}{2}\varphi_0(x+t)+\frac{1}{2}\int_{\frac{1+k}{1-k}(x-t)}^{x+t}\varphi_1(\xi)d\xi.
 \end{align*}
 
 故
 $$u(x,t)=\left\{\begin{aligned}
-&\frac{\varphi_0(x-t)+\varphi_0(x+t)}{2}+\frac{1}{2}\int_{x-t}^{x+t}\varphi_1(\xi)d\xi, & 0\leqslant t\leqslant x\\
-&\psi\left(\frac{x-t}{1-k}\right)-\frac{1}{2}\varphi_0\left(\frac{1+k}{1-k}(x-t)\right)+\frac{1}{2}\varphi_0(x+t)+\frac{1}{2}\int_{\frac{1+k}{1-k}(x-t)}^{x+t}\varphi_1(\xi)d\xi, & x<t<kx
-\end{aligned}\right..$$
+     & \frac{\varphi_0(x-t)+\varphi_0(x+t)}{2}+\frac{1}{2}\int_{x-t}^{x+t}\varphi_1(\xi)d\xi,                                                                                           & 0\leqslant t\leqslant x \\
+     & \psi\left(\frac{x-t}{1-k}\right)-\frac{1}{2}\varphi_0\left(\frac{1+k}{1-k}(x-t)\right)+\frac{1}{2}\varphi_0(x+t)+\frac{1}{2}\int_{\frac{1+k}{1-k}(x-t)}^{x+t}\varphi_1(\xi)d\xi, & x<t<kx
+  \end{aligned}\right..$$
 
 \section{1.2/7}
 
@@ -141,32 +141,32 @@ $$F(x)=\psi(g^{-1}(x))-\varphi\left(g^{-1}(x)-\frac{x}{2}\right)+F(0).$$
 
 故
 \begin{align*}
-u(x,t)&=F(x-t)+G(x+t)\\
-&=\psi(g^{-1}(x-t))-\varphi\left(g^{-1}(x-t)-\frac{x-t}{2}\right)+F(0)+\varphi\left(\frac{x+t}{2}\right)-F(0)\\
-&=\psi(g^{-1}(x-t))+\varphi\left(g^{-1}(x-t)-\frac{x-t}{2}\right)+\varphi\left(\frac{x+t}{2}\right).
+  u(x,t) & =F(x-t)+G(x+t)                                                                                               \\
+         & =\psi(g^{-1}(x-t))-\varphi\left(g^{-1}(x-t)-\frac{x-t}{2}\right)+F(0)+\varphi\left(\frac{x+t}{2}\right)-F(0) \\
+         & =\psi(g^{-1}(x-t))+\varphi\left(g^{-1}(x-t)-\frac{x-t}{2}\right)+\varphi\left(\frac{x+t}{2}\right).
 \end{align*}
 
 \section{1.2/8}
 
 代入Kirchhoff公式得
 \begin{align*}
-u(x,t)&=\frac{1}{2}\int_{x-t}^{x+t}\sin\xi d\xi+\frac{1}{2}\int_0^t\int_{x-(t-\tau)}^{x+(t-\tau)}\tau\sin\xi d\xi d\tau\\
-&=\frac{1}{2}[\cos(x-t)-\cos(x+t)]+\frac{1}{2}\int_0^t\tau[\cos(x-t+\tau)-\cos(x+t-\tau)]d\tau\\
-&=\frac{1}{2}[\cos(x-t)-\cos(x+t)]+\frac{1}{2}[\cos(-x)-t\sin(-x)-\cos(t-x)]-\frac{1}{2}[\cos x-t\sin x-\cos(t+x)]\\
-&=t\sin x.
+  u(x,t) & =\frac{1}{2}\int_{x-t}^{x+t}\sin\xi d\xi+\frac{1}{2}\int_0^t\int_{x-(t-\tau)}^{x+(t-\tau)}\tau\sin\xi d\xi d\tau  \\
+         & =\frac{1}{2}[\cos(x-t)-\cos(x+t)]+\frac{1}{2}\int_0^t\tau[\cos(x-t+\tau)-\cos(x+t-\tau)]d\tau                     \\
+         & =\frac{1}{2}[\cos(x-t)-\cos(x+t)]+\frac{1}{2}[\cos(-x)-t\sin(-x)-\cos(t-x)]-\frac{1}{2}[\cos x-t\sin x-\cos(t+x)] \\
+         & =t\sin x.
 \end{align*}
 
 \section{1.2/9}
 
 代入Kirchhoff公式得
 \begin{align*}
-u(x,t)&=\frac{1}{2a}\int_{x-at}^{x+at}\frac{1}{1+\xi^2}d\xi+\frac{1}{2a}\int_0^t\int_{x-a(t-\tau)}^{x+a(t-\tau)}\frac{\tau\xi}{(1+\xi^2)^2}d\xi d\tau\\
-&=\frac{1}{2a}[\arctan(x+at)-\arctan(x-at)]+\frac{1}{4a}\int_0^t\tau\left[\frac{1}{1+[x-a(t-\tau)]^2}-\frac{1}{1+[x+a(t-\tau)]^2}\right]d\tau\\
-&=\frac{1}{2a}[\arctan(x+at)-\arctan(x-at)]+\frac{1}{4a^3}\left[(at-x)[\arctan x-\arctan(x-at)]+\frac{1}{2}\ln\frac{1+x^2}{1+(x-at)^2}\right]\\
-&\quad-\frac{1}{4a^3}\left[-(at+x)[\arctan x-\arctan(x+at)]+\frac{1}{2}\ln\frac{1+x^2}{1+(x+at)^2}\right]\\
-&=\frac{1}{2a}[\arctan(x+at)-\arctan(x-at)]+\frac{1}{8a^3}\ln\frac{1+(x+at)^2}{1+(x-at)^2}\\
-&\quad+\frac{1}{4a^3}[2at\arctan x+(x-at)\arctan(x-at)-(x+at)\arctan(x+at)]\\
-&=\frac{t}{2a^2}\arctan x+\frac{x-at-2a^2}{4a^3}\arctan(x-at)-\frac{x+at-2a^2}{4a^3}\arctan(x+at)+\frac{1}{8a^3}\ln\frac{1+(x+at)^2}{1+(x-at)^2}.
+  u(x,t) & =\frac{1}{2a}\int_{x-at}^{x+at}\frac{1}{1+\xi^2}d\xi+\frac{1}{2a}\int_0^t\int_{x-a(t-\tau)}^{x+a(t-\tau)}\frac{\tau\xi}{(1+\xi^2)^2}d\xi d\tau   \\
+         & =\frac{1}{2a}[\arctan(x+at)-\arctan(x-at)]+\frac{1}{4a}\int_0^t\tau\left[\frac{1}{1+[x-a(t-\tau)]^2}-\frac{1}{1+[x+a(t-\tau)]^2}\right]d\tau     \\
+         & =\frac{1}{2a}[\arctan(x+at)-\arctan(x-at)]+\frac{1}{4a^3}\left[(at-x)[\arctan x-\arctan(x-at)]+\frac{1}{2}\ln\frac{1+x^2}{1+(x-at)^2}\right]     \\
+         & \quad-\frac{1}{4a^3}\left[-(at+x)[\arctan x-\arctan(x+at)]+\frac{1}{2}\ln\frac{1+x^2}{1+(x+at)^2}\right]                                         \\
+         & =\frac{1}{2a}[\arctan(x+at)-\arctan(x-at)]+\frac{1}{8a^3}\ln\frac{1+(x+at)^2}{1+(x-at)^2}                                                        \\
+         & \quad+\frac{1}{4a^3}[2at\arctan x+(x-at)\arctan(x-at)-(x+at)\arctan(x+at)]                                                                       \\
+         & =\frac{t}{2a^2}\arctan x+\frac{x-at-2a^2}{4a^3}\arctan(x-at)-\frac{x+at-2a^2}{4a^3}\arctan(x+at)+\frac{1}{8a^3}\ln\frac{1+(x+at)^2}{1+(x-at)^2}.
 \end{align*}
 
 \end{document}
