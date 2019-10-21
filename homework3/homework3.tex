@@ -38,11 +38,11 @@ $$\psi(x)=x(l-x)=\sum_{k=1}^\infty B_k\sqrt{\lambda}a\sin\sqrt{\lambda}x=\sum_{k
 
 解得
 $$A_k=\left\{\begin{aligned}1, &\quad k = 3 \\ 0, &\quad k\neq 3 \end{aligned}\right.,$$
-$$B_k=\frac{2}{l\sqrt{\lambda}a}\int_0^l\psi(x)sin\sqrt{\lambda}xdx=
+$$B_k=\frac{2}{l\sqrt{\lambda}a}\int_0^l\psi(x)\sin\sqrt{\lambda}xdx=
   \frac{2}{k\pi a}\int_0^l x(l-x)\sin\frac{k\pi}{l}xdx=-\frac{2l^3(-2+2\cos k\pi+k\pi\sin k\pi)}{k^4\pi^4a}.$$
 
 化简得
-$$B_k=\left\{\begin{aligned}\frac{8l^3}{k^4\pi^4a}, &\quad k = 2n-1 \\ 0, &\quad k=2n \end{aligned}\right.,\quad n=1,2,\cdots.$$
+$$B_k=\left\{\begin{aligned}&\frac{8l^3}{k^4\pi^4a}, & k = 2n-1 \\ &0, & k=2n \end{aligned}\right.,\quad n=1,2,\cdots.$$
 
 故
 $$u(x,t)=\cos\frac{3\pi a}{l}t\sin\frac{3\pi}{l}x+\sum_{n=1}^\infty\frac{8l^3}{(2n-1)^4\pi^4a}\sin\frac{(2n-1)\pi a}{l}t\sin\frac{(2n-1)\pi}{l}x.$$
@@ -80,7 +80,7 @@ $$\varphi(x)=\frac{h}{l}x=\sum_{k=1}^\infty A_k\sin\sqrt{\lambda}x=\sum_{k=1}^\i
 $$\psi(x)=0=\sum_{k=1}^\infty B_k\sqrt{\lambda}a\sin\sqrt{\lambda}x=\sum_{k=1}^\infty \frac{B_k(2k-1)\pi a}{2l}\sin\frac{(2k-1)\pi}{2l}x.$$
 
 解得
-$$A_k=\frac{2}{l}\int_0^l\varphi(x)sin\sqrt{\lambda}xdx=\frac{2}{l}\int_0^l\frac{h}{l}x\sin\frac{(2k-1)\pi}{2l}xdx=-\frac{4h[2\cos k\pi+(2k-1)\pi\sin k\pi]}{(2k-1)^2\pi^2},$$
+$$A_k=\frac{2}{l}\int_0^l\varphi(x)\sin\sqrt{\lambda}xdx=\frac{2}{l}\int_0^l\frac{h}{l}x\sin\frac{(2k-1)\pi}{2l}xdx=-\frac{4h[2\cos k\pi+(2k-1)\pi\sin k\pi]}{(2k-1)^2\pi^2},$$
 $$B_k=0.$$
 
 化简得
@@ -146,7 +146,7 @@ $$\psi(x)=-\frac{A\omega}{\sin\frac{\omega}{a}l}\sin\frac{\omega}{a}x=\sum_{k=1}
 解得
 $$A_k=0,$$
 \begin{align*}
-  B_k & =\frac{2}{l\sqrt{\lambda}a}\int_0^l\psi(x)sin\sqrt{\lambda}xdx=
+  B_k & =\frac{2}{l\sqrt{\lambda}a}\int_0^l\psi(x)\sin\sqrt{\lambda}xdx=
   \frac{2}{k\pi a}\int_0^l -\frac{A\omega}{\sin\frac{\omega}{a}l}\sin\frac{\omega}{a}x\sin\frac{k\pi}{l}xdx                                                                         \\
       & =-\frac{2A\omega}{k\pi\sin\frac{\omega}{a}l}\cdot\frac{l\left(\omega l\cos\frac{\omega}{a}l\sin k\pi-k\pi a\sin\frac{\omega}{a}l\cos k\pi\right)}{k^2\pi^2a^2-\omega^2l^2}.
 \end{align*}
@@ -192,7 +192,7 @@ $$\varphi(x)=\sin\frac{3}{2l}\pi x=\sum_{k=1}^\infty A_k\sin\sqrt{\lambda}x=\sum
 $$\psi(x)=\sin\frac{5}{2l}\pi x=\sum_{k=1}^\infty B_k\sqrt{\lambda}a\sin\sqrt{\lambda}x=\sum_{k=1}^\infty \frac{B_k(2k-1)\pi a}{2l}\sin\frac{(2k-1)\pi}{2l}x.$$
 
 解得
-$$A_k=\left\{\begin{aligned}1, &\quad k = 2 \\ 0, &\quad k\neq 2 \end{aligned}\right.,\quad B_k=\left\{\begin{aligned}\frac{2l}{5\pi a}, &\quad k = 3 \\ 0, &\quad k\neq 3 \end{aligned}\right..$$
+$$A_k=\left\{\begin{aligned}1, &\quad k = 2 \\ 0, &\quad k\neq 2 \end{aligned}\right.,\quad B_k=\left\{\begin{aligned}&\frac{2l}{5\pi a}, &\quad k = 3 \\ &0, &\quad k\neq 3 \end{aligned}\right..$$
 
 故
 $$u(x,t)=\cos\frac{3\pi a}{2l}t\sin\frac{3\pi}{2l}x+
@@ -229,14 +229,14 @@ $$\lambda=\lambda_k=\frac{k^2\pi^2}{l^2},\quad X_k(x)=C_k\cos\frac{k\pi}{l}x,\qu
 
 代入初值条件得
 $$\varphi(x)=x=\frac{1}{2}A_0+\sum_{k=1}^\infty A_k\cos\sqrt{\lambda}x=\frac{1}{2}A_0+\sum_{k=1}^\infty A_k\cos\frac{k\pi }{l}x,$$
-$$\psi(x)=0=\frac{1}{2}B_0t+\sum_{k=1}^\infty B_k\sqrt{\lambda}a\cos\sqrt{\lambda}x=\frac{1}{2}B_0+\sum_{k=1}^\infty \frac{B_kk\pi a}{l}\cos\frac{k\pi}{l}x.$$
+$$\psi(x)=0=\frac{1}{2}B_0+\sum_{k=1}^\infty B_k\sqrt{\lambda}a\cos\sqrt{\lambda}x=\frac{1}{2}B_0+\sum_{k=1}^\infty \frac{B_kk\pi a}{l}\cos\frac{k\pi}{l}x.$$
 
 解得
-$$A_k=\frac{2}{l}\int_0^l\varphi(x)cos\sqrt{\lambda}xdx=\frac{2}{l}\int_0^lx\cos\frac{k\pi}{l}xdx=\left\{\begin{aligned}l,&\quad k=0\\\frac{2l(-1+\cos k\pi+k\pi\sin k\pi)}{k^2\pi^2},&\quad k\neq 0\end{aligned}\right.,$$
+$$A_k=\frac{2}{l}\int_0^l\varphi(x)\cos\sqrt{\lambda}xdx=\frac{2}{l}\int_0^lx\cos\frac{k\pi}{l}xdx=\left\{\begin{aligned}&l,&\quad k=0\\&\frac{2l(-1+\cos k\pi+k\pi\sin k\pi)}{k^2\pi^2},&\quad k\neq 0\end{aligned}\right.,$$
 $$B_k=0.$$
 
 化简得
-$$A_k=\left\{\begin{aligned}l,&\quad k=0\\-\frac{4l}{k^2\pi^2}, &\quad k = 2n-1 \\ 0, &\quad k=2n \end{aligned}\right.,\quad n=1,2,\cdots.$$
+$$A_k=\left\{\begin{aligned}&l,&\quad k=0\\&-\frac{4l}{k^2\pi^2}, &\quad k = 2n-1 \\ &0, &\quad k=2n \end{aligned}\right.,\quad n=1,2,\cdots.$$
 
 故
 $$u(x,t)=\frac{l}{2}+\sum_{n=1}^\infty-\frac{4l}{(2n-1)^2\pi^2}\cos\frac{(2n-1)\pi a}{l}t\cos\frac{(2n-1)\pi}{l}x.$$
@@ -284,7 +284,7 @@ $$\varphi(x)=0=\sum_{k=1}^\infty A_k\sin\sqrt{\lambda}x=\sum_{k=1}^\infty A_k\si
 $$\psi(x)=\sin\frac{\pi x}{2l}=\sum_{k=1}^\infty B_k\sqrt{\lambda}a\sin\sqrt{\lambda}x=\sum_{k=1}^\infty \frac{B_k(2k-1)\pi a}{2l}\sin\frac{(2k-1)\pi}{2l}x.$$
 
 解得
-$$A_k=0,\quad B_k=\left\{\begin{aligned}\frac{2l}{\pi a}, &\quad k = 1 \\ 0, &\quad k\neq 1 \end{aligned}\right..$$
+$$A_k=0,\quad B_k=\left\{\begin{aligned}&\frac{2l}{\pi a}, &\quad k = 1 \\& 0, &\quad k\neq 1 \end{aligned}\right..$$
 
 故
 $$U(x,t)=\frac{2l}{\pi a}\sin\frac{\pi a}{2l}t\sin\frac{\pi}{2l}x.$$
@@ -301,7 +301,7 @@ $$
 令$f(x,\tau)=g$, 代入齐次化原理公式得
 \begin{align*}
   B_k(\tau)
-   & =\frac{2}{l\sqrt{\lambda}a}\int_0^lf(x,\tau)\sin\sqrt{\lambda}xdx=\frac{4}{(2k-1)\pi a}\int_0^lg\sin\frac{(2k-1)\pi}{2l}x \\
+   & =\frac{2}{l\sqrt{\lambda}a}\int_0^lf(x,\tau)\sin\sqrt{\lambda}xdx=\frac{4}{(2k-1)\pi a}\int_0^lg\sin\frac{(2k-1)\pi}{2l}xdx \\
    & =-\frac{8gl(\sin k\pi -1)}{(2k-1)^2\pi^2a}=\frac{8gl}{(2k-1)^2\pi^2a}.
 \end{align*}
 
@@ -329,7 +329,7 @@ $$
 \begin{align*}
   B_k(\tau)
    & =\frac{2}{l\sqrt{\lambda}a}\int_0^lf(x,\tau)\sin\sqrt{\lambda}xdx
-  =\frac{2}{k\pi a}\int_0^lb\sinh x\sin\frac{k\pi}{l}x                         \\
+  =\frac{2}{k\pi a}\int_0^lb\sinh x\sin\frac{k\pi}{l}xdx                         \\
    & =\frac{2bl(l\cosh l\sin k\pi-k\pi\sinh l\cos k\pi)}{k\pi a(k^2\pi^2+l^2)} \\
    & =(-1)^{k+1}\frac{2bl\sinh l}{a(k^2\pi^2+l^2)}.
 \end{align*}
@@ -356,7 +356,7 @@ $$
 
 设$u(x,t)=X(x)T(t)$, 代入得
 $$X(x)T''(t)+2bX(x)T'(t)=a^2X''(x)T(t),$$
-$$\frac{T''(t)+2bT'(t)}{a^2T(t)}=\frac{X''}{X}=-\lambda.$$
+$$\frac{T''(t)+2bT'(t)}{a^2T(t)}=\frac{X''(x)}{X(x)}=-\lambda.$$
 
 则有两个常微分方程
 $$T''(t)+2bT'(t)+\lambda a^2T(t)=0,$$
@@ -368,6 +368,206 @@ $$\lambda=\lambda_k=\frac{k^2\pi^2}{l^2},\quad X_k(x)=C_k\sin\sqrt{\lambda}x=C_k
 代入关于$T$的常微分方程可得
 $$T''(t)+2bT'(t)+\frac{k^2\pi^2a^2}{l^2}T(t)=0,$$
 $$\Delta=4b^2-\frac{4k^2\pi^2a^2}{l^2},$$
-$$r_1=-b+\sqrt{b^2-\frac{k^2\pi^2a^2}{l^2}},\quad r_2=-b-\sqrt{b^2-\frac{k^2\pi^2a^2}{l^2}}.$$
+
+设$$\lambda'=\frac{k^2\pi^2a^2}{l^2}-b^2,$$
+$$r_1=-b+\sqrt{b^2-\frac{k^2\pi^2a^2}{l^2}}=-b+\sqrt{-\lambda'},\quad r_2=-b-\sqrt{b^2-\frac{k^2\pi^2a^2}{l^2}}=-b-\sqrt{-\lambda'}.$$
+
+当$\lambda'<0$时
+$$k<\frac{bl}{\pi a},\quad T(t)=C_1e^{r_1t}+C_2e^{r_2t},$$
+$$U_k(x,t)=T_k(t)X_k(x)=(A_ke^{r_1t}+B_ke^{r_2t})\sin\sqrt{\lambda}x,$$
+$$\frac{\partial U_k}{\partial t}(x,t)=T_k'(t)X_k(x)=(A_kr_1e^{r_1t}+B_kr_2e^{r_2t})\sin\sqrt{\lambda}x.$$
+
+当$\lambda'=0$时
+$$k=\frac{bl}{\pi a},\quad T(t)=e^{-bt}(C_1+C_2t),$$
+$$U_k(x,t)=T_k(t)X_k(x)=e^{-bt}(A_k+B_kt)\sin\sqrt{\lambda}x,$$
+$$\frac{\partial U_k}{\partial t}(x,t)=T_k'(t)X_k(x)=e^{-bt}(-bA_k+B_k-bB_kt)\sin\sqrt{\lambda}x.$$
+
+当$\lambda'>0$时
+$$k>\frac{bl}{\pi a},\quad T(t)=e^{-bt}(C_1\cos\sqrt{\lambda'}t+C_2\sin\sqrt{\lambda'}t),$$
+$$U_k(x,t)=T_k(t)X_k(x)=e^{-bt}(A_k\cos\sqrt{\lambda'}t+B_k\sin\sqrt{\lambda'}t)\sin\sqrt{\lambda}x,$$
+$$\frac{\partial U_k}{\partial t}(x,t)=T_k'(t)X_k(x)=e^{-bt}(-bA_k\cos\sqrt{\lambda'}t-bB_k\sin\sqrt{\lambda'}t-\sqrt{\lambda'}A_k\sin\sqrt{\lambda'}t+\sqrt{\lambda'}B_k\sin\sqrt{\lambda'}t)\sin\sqrt{\lambda}x.$$
+
+设
+$$n=\frac{bl}{\pi a},\quad \underline{n}=\lceil n-1\rceil,\quad \overline{n}=\lfloor n+1\rfloor,\quad \delta(n)=\left\{\begin{aligned}1,&\quad n\in Z\\0,&\quad n\not\in Z\end{aligned}\right..$$
+
+方程的通解为
+\begin{align*}
+  u(x,t)&=\sum_{k=1}^\infty T_k(t)X_k(x)\\
+  &=\left[\sum_{k=1}^{\underline{n}}(A_ke^{r_1t}+B_ke^{r_2t})+\delta(n)e^{-bt}(A_n+B_nt)+\sum_{k=\overline{n}}^\infty e^{-bt}(A_k\cos\sqrt{\lambda'}t+B_k\sin\sqrt{\lambda'}t)\right]\sin\sqrt{\lambda}x.
+\end{align*}
+
+代入初值条件得
+$$u(x,0)=\left[\sum_{k=1}^{\underline{n}}(A_k+B_k)+\delta(n)A_n+\sum_{k=\overline{n}}^\infty A_k\right]\sin\sqrt{\lambda}x=\frac{h}{l}x,$$
+$$\frac{\partial u}{\partial t}(x,0)=\left[\sum_{k=1}^{\underline{n}}(A_kr_1+B_kr_2)+\delta(n)(-A_n+B_n)+\sum_{k=\overline{n}}^\infty(-bA_k+\sqrt{\lambda'}B_k)\right]\sin\sqrt{\lambda}x=0.$$
+
+解得
+$$A_k'=\left\{\begin{aligned}&A_k+B_k,&\quad k<n\\&A_k,&\quad k\geqslant n\end{aligned}\right.
+\quad=\frac{2}{l}\int_0^l\frac{h}{l}x\sin\sqrt{\lambda}xdx=\frac{h}{l}\cdot-\frac{2(\sqrt{\lambda}l\cos\sqrt{\lambda}l-\sin\sqrt{\lambda}l)}{\lambda l}=(-1)^{k+1}\frac{2h}{k\pi},$$
+$$B_k'=\left\{\begin{aligned}&A_kr_1+B_kr_2,&\quad k<n\\&-A_k+B_k,&\quad k=n\\&-bA_k+\sqrt{\lambda'}B_k,&\quad k>n\end{aligned}\right.\quad=0.$$
+
+化简得
+$$A_k=\left\{\begin{aligned}&\frac{r_2}{r_2-r_1}A_k',&\quad k<n\\&A_k',&\quad k\geqslant n\end{aligned}\right.,\quad
+B_k'=\left\{\begin{aligned}&-\frac{r_1}{r_2-r_1}A_k',&\quad k<n\\&A_k',&\quad k=n\\&\frac{b}{\sqrt{\lambda'}}A_k',&\quad k>n\end{aligned}\right..$$
+
+故将$r_1,r_2,\lambda,\lambda',n,\underline{n},\overline{n},\delta(n),A_k,B_k$代入可得$u(x,t)$.
+% $$u(x,t)=\left[\sum_{k=1}^{\underline{n}}(A_ke^{r_1t}+B_ke^{r_2t})+\delta(n)e^{-bt}(A_n+B_nt)+\sum_{k=\overline{n}}^\infty e^{-bt}(A_k\cos\sqrt{\lambda'}t+B_k\sin\sqrt{\lambda'}t)\right]\sin\sqrt{\lambda}x,$$
+
+\section*{例题}
+
+\subsection*{(1)}
+
+$$
+  \left\{\begin{aligned}
+     & u_{tt}-a^2u_{xx}=A\sin\omega t,     \\
+     & u|_{x=0}=u_x|_{x=l}=0,              \\
+     & u|_{t=0}=1,\quad u_t|_{t=0}=x;
+  \end{aligned}\right.
+$$
+
+利用叠加原理, 设$$u(x,t)=U(x,t)+V(x,t).$$
+
+先求
+$$
+  \left\{\begin{aligned}
+     & U_{tt}-a^2U_{xx}=0,        \\
+     & U|_{x=0}=U_x|_{x=l}=0,                            \\
+     & U|_{t=0}=1,\quad U_t|_{t=0}=x;
+  \end{aligned}\right.
+$$
+
+方程的特征值和对应的特征函数为
+$$X''(x)+\lambda X(x)=0,$$
+$$X(x)=C_1\cos\sqrt{\lambda}x+C_2\sin\sqrt{\lambda}x,$$
+
+代入$X(0)=0$, $X'(l)=0$得
+$$C_1=0,\quad C_2\sqrt{\lambda}\cos\sqrt{\lambda}l=0,$$
+$$\lambda=\lambda_k=\frac{(2k-1)^2\pi^2}{4l^2},\quad X_k(x)=C_k\sin\frac{(2k-1)\pi}{2l}x,\quad k=1,2,\cdots.$$
+
+$U(x,t)$的通解为
+\begin{align*}
+  U(x,t)
+   & =\sum_{k=1}^\infty\left(A_k\cos\sqrt{\lambda}at+
+  B_k\sin\sqrt{\lambda}at\right)\sin\sqrt{\lambda}x          \\
+   & =\sum_{k=1}^\infty\left(A_k\cos\frac{(2k-1)\pi a}{2l}t+
+  B_k\sin\frac{(2k-1)\pi a}{2l}t\right)\sin\frac{(2k-1)\pi}{2l}x.
+\end{align*}
+
+代入初值条件得
+$$\varphi(x)=1=\sum_{k=1}^\infty A_k\sin\sqrt{\lambda}x=\sum_{k=1}^\infty A_k\sin\frac{(2k-1)\pi }{2l}x,$$
+$$\psi(x)=x=\sum_{k=1}^\infty B_k\sqrt{\lambda}a\sin\sqrt{\lambda}x=\sum_{k=1}^\infty \frac{B_k(2k-1)\pi a}{2l}\sin\frac{(2k-1)\pi}{2l}x.$$
+
+解得
+$$A_k=\frac{2}{l}\int_0^l\varphi(x)\sin\sqrt{\lambda}xdx=\frac{2}{l}\int_0^l\sin\frac{(2k-1)\pi}{2l}xdx=\frac{4(-1+\sin k\pi)}{(2k-1)\pi}=-\frac{4}{(2k-1)\pi},$$
+$$B_k=\frac{2}{l\sqrt{\lambda}a}\int_0^l\psi(x)\sin\sqrt{\lambda}xdx=
+  \frac{4}{(2k-1)\pi a}\int_0^l x\sin\frac{(2k-1)\pi}{2l}xdx=-\frac{4l^2[2\cos k\pi+(2k-1)\pi\sin k\pi]}{(2k-1)^3\pi^3a}.$$
+
+化简得
+$$B_k=(-1)^{k+1}\frac{8l^2}{(2k-1)^3\pi^3a}.$$
+
+故
+$$U(x,t)=\sum_{k=1}^\infty\left[-\frac{4}{(2k-1)\pi}\cos\frac{(2k-1)\pi a}{2l}t+
+(-1)^{k+1}\frac{8l^2}{(2k-1)^3\pi^3a}\sin\frac{(2k-1)\pi a}{2l}t\right]\sin\frac{(2k-1)\pi}{2l}x.$$
+
+再求
+$$
+  \left\{\begin{aligned}
+     & V_{tt}-a^2V_{xx}=A\sin\omega t, \\
+     & V|_{x=0}=V_x|_{x=l}=0,                     \\
+     & V|_{t=0}=V_t|_{t=0}=0;
+  \end{aligned}\right.
+$$
+
+令$f(x,\tau)=A\sin\omega t$, 代入齐次化原理公式得
+\begin{align*}
+  B_k(\tau)
+   & =\frac{2}{l\sqrt{\lambda}a}\int_0^lf(x,\tau)\sin\sqrt{\lambda}xdx=\frac{4}{(2k-1)\pi a}\int_0^lA\sin\omega \tau\sin\frac{(2k-1)\pi}{2l}xdx \\
+   & =-\frac{8A\sin\omega \tau\cdot l(\sin k\pi -1)}{(2k-1)^2\pi^2a}=\frac{8lA\sin\omega \tau}{(2k-1)^2\pi^2a}.
+\end{align*}
+
+故
+\begin{align*}
+  V(x,t) & =\sum_{k=1}^\infty\int_0^t B_k(\tau)\sin\sqrt{\lambda}a(t-\tau)d\tau\cdot\sin\sqrt{\lambda}x                                       \\
+         & =\sum_{k=1}^\infty\int_0^t \frac{8lA\sin\omega \tau}{(2k-1)^2\pi^2a}\sin\frac{(2k-1)\pi a}{2l}(t-\tau)d\tau\cdot\sin\frac{(2k-1)\pi}{2l}x         \\
+         & =\sum_{k=1}^\infty\frac{8lA}{(2k-1)^2\pi^2a}\cdot\frac{-2l[2\omega l\sin\frac{(2k-1)\pi a}{2l}t+(2k-1)\pi a\sin\omega t]}{(2k-1)^2\pi^2 a^2-4\omega^2l^2}\cdot\sin\frac{(2k-1)\pi}{2l}x \\
+         & =\sum_{k=1}^\infty-\frac{16l^2A}{(2k-1)^4\pi^4a^3-4(2k-1)^2\pi^2a\omega^2l^2}\left[2\omega l\sin\frac{(2k-1)\pi a}{2l}t+(2k-1)\pi a\sin\omega t\right]\sin\frac{(2k-1)\pi}{2l}x.
+\end{align*}
+$$u(x,t)=U(x,t)+V(x,t).$$
+
+\subsection*{(2)}
+
+$$
+  \left\{\begin{aligned}
+     & u_{tt}-u_{xx}-4u=2\sin^2x,     \\
+     & u_x|_{x=0}=u_x|_{x=\pi}=0,              \\
+     & u|_{t=0}=0,\quad u_t|_{t=0}=0;
+  \end{aligned}\right.
+$$
+
+将原方程化为
+$$
+  \left\{\begin{aligned}
+     & W_{tt}-W_{xx}-4W=0,     \\
+     & W_x|_{x=0}=W_x|_{x=\pi}=0,              \\
+     & W|_{t=0}=0,\quad W_t|_{t=0}=2\sin^2x;
+  \end{aligned}\right.
+$$
+
+设$W(x,t)=X(x)T(t)$, 代入得
+$$X(x)T''(t)-X''(x)T(t)-4X(x)T(t)=0,$$
+$$\frac{T''(t)-4T(t)}{T(t)}=\frac{X''(x)}{X(x)}=-\lambda.$$
+
+则有两个常微分方程
+$$T''(t)+(\lambda-4)T(t)=0,$$
+$$X''(x)+\lambda X(x)=0.$$
+
+方程的特征值和对应的特征函数为
+$$X(x)=C_1\cos\sqrt{\lambda}x+C_2\sin\sqrt{\lambda}x,$$
+
+代入$X'(0)=0$, $X'(\pi)=0$得
+$$C_2=0,\quad -C_1\sqrt{\lambda}\sin\sqrt{\lambda}\pi=0,$$
+$$\lambda=\lambda_k=k^2,\quad X_k(x)=C_k\cos\sqrt{\lambda}x=C_k\cos kx,\quad k=0,1,2,\cdots.$$
+
+代入关于$T$的常微分方程可得
+$$T''(t)+(k^2-4)T(t)=0,$$
+% $$\Delta=4b^2-\frac{4k^2\pi^2a^2}{l^2},$$
+
+设$$\lambda'=k^2-4,$$
+$$r_1=\sqrt{4-k^2}=\sqrt{-\lambda'},\quad r_2=-\sqrt{4-k^2}=-\sqrt{-\lambda'}.$$
+
+当$\lambda'<0$时
+$$k<2,\quad T(t)=C_1e^{\sqrt{-\lambda'}t}+C_2e^{-\sqrt{-\lambda'}t},$$
+$$W_k(x,t)=T_k(t)X_k(x)=(A_ke^{\sqrt{-\lambda'}t}+B_ke^{-\sqrt{-\lambda'}t})\cos\sqrt{\lambda}x,$$
+$$\frac{\partial W_k}{\partial t}(x,t)=T_k'(t)X_k(x)=\sqrt{-\lambda'}(A_ke^{\sqrt{-\lambda'}t}-B_ke^{-\sqrt{-\lambda'}t})\cos\sqrt{\lambda}x.$$
+
+当$\lambda'=0$时
+$$k=2,\quad T(t)=C_1+C_2t,$$
+$$W_k(x,t)=T_k(t)X_k(x)=(A_k+B_kt)\cos\sqrt{\lambda}x,$$
+$$\frac{\partial W_k}{\partial t}(x,t)=T_k'(t)X_k(x)=B_k\cos\sqrt{\lambda}x.$$
+
+当$\lambda'>0$时
+$$k>2,\quad T(t)=C_1\cos\sqrt{\lambda'}t+C_2\sin\sqrt{\lambda'}t,$$
+$$W_k(x,t)=T_k(t)X_k(x)=(A_k\cos\sqrt{\lambda'}t+B_k\sin\sqrt{\lambda'}t)\cos\sqrt{\lambda}x,$$
+$$\frac{\partial W_k}{\partial t}(x,t)=T_k'(t)X_k(x)=\sqrt{\lambda'}(-A_ksin\sqrt{\lambda'}t+B_k\cos\sqrt{\lambda'}t)\cos\sqrt{\lambda}x.$$
+
+方程的通解为
+\begin{align*}
+  u(x,t)&=\sum_{k=0}^\infty T_k(t)X_k(x)\\
+  &=\left[\sum_{k=0}^1(A_ke^{r_1t}+B_ke^{r_2t})+(A_2+B_2t)+\sum_{k=3}^\infty (A_k\cos\sqrt{\lambda'}t+B_k\sin\sqrt{\lambda'}t)\right]\sin\sqrt{\lambda}x.
+\end{align*}
+
+代入初值条件得
+$$u(x,0)=\left[\sum_{k=1}^{\underline{n}}(A_k+B_k)+\delta(n)A_n+\sum_{k=\overline{n}}^\infty A_k\right]\sin\sqrt{\lambda}x=\frac{h}{l}x,$$
+$$\frac{\partial u}{\partial t}(x,0)=\left[\sum_{k=1}^{\underline{n}}(A_kr_1+B_kr_2)+\delta(n)(-A_n+B_n)+\sum_{k=\overline{n}}^\infty(-bA_k+\sqrt{\lambda'}B_k)\right]\sin\sqrt{\lambda}x=0.$$
+
+解得
+$$A_k'=\left\{\begin{aligned}&A_k+B_k,&\quad k<n\\&A_k,&\quad k\geqslant n\end{aligned}\right.
+\quad=\frac{2}{l}\int_0^l\frac{h}{l}x\sin\sqrt{\lambda}xdx=\frac{h}{l}\cdot-\frac{2(\sqrt{\lambda}l\cos\sqrt{\lambda}l-\sin\sqrt{\lambda}l)}{\lambda l}=(-1)^{k+1}\frac{2h}{k\pi},$$
+$$B_k'=\left\{\begin{aligned}&A_kr_1+B_kr_2,&\quad k<n\\&-A_k+B_k,&\quad k=n\\&-bA_k+\sqrt{\lambda'}B_k,&\quad k>n\end{aligned}\right.\quad=0.$$
+
+化简得
+$$A_k=\left\{\begin{aligned}&\frac{r_2}{r_2-r_1}A_k',&\quad k<n\\&A_k',&\quad k\geqslant n\end{aligned}\right.,\quad
+B_k'=\left\{\begin{aligned}&-\frac{r_1}{r_2-r_1}A_k',&\quad k<n\\&A_k',&\quad k=n\\&\frac{b}{\sqrt{\lambda'}}A_k',&\quad k>n\end{aligned}\right..$$
+
+故将$r_1,r_2,\lambda,\lambda',n,\underline{n},\overline{n},\delta(n),A_k,B_k$代入可得$u(x,t)$.
 
 \end{document}
