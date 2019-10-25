@@ -10,15 +10,28 @@
 
 \section{1.3/1}
 
-\subsection*{(1)}
+\begin{problem}
+用分离变量法求下列问题的解:
+\begin{enumerate}
+  \item $
+          \left\{\begin{aligned}
+             & \frac{\partial^2u}{\partial t^2}=a^2\frac{\partial^2u}{\partial x^2},                                      \\
+             & u|_{t=0}=\sin\frac{3\pi x}{l},\quad \left.\frac{\partial u}{\partial t}\right|_{t=0}=x(l-x) \quad (0<x<l), \\
+             & u(0,t)=u(l,t)=0;
+          \end{aligned}\right.
+        $
+  \item $
+          \left\{\begin{aligned}
+             & \frac{\partial^2u}{\partial t^2}-a^2\frac{\partial^2u}{\partial x^2}=0 \\
+             & u(0,t)=0,\quad \frac{\partial u}{\partial x}(l,t)=0,                   \\
+             & u(x,0)=\frac{h}{l}x,                                                   \\
+             & \frac{\partial u}{\partial x}(x,0)=0.                                  \\
+          \end{aligned}\right..
+        $
+\end{enumerate}
+\end{problem}
 
-$$
-  \left\{\begin{aligned}
-     & \frac{\partial^2u}{\partial t^2}=a^2\frac{\partial^2u}{\partial x^2},                                      \\
-     & u|_{t=0}=\sin\frac{3\pi x}{l},\quad \left.\frac{\partial u}{\partial t}\right|_{t=0}=x(l-x) \quad (0<x<l), \\
-     & u(0,t)=u(l,t)=0;
-  \end{aligned}\right.
-$$
+\subsection*{(1)}
 
 方程的特征值和对应的特征函数为
 $$\lambda=\lambda_k=\frac{k^2\pi^2}{l^2},\quad X_k(x)=C_k\sin\sqrt{\lambda}x=C_k\sin\frac{k\pi}{l}x,\quad k=1,2,\cdots.$$
@@ -48,15 +61,6 @@ $$B_k=\left\{\begin{aligned}&\frac{8l^3}{k^4\pi^4a}, & k = 2n-1 \\ &0, & k=2n \e
 $$u(x,t)=\cos\frac{3\pi a}{l}t\sin\frac{3\pi}{l}x+\sum_{n=1}^\infty\frac{8l^3}{(2n-1)^4\pi^4a}\sin\frac{(2n-1)\pi a}{l}t\sin\frac{(2n-1)\pi}{l}x.$$
 
 \subsection*{(ii)}
-
-$$
-  \left\{\begin{aligned}
-     & \frac{\partial^2u}{\partial t^2}-a^2\frac{\partial^2u}{\partial x^2}=0 \\
-     & u(0,t)=0,\quad \frac{\partial u}{\partial x}(l,t)=0,                   \\
-     & u(x,0)=\frac{h}{l}x,                                                   \\
-     & \frac{\partial u}{\partial x}(x,0)=0;                                  \\
-  \end{aligned}\right..
-$$
 
 方程的特征值和对应的特征函数为
 $$X''(x)+\lambda X(x)=0,$$
@@ -90,14 +94,19 @@ $$A_k=(-1)^{k+1}\frac{8h}{(2k-1)^2\pi^2}.$$
 $$u(x,t)=\sum_{k=1}^\infty (-1)^{k+1}\frac{8h}{(2k-1)^2\pi^2}\cos\frac{(2k-1)\pi a}{2l}t\sin\frac{(2k-1)\pi}{2l}x.$$
 
 \section{1.3/2}
-
+\begin{problem}
+设弹簧一端固定, 一端在外力作用下作周期运动, 此时定解问题归结为
 $$
   \left\{\begin{aligned}
      & \frac{\partial^2u}{\partial t^2}=a^2\frac{\partial^2u}{\partial x^2}, \\
      & u(0,t)=0,\quad u(l,t)=A\sin\omega t                                   \\
-     & u(x,0)=\frac{\partial u}{\partial t}(x,0)=0;
+     & u(x,0)=\frac{\partial u}{\partial t}(x,0)=0.
   \end{aligned}\right.
 $$
+求解此问题.
+\end{problem}
+
+
 
 设方程的一个特解为
 $$U(x,t)=X(x)\sin\omega t,$$
@@ -123,7 +132,7 @@ $$
      & \frac{\partial^2V}{\partial t^2}=a^2\frac{\partial^2V}{\partial x^2}, \\
      & V(0,t)=0,\quad V(l,t)=0                                               \\
      & V(x,0)=0,\quad \frac{\partial V}{\partial t}(x,0)
-    =-\frac{A\omega}{\sin\frac{\omega}{a}l}\sin\frac{\omega}{a}x;
+    =-\frac{A\omega}{\sin\frac{\omega}{a}l}\sin\frac{\omega}{a}x.
   \end{aligned}\right.
 $$
 
@@ -159,14 +168,24 @@ $$V(x,t)=\sum_{k=1}^\infty(-1)^k\frac{2A\omega al}{\omega^2l^2-k^2\pi^2a^2}\sin\
 $$u(x,t)=U(x,t)+V(x,t)=\frac{A}{\sin\frac{\omega}{a}l}\sin\frac{\omega}{a}x\sin\omega t+\sum_{k=1}^\infty(-1)^k\frac{2A\omega al}{\omega^2l^2-k^2\pi^2a^2}\sin\frac{k\pi a}{l}t\sin\frac{k\pi}{l}x.$$
 
 \section{1.3/3}
-
+\begin{problem}
+求弦震动方程
+$$u_{tt}-a^2u_{xx}=0, \quad 0<x<l,\quad t>0$$
+满足以下定解条件的解
+\begin{enumerate}
+  \item $u|_{x=0}=u_x|_{x=l}=0,$\\
+        $u|_{t=0}=\sin\frac{3}{2l}\pi x,\quad u_t|_{t=0}=\sin\frac{5}{2l}\pi x;$
+  \item $u_x|_{x=0}=u_x|_{x=l}=0,\\$
+        $u|_{t=0}=x,\quad u_t|_{t=0}=0.$
+\end{enumerate}
+\end{problem}
 \subsection*{(1)}
 
 $$
   \left\{\begin{aligned}
      & u_{tt}-a^2u_{xx}=0, \quad 0<x<l,\quad t>0,                             \\
      & u|_{x=0}=u_x|_{x=l}=0,                                                 \\
-     & u|_{t=0}=\sin\frac{3}{2l}\pi x,\quad u_t|_{t=0}=\sin\frac{5}{2l}\pi x;
+     & u|_{t=0}=\sin\frac{3}{2l}\pi x,\quad u_t|_{t=0}=\sin\frac{5}{2l}\pi x.
   \end{aligned}\right.
 $$
 
@@ -204,7 +223,7 @@ $$
   \left\{\begin{aligned}
      & u_{tt}-a^2u_{xx}=0, \quad 0<x<l,\quad t>0, \\
      & u_x|_{x=0}=u_x|_{x=l}=0,                   \\
-     & u|_{t=0}=x,\quad u_t|_{t=0}=0;
+     & u|_{t=0}=x,\quad u_t|_{t=0}=0.
   \end{aligned}\right.
 $$
 
@@ -242,14 +261,18 @@ $$A_k=\left\{\begin{aligned}&l,&\quad k=0\\&-\frac{4l}{k^2\pi^2}, &\quad k = 2n-
 $$u(x,t)=\frac{l}{2}+\sum_{n=1}^\infty-\frac{4l}{(2n-1)^2\pi^2}\cos\frac{(2n-1)\pi a}{l}t\cos\frac{(2n-1)\pi}{l}x.$$
 
 \section{1.3/4}
-
+\begin{problem}
+用分离变量法求解初边值问题:
 $$
   \left\{\begin{aligned}
      & u_{tt}-a^2u_{xx}=g, \quad 0<x<l,\quad t>0,        \\
      & u|_{x=0}=u_x|_{x=l}=0,                            \\
-     & u|_{t=0}=0,\quad u_t|_{t=0}=\sin\frac{\pi x}{2l};
+     & u|_{t=0}=0,\quad u_t|_{t=0}=\sin\frac{\pi x}{2l}.
   \end{aligned}\right.
 $$
+其中$g$是常数.
+\end{problem}
+
 
 利用叠加原理, 设$$u(x,t)=U(x,t)+V(x,t).$$
 
@@ -258,7 +281,7 @@ $$
   \left\{\begin{aligned}
      & U_{tt}-a^2U_{xx}=0, \quad 0<x<l,\quad t>0,        \\
      & U|_{x=0}=U_x|_{x=l}=0,                            \\
-     & U|_{t=0}=0,\quad U_t|_{t=0}=\sin\frac{\pi x}{2l};
+     & U|_{t=0}=0,\quad U_t|_{t=0}=\sin\frac{\pi x}{2l}.
   \end{aligned}\right.
 $$
 
@@ -294,7 +317,7 @@ $$
   \left\{\begin{aligned}
      & V_{tt}-a^2V_{xx}=g, \quad 0<x<l,\quad t>0, \\
      & V|_{x=0}=V_x|_{x=l}=0,                     \\
-     & V|_{t=0}=V_t|_{t=0}=0;
+     & V|_{t=0}=V_t|_{t=0}=0.
   \end{aligned}\right.
 $$
 
@@ -315,15 +338,17 @@ $$
 $$u(x,t)=U(x,t)+V(x,t)=\frac{2l}{\pi a}\sin\frac{\pi a}{2l}t\sin\frac{\pi}{2l}x+\sum_{k=1}^\infty\frac{32gl^2}{(2k-1)^3\pi^3a^2}\sin^2\frac{(2k-1)\pi a}{4l}t\sin\frac{(2k-1)\pi}{2l}x.$$
 
 \section{1.3/5}
-
+\begin{problem}
+用分离变量法求下面问题的解:
 $$
   \left\{\begin{aligned}
      & \frac{\partial^2u}{\partial t^2}=
     a^2\frac{\partial^2u}{\partial x^2}+b\sinh x,                   \\
      & u|_{x=0}=u|_{x=l}=0,                                         \\
-     & u|_{t=0}=\left.\frac{\partial u}{\partial t}\right|_{t=0}=0;
+     & u|_{t=0}=\left.\frac{\partial u}{\partial t}\right|_{t=0}=0.
   \end{aligned}\right.
 $$
+\end{problem}
 
 令$f(x,\tau)=b\sinh x$, 代入齐次化原理公式得
 \begin{align*}
@@ -343,16 +368,18 @@ $$
 \end{align*}
 
 \section{1.3/6}
-
+\begin{problem}
+用分离变量法求下面问题的解:
 $$
   \left\{\begin{aligned}
      & \frac{\partial^2u}{\partial t^2}+2b\frac{\partial u}{\partial t}=
     a^2\frac{\partial^2u}{\partial x^2},                                 \\
      & u|_{x=0}=u|_{x=l}=0,                                              \\
      & u|_{t=0}=\frac{h}{l}x,
-    \quad \left.\frac{\partial u}{\partial t}\right|_{t=0}=0;
+    \quad \left.\frac{\partial u}{\partial t}\right|_{t=0}=0.
   \end{aligned}\right.
 $$
+\end{problem}
 
 设$u(x,t)=X(x)T(t)$, 代入得
 $$X(x)T''(t)+2bX(x)T'(t)=a^2X''(x)T(t),$$
@@ -416,13 +443,15 @@ $$A_k=\left\{\begin{aligned}&\frac{r_2}{r_2-r_1}A_k',&\quad k<n\\&A_k',&\quad k\
 
 \subsection*{(1)}
 
+\begin{problem}
 $$
   \left\{\begin{aligned}
      & u_{tt}-a^2u_{xx}=A\sin\omega t, \\
      & u|_{x=0}=u_x|_{x=l}=0,          \\
-     & u|_{t=0}=1,\quad u_t|_{t=0}=x;
+     & u|_{t=0}=1,\quad u_t|_{t=0}=x.
   \end{aligned}\right.
 $$
+\end{problem}
 
 利用叠加原理, 设$$u(x,t)=U(x,t)+V(x,t).$$
 
@@ -431,7 +460,7 @@ $$
   \left\{\begin{aligned}
      & U_{tt}-a^2U_{xx}=0,            \\
      & U|_{x=0}=U_x|_{x=l}=0,         \\
-     & U|_{t=0}=1,\quad U_t|_{t=0}=x;
+     & U|_{t=0}=1,\quad U_t|_{t=0}=x.
   \end{aligned}\right.
 $$
 
@@ -473,7 +502,7 @@ $$
   \left\{\begin{aligned}
      & V_{tt}-a^2V_{xx}=A\sin\omega t, \\
      & V|_{x=0}=V_x|_{x=l}=0,          \\
-     & V|_{t=0}=V_t|_{t=0}=0;
+     & V|_{t=0}=V_t|_{t=0}=0.
   \end{aligned}\right.
 $$
 
@@ -494,14 +523,16 @@ $$
 $$u(x,t)=U(x,t)+V(x,t).$$
 
 \subsection*{(2)}
-
+\begin{problem}
 $$
   \left\{\begin{aligned}
      & u_{tt}-u_{xx}-4u=2\sin^2x,     \\
      & u_x|_{x=0}=u_x|_{x=\pi}=0,     \\
-     & u|_{t=0}=0,\quad u_t|_{t=0}=0;
+     & u|_{t=0}=0,\quad u_t|_{t=0}=0.
   \end{aligned}\right.
 $$
+\end{problem}
+
 
 将原方程化为
 $$
@@ -509,7 +540,7 @@ $$
      & t'=t-\tau                                  \\
      & W_{tt}-W_{xx}-4W=0,                        \\
      & W_x|_{x=0}=W_x|_{x=\pi}=0,                 \\
-     & W|_{t'=0}=0,\quad W_{t'}|_{t'=0}=2\sin^2x;
+     & W|_{t'=0}=0,\quad W_{t'}|_{t'=0}=2\sin^2x.
   \end{aligned}\right.
 $$
 

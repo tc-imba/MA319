@@ -1,0 +1,259 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{../ma319}
+\semester{Fall}
+\year{2019}
+\subtitlenumber{4}
+\author{刘逸灏 (515370910207)}
+
+\begin{document}
+\maketitle
+
+\section{1.4/1}
+\begin{problem}
+用泊松公式求解波动方程的柯西问题:
+\begin{enumerate}
+  \item $\left\{
+          \begin{aligned}
+             & u_{tt}=a^2(u_{xx}+u_{yy}+u_{zz}),   \\
+             & u|_{t=0}=0,\quad u_t|_{t=0}=x^2+yz;
+          \end{aligned}
+          \right.$
+  \item $\left\{
+          \begin{aligned}
+             & u_{tt}=a^2(u_{xx}+u_{yy}+u_{zz}),     \\
+             & u|_{t=0}=x^3+y^2z,\quad u_t|_{t=0}=0;
+          \end{aligned}
+          \right.$
+\end{enumerate}
+\end{problem}
+
+\subsection*{(1)}
+设
+$$\xi=x+at\sin\theta\cos\phi,\quad \eta=y+at\sin\theta\sin\phi,\quad \zeta=z+at\cos\theta.$$
+方程的初值条件为
+$$\varphi(\xi,\eta,\zeta)=0,$$
+$$\psi(\xi,\eta,\zeta)=\xi^2+\eta\zeta=(x+at\sin\theta\cos\phi)^2+(y+at\sin\theta\sin\phi)(z+at\cos\theta).$$
+代入泊松公式得
+\begin{align*}
+  u(x,y,z,t)
+   & =\frac{1}{4\pi a^2}\frac{\partial}{\partial t}\iint\limits_{S_{at}^M}\frac{\varphi(\xi,\eta,\zeta)}{t}dS+\frac{1}{4\pi a^2}\iint\limits_{S_{at}^M}\frac{\psi(\xi,\eta,\zeta)}{t}dS                    \\
+   & =\frac{1}{4\pi}\frac{\partial}{\partial t}\int_0^{2\pi}\int_0^\pi t\varphi(\xi,\eta,\zeta)\sin\theta d\theta d\phi+\frac{t}{4\pi}\int_0^{2\pi}\int_0^\pi \psi(\xi,\eta,\zeta)\sin\theta d\theta d\phi \\
+   & =\frac{t}{4\pi}\int_0^{2\pi}\int_0^\pi [(x+at\sin\theta\cos\phi)^2+(y+at\sin\theta\sin\phi)(z+at\cos\theta)]\sin\theta d\theta d\phi                                                                  \\
+   & =\frac{t}{4\pi}\int_0^{2\pi} \left[\frac{2}{3} a^2 t^2 \cos 2 \phi +\frac{2}{3}a^2 t^2+\pi  a t x \cos \phi +\frac{1}{2} \pi  a t z \sin \phi +2 x^2+2 y z \right]d\phi                               \\
+   & =\frac{t}{4\pi}\cdot\frac{4}{3} \pi  \left[a^2 t^2+3 \left(x^2+y z\right)\right]                                                                                                                      \\
+   & =\frac{1}{3}a^2 t^3+t \left(x^2+y z\right).
+\end{align*}
+
+\subsection*{(2)}
+设
+$$\xi=x+at\sin\theta\cos\phi,\quad \eta=y+at\sin\theta\sin\phi,\quad \zeta=z+at\cos\theta.$$
+方程的初值条件为
+$$\varphi(\xi,\eta,\zeta)=\xi^2+\eta\zeta=(x+at\sin\theta\cos\phi)^3+(y+at\sin\theta\sin\phi)^2(z+at\cos\theta),$$
+$$\psi(\xi,\eta,\zeta)=0.$$
+代入泊松公式得
+\begin{align*}
+  u(x,y,z,t)
+   & =\frac{1}{4\pi a^2}\frac{\partial}{\partial t}\iint\limits_{S_{at}^M}\frac{\varphi(\xi,\eta,\zeta)}{t}dS+\frac{1}{4\pi a^2}\iint\limits_{S_{at}^M}\frac{\psi(\xi,\eta,\zeta)}{t}dS                    \\
+   & =\frac{1}{4\pi}\frac{\partial}{\partial t}\int_0^{2\pi}\int_0^\pi t\varphi(\xi,\eta,\zeta)\sin\theta d\theta d\phi+\frac{t}{4\pi}\int_0^{2\pi}\int_0^\pi \psi(\xi,\eta,\zeta)\sin\theta d\theta d\phi \\
+   & =\frac{1}{4\pi}\frac{\partial}{\partial t}\int_0^{2\pi}\int_0^\pi t[(x+at\sin\theta\cos\phi)^3+(y+at\sin\theta\sin\phi)^2(z+at\cos\theta)]\sin\theta d\theta d\phi                                    \\
+   & =\frac{1}{4\pi}\frac{\partial}{\partial t}\int_0^{2\pi}t \left[\begin{aligned}
+       & \frac{3}{32} \pi  a^3 t^3 \cos 3 \phi +\frac{3}{32} \pi  a t \cos \phi  \left(3 a^2 t^2+16 x^2\right)+ 2 a^2 t^2 x+ \\
+       & \frac{2}{3} a^2 t^2 (3 x-z) \cos 2 \phi +\frac{2}{3} a^2 t^2 z+\pi  a t y z \sin \phi +2 x^3+2 y^2 z\end{aligned}
+    \right]d\phi                                                                                                                                                                                           \\
+   & =\frac{1}{4\pi}\frac{\partial}{\partial t}\frac{4}{3} \pi  t \left[a^2 t^2 (3 x+z)+3 \left(x^3+y^2 z\right)\right]                                                                                    \\
+   & =a^2 t^2 (3 x+z)+x^3+y^2 z.
+\end{align*}
+
+\section{1.4/3}
+\begin{problem}
+求解平面波动方程的柯西问题:
+\begin{enumerate}
+  \item $\left\{
+          \begin{aligned}
+             & u_{tt}=a^2(u_{xx}+u_{yy}), \\
+             & u|_{t=0}=x^2(x+y),         \\
+             & u_t|_{t=0}=0;
+          \end{aligned}
+          \right.$
+  \item $\left\{
+          \begin{aligned}
+             & u_{tt}-3(u_{xx}+u_{yy})=x^3+y^3, \\
+             & u|_{t=0}=0,                      \\
+             & u_t|_{t=0}=x^2;
+          \end{aligned}
+          \right.$
+\end{enumerate}
+\end{problem}
+
+\subsection*{(1)}
+设
+$$\xi=x+r\cos\theta,\quad \eta=y+r\sin\theta.$$
+方程的初值条件为
+$$\varphi(\xi,\eta)=\xi^2(\xi+\eta)=(x+r\cos\theta)^2(x+r\cos\theta+y+r\sin\theta),$$
+$$\psi(\xi,\eta)=0.$$
+代入泊松公式得
+\begin{align*}
+  u(x,y,t)
+   & =\frac{1}{2\pi a}\frac{\partial}{\partial t}\iint\limits_{C_{at}^M}\frac{\varphi(\xi,\eta)d\xi d\eta}{\sqrt{a^2t^2-(\xi-x)^2-(\eta-y)^2}}+
+  \frac{1}{2\pi a}\iint\limits_{C_{at}^M}\frac{\psi(\xi,\eta)d\xi d\eta}{\sqrt{a^2t^2-(\xi-x)^2-(\eta-y)^2}}                                                 \\
+   & =\frac{1}{2\pi a}\frac{\partial}{\partial t}\int_0^{at}\int_0^{2\pi}\frac{\varphi(\xi,\eta)}{\sqrt{a^2t^2-r^2}}rd\theta dr+
+  \frac{1}{2\pi a}\int_0^{at}\int_0^{2\pi}\frac{\psi(\xi,\eta)}{\sqrt{a^2t^2-r^2}}rd\theta dr                                                                \\
+   & =\frac{1}{2\pi a}\frac{\partial}{\partial t}\int_0^{at}\int_0^{2\pi}\frac{(x+r\cos\theta)^2(x+r\cos\theta+y+r\sin\theta)}{\sqrt{a^2t^2-r^2}}rd\theta dr \\
+   & =\frac{1}{2\pi a}\frac{\partial}{\partial t}\int_0^{at} \frac{\pi r \left[r^2 (3 x+y)+2 x^2 (x+y)\right]}{\sqrt{a^2 t^2-r^2}} dr                        \\
+   & =\frac{1}{2\pi a}\frac{\partial}{\partial t}\pi  \left[\frac{2}{3} a^3 t^3 (3 x+y)+2 a t x^2 (x+y)\right]                                               \\
+   & =a^2 t^2 (3 x+y)+x^2 (x+y).
+\end{align*}
+
+\subsection*{(2)}
+设
+$$\xi=x+r\cos\theta,\quad \eta=y+r\sin\theta,\quad\tau=a(t-s).$$
+方程的初值条件为
+$$\varphi(\xi,\eta)=0,$$
+$$\psi(\xi,\eta)=\xi^2=(x+r\cos\theta)^2,$$
+$$f(\xi,\eta,s)=\xi^3+\eta^3=(x+r\cos\theta)^3+(x+r\sin\theta)^3$$
+代入泊松公式得
+\begin{align*}
+  u(x,y,t)
+   & =\frac{1}{2\pi a}\frac{\partial}{\partial t}\iint\limits_{C_{at}^M}\frac{\varphi(\xi,\eta)d\xi d\eta}{\sqrt{a^2t^2-(\xi-x)^2-(\eta-y)^2}}+
+  \frac{1}{2\pi a}\iint\limits_{C_{at}^M}\frac{\psi(\xi,\eta)d\xi d\eta}{\sqrt{a^2t^2-(\xi-x)^2-(\eta-y)^2}}                                                       \\
+   & \quad +\frac{1}{2\pi a^2}\int_0^{at}   \iint\limits_{C_{at}^M}\frac{f(\xi,\eta,t-\tau/a)d\xi d\eta d\tau}{\sqrt{a^2t^2-(\xi-x)^2-(\eta-y)^2}}                 \\
+   & =\frac{1}{2\pi a}\frac{\partial}{\partial t}\int_0^{at}\int_0^{2\pi}\frac{\varphi(\xi,\eta)}{\sqrt{a^2t^2-r^2}}rd\theta dr+
+  \frac{1}{2\pi a}\int_0^{at}\int_0^{2\pi}\frac{\psi(\xi,\eta)}{\sqrt{a^2t^2-r^2}}rd\theta dr                                                                      \\
+   & \quad + \frac{1}{2\pi a}\int_0^{t}   \int_0^{a(t-s)}\int_0^{2\pi}\frac{f(\xi,\eta,s)}{\sqrt{a^2(t-s)^2-r^2}} rd\theta drds                                    \\
+   & =\frac{1}{2\pi a}\int_0^{at}\int_0^{2\pi}\frac{(x+r\cos\theta)^2}{\sqrt{a^2t^2-r^2}}rd\theta dr+
+  \frac{1}{2\pi a}\int_0^{t}\int_0^{a(t-s)}\int_0^{2\pi}\frac{(x+r\cos\theta)^3+(x+r\sin\theta)^3}{\sqrt{a^2(t-s)^2-r^2}} rd\theta drds
+  \\
+   & =\frac{1}{2\pi a}\int_0^{at} \frac{\pi r (r^2+2x)}{\sqrt{a^2 t^2-r^2}} dr+
+  \frac{1}{2\pi a}\int_0^{t}\int_0^{a(t-s)}\frac{\pi  r \left[3 r^2 (x+y)+2 \left(x^3+y^3\right)\right]}{\sqrt{a^2 (s-t)^2-r^2}}drds                               \\
+   & =\frac{1}{2\pi a}\cdot\frac{2}{3} \pi  a t \left(a^2 t^2+3 x^2\right)+   \frac{1}{2\pi a}\int_0^t 2 \pi  (x+y) a(t-s) \left[a^2 (s-t)^2+x^2-x y+y^2\right] ds \\
+   & =\frac{1}{3}a^2 t^3+t x^2+\frac{1}{2\pi a}\cdot \frac{1}{2} \pi a t^2 (x+y) \left[a^2 t^2+2 \left(x^2-x y+y^2\right)\right]                                   \\
+   & = t^3+t x^2+\frac{1}{4}t^2 (x+y) \left[3 t^2+2 \left(x^2-x y+y^2\right)\right].
+\end{align*}
+
+\section{1.4/5}
+\begin{problem}
+求解下列柯西问题:
+$$\left\{\begin{aligned}
+     & u_{tt}=a^2(u_{xx}+u_{yy})+c^2u, \\
+     & u|_{t=0}=\varphi(x,y),          \\
+     & u_t|_{t=0}=\psi(x,y).
+  \end{aligned}\right.$$
+\end{problem}
+
+设$$v(x,y,z,t)=e^{\frac{cz}{a}}u(x,y,t).$$
+则$$v_{tt}-a^2(v_{xx}+v_{yy}+v_{zz})=e^{\frac{cz}{a}}u_{tt}-a^2\left(e^{\frac{cz}{a}}u_{xx}+e^{\frac{cz}{a}}u_{yy}+\frac{c^2}{a^2}e^{\frac{cz}{a}}u\right)=e^{\frac{cz}{a}}\left[u_{tt}-a^2(u_{xx}+u_{yy})+c^2u\right]=0,$$
+$$v|_{t=0}=e^{\frac{cz}{a}}u|_{t=0}=e^{\frac{cz}{a}}\varphi(x,y),$$
+$$v_t|_{t=0}=\left.\frac{\partial}{\partial t}e^{\frac{cz}{a}}u\right|_{t=0}=e^{\frac{cz}{a}}u_t|_{t=0}=e^{\frac{cz}{a}}\psi(x,y).$$
+故可以先求解以下柯西问题:
+$$\left\{\begin{aligned}
+     & v_{tt}=a^2(v_{xx}+v_{yy}+v_{zz}),      \\
+     & v|_{t=0}=e^{\frac{cz}{a}}\varphi(x,y), \\
+     & v_t|_{t=0}=e^{\frac{cz}{a}}\psi(x,y).
+  \end{aligned}\right.$$
+设
+$$\xi=x+at\sin\theta\cos\phi,\quad \eta=y+at\sin\theta\sin\phi,\quad \zeta=z+at\cos\theta.$$
+方程的初值条件为
+$$\varphi(\xi,\eta,\zeta)=e^{\frac{c\zeta}{a}}\varphi(\xi,\eta)=e^{\frac{c}{a}(z+at\cos\theta)}\varphi(x+at\sin\theta\cos\phi,y+at\sin\theta\sin\phi),$$
+$$\psi(\xi,\eta,\zeta)=e^{\frac{c\zeta}{a}}\psi(\xi,\eta)=e^{\frac{c}{a}(z+at\cos\theta)}\psi(x+at\sin\theta\cos\phi,y+at\sin\theta\sin\phi).$$
+
+代入泊松公式得
+\begin{align*}
+  v(x,y,z,t)
+   & =\frac{1}{4\pi a^2}\frac{\partial}{\partial t}\iint\limits_{S_{at}^M}\frac{\varphi(\xi,\eta,\zeta)}{t}dS+\frac{1}{4\pi a^2}\iint\limits_{S_{at}^M}\frac{\psi(\xi,\eta,\zeta)}{t}dS                                                                      \\
+   & =\frac{1}{4\pi}\frac{\partial}{\partial t}\int_0^{2\pi}\int_0^\pi t\varphi(\xi,\eta,\zeta)\sin\theta d\theta d\phi+\frac{t}{4\pi}\int_0^{2\pi}\int_0^\pi \psi(\xi,\eta,\zeta)\sin\theta d\theta d\phi                                                   \\
+   & =\frac{1}{4\pi}\frac{\partial}{\partial t}\int_0^{2\pi}\int_0^\pi te^{\frac{c}{a}(z+at\cos\theta)}\varphi(\xi,\eta)\sin\theta d\theta d\phi+\frac{t}{4\pi}\int_0^{2\pi}\int_0^\pi e^{\frac{c}{a}(z+at\cos\theta)}\psi(\xi,\eta)\sin\theta d\theta d\phi \\
+   & =e^{\frac{cz}{a}}\left[\frac{1}{4\pi}\frac{\partial}{\partial t}\int_0^{2\pi}\int_0^\pi te^{ct\cos\theta}\varphi(\xi,\eta)\sin\theta d\theta d\phi+\frac{t}{4\pi}\int_0^{2\pi}\int_0^\pi e^{ct\cos\theta}\psi(\xi,\eta)\sin\theta d\theta d\phi\right], \\
+  u(x,y,t)
+   & =e^{-\frac{cz}{a}}v(x,y,z,t)                                                                                                                                                                                                                            \\
+   & =\frac{1}{4\pi}\frac{\partial}{\partial t}\int_0^{2\pi}\int_0^\pi te^{ct\cos\theta}\varphi(\xi,\eta)\sin\theta d\theta d\phi+\frac{t}{4\pi}\int_0^{2\pi}\int_0^\pi e^{ct\cos\theta}\psi(\xi,\eta)\sin\theta d\theta d\phi                               \\
+   & =\frac{1}{4\pi}\frac{\partial}{\partial t}\int_0^{2\pi}\int_0^\pi te^{ct\cos\theta}\varphi(x+at\sin\theta\cos\phi,y+at\sin\theta\sin\phi)\sin\theta d\theta d\phi                                                                                       \\
+   & \quad+\frac{t}{4\pi}\int_0^{2\pi}\int_0^\pi e^{ct\cos\theta}\psi(x+at\sin\theta\cos\phi,y+at\sin\theta\sin\phi)\sin\theta d\theta d\phi.
+\end{align*}
+
+\section{1.4/6}
+\begin{problem}
+试用齐次化原理导出平面非齐次波动方程
+$$u_{tt}=a^2(u_{xx}+u_{yy})+f(x,y,t)$$
+在齐次初始条件
+$$\left\{\begin{aligned}
+     & u|_{t=0}=0,  \\
+     & u_t|_{t=0}=0
+  \end{aligned}\right.$$
+下的求解公式.
+\end{problem}
+
+设以下齐次柯西问题的解为$W=(W,x,y;\tau)$:
+$$\left\{\begin{aligned}
+     & W_{tt}=a^2(W_{xx}+W_{yy}), \\
+     & W|_{t=\tau}=0,\quad
+    W_t|_{t=\tau}=f(x,y,\tau).
+  \end{aligned}\right.$$
+然后关于参数$\tau$积分得
+$$u(x,y,t)=\int_0^t W(x,y,t;\tau) d\tau.$$
+然后验证$u(x,y,t)$就是原柯西问题的解:
+$$u_t=W(x,y,t;t)+\int_0^t W_t(x,y,t;\tau) d\tau=\int_0^t W_t(x,y,t;\tau) d\tau,$$
+$$u|_{t=0}=0,\quad u_t|_{t=0}=0,$$
+$$u_{tt}=W_t(x,y,t;t)+\int_0^t W_{tt}(x,y,t;\tau) d\tau=f(x,y,t)+\int_0^t W_{tt}(x,y,t;\tau) d\tau,$$
+$$\int_0^t W_{tt}(x,y,t;\tau) d\tau=a^2\left(\int_0^t W_{xx}(x,y,t;\tau) d\tau+\int_0^t W_{yy}(x,y,t;\tau) d\tau\right)=a^2(u_{xx}+u_{yy}).$$
+故
+$$\left\{\begin{aligned}
+     & u_{tt}=a^2(u_{xx}+u_{yy})+f(x,y,t), \\
+     & u|_{t=0}=0, \quad
+    t_t|_{t=0}=0.
+  \end{aligned}\right.$$
+令$t'=t-\tau$, 则$W$满足
+$$\left\{\begin{aligned}
+     & W_{tt}=a^2(W_{xx}+W_{yy}), \\
+     & W|_{t'=0}=0,\quad
+    W_{t'}|_{t'=0}=f(x,y,\tau).
+  \end{aligned}\right.$$
+设
+$$\xi=x+r\cos\theta,\quad \eta=y+r\sin\theta.$$
+方程的初值条件为
+$$\varphi(\xi,\eta)=0,$$
+$$\psi(\xi,\eta)=f(\xi,\eta,\tau)=f(x+r\cos\theta,y+r\sin\theta,\tau).$$
+代入泊松公式得
+\begin{align*}
+  W(x,y,t;\tau)
+   & =\frac{1}{2\pi a}\frac{\partial}{\partial t}\iint\limits_{C_{at'}^M}\frac{\varphi(\xi,\eta)d\xi d\eta}{\sqrt{a^2t'^2-(\xi-x)^2-(\eta-y)^2}}+
+  \frac{1}{2\pi a}\iint\limits_{C_{at'}^M}\frac{\psi(\xi,\eta)d\xi d\eta}{\sqrt{a^2t'^2-(\xi-x)^2-(\eta-y)^2}}                                     \\
+   & =\frac{1}{2\pi a}\frac{\partial}{\partial t}\int_0^{at'}\int_0^{2\pi}\frac{\varphi(\xi,\eta)}{\sqrt{a^2t'^2-r^2}}rd\theta dr+
+  \frac{1}{2\pi a}\int_0^{at'}\int_0^{2\pi}\frac{\psi(\xi,\eta)}{\sqrt{a^2t'^2-r^2}}rd\theta dr                                                    \\
+   & =\frac{1}{2\pi a}\int_0^{a(t-\tau)}\int_0^{2\pi}\frac{f(x+r\cos\theta,y+r\sin\theta,\tau)}{\sqrt{a^2(t-\tau)^2-r^2}}rd\theta dr,              \\
+  u(x,y,t)
+   & =\int_0^t W(x,y,t;\tau) d\tau                                                                                                                 \\
+   & =\frac{1}{2\pi a}\int_0^t\int_0^{a(t-\tau)}\int_0^{2\pi}\frac{f(x+r\cos\theta,y+r\sin\theta,\tau)}{\sqrt{a^2(t-\tau)^2-r^2}}rd\theta drd\tau.
+\end{align*}
+
+\section{1.4/8}
+\begin{problem}
+解非齐次方程的柯西问题:
+$$\left\{
+  \begin{aligned}
+     & u_{tt}=u_{xx}+u_{yy}+u_{zz}+2(y-t), \\
+     & u|_{t=0}=0,\quad u_t|_{t=0}=x^2+yz.
+  \end{aligned}
+  \right.$$
+\end{problem}
+设
+$$\xi=x+t\sin\theta\cos\phi,\quad \eta=y+t\sin\theta\sin\phi,\quad \zeta=z+t\cos\theta.$$
+方程的初值条件为
+$$\varphi(\xi,\eta,\zeta)=0,$$
+$$\psi(\xi,\eta,\zeta)=\xi^2+\eta\zeta=(x+t\sin\theta\cos\phi)^2+(y+t\sin\theta\sin\phi)(z+t\cos\theta),$$
+$$f(\xi,\eta,\zeta,t-r)=2[\eta-(t-r)]=2(y+t\sin\theta\sin\phi-t+r).$$
+代入泊松公式得
+\begin{align*}
+  u(x,y,z,t)
+   & =\frac{1}{4\pi}\frac{\partial}{\partial t}\iint\limits_{S_{t}^M}\frac{\varphi(\xi,\eta,\zeta)}{t}dS+\frac{1}{4\pi}\iint\limits_{S_{t}^M}\frac{\psi(\xi,\eta,\zeta)}{t}dS+\frac{1}{4\pi}\iiint\limits_{r\leqslant r}\frac{f(\xi,\eta,\zeta,t-r)}{r}dV \\
+   & =\frac{1}{4\pi}\frac{\partial}{\partial t}\int_0^{2\pi}\int_0^\pi t\varphi(\xi,\eta,\zeta)\sin\theta d\theta d\phi+\frac{t}{4\pi}\int_0^{2\pi}\int_0^\pi \psi(\xi,\eta,\zeta)\sin\theta d\theta d\phi                                                \\
+   & \quad+\frac{1}{4\pi}\int_0^t\int_0^{2\pi}\int_0^\pi f(\xi,\eta,\zeta,t-r) r\sin\theta d\theta d\phi dr                                                                                                                                               \\
+   & =\frac{t}{4\pi}\int_0^{2\pi}\int_0^\pi [(x+t\sin\theta\cos\phi)^2+(y+t\sin\theta\sin\phi)(z+t\cos\theta)]\sin\theta d\theta d\phi                                                                                                                    \\
+   & \quad+\frac{1}{4\pi}\int_0^t\int_0^{2\pi}\int_0^\pi 2(y+t\sin\theta\sin\phi-t+r) r\sin\theta d\theta d\phi dr                                                                                                                                        \\
+   & =\frac{t}{4\pi}\int_0^{2\pi} \left[\frac{2}{3}  t^2 \cos 2 \phi +\frac{2}{3} t^2+\pi   t x \cos \phi +\frac{1}{2} \pi   t z \sin \phi +2 x^2+2 y z \right]d\phi                                                                                      \\
+   & \quad+\frac{1}{4\pi}\int_0^t\int_0^{2\pi} r [\pi   t \sin \phi +4 (r-t+y)]d\phi dr                                                                                                                                                                   \\
+   & =\frac{t}{4\pi}\cdot\frac{4}{3} \pi  \left[t^2+3 \left(x^2+y z\right)\right] + \frac{1}{4\pi}\int_0^t 8 \pi  r (r-t+y)dr                                                                                                                             \\
+   & =\frac{1}{3} t^3+t \left(x^2+y z\right)+\frac{1}{4\pi}\cdot-\frac{4}{3} \pi  t^2 (t-3 y)                                                                                                                                                             \\
+   & =t \left(t y+x^2+\text{yz}\right).
+\end{align*}
+
+\end{document}
