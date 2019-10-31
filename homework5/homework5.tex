@@ -23,8 +23,80 @@ $$|C_1|,|C_2|\leqslant C,\quad C_3\leqslant\frac{\rho C}{a}.$$
 故当$t\to+\infty$时其柯西问题的解趋于一个常数, 没有衰减性.
 
 \section{1.5/3}
+\begin{problem}
+  设$u$为初始资料$\varphi$及$\psi$具有紧支集的二维波动方程的解. 试证明: 对任意固定的$(x_0,y_0)\in \mathbf{R}^2$, 成立
+  $$\lim_{t\to+\infty} u(x_0,y_0,t)=0.$$
+\end{problem}
+
+若初始资料$\varphi$, $\psi$具有紧支集, 则存在一个常数$\rho>0$, 使$\varphi$和$\psi$在以原点为中心, $\rho$为半径的圆$C_\rho^O$外恒为零, 而在$C_\rho^O$内成立
+$$|\varphi|,|\psi|\leqslant C.$$
+代入泊松公式得
+\begin{align*}
+  u(x,y,t)
+   & =\frac{1}{2\pi a}\frac{\partial}{\partial t}\iint\limits_{C_{at}^M}\frac{\varphi(\xi,\eta)d\xi d\eta}{\sqrt{a^2t^2-(\xi-x)^2-(\eta-y)^2}}+
+  \frac{1}{2\pi a}\iint\limits_{C_{at}^M}\frac{\psi(\xi,\eta)d\xi d\eta}{\sqrt{a^2t^2-(\xi-x)^2-(\eta-y)^2}}                                                 \\
+   & =\frac{1}{2\pi a}\frac{\partial}{\partial t}\int_0^{at}\int_0^{2\pi}\frac{\varphi(\xi,\eta)}{\sqrt{a^2t^2-r^2}}rd\theta dr+
+  \frac{1}{2\pi a}\int_0^{at}\int_0^{2\pi}\frac{\psi(\xi,\eta)}{\sqrt{a^2t^2-r^2}}rd\theta dr.
+\end{align*}
+由于在$C_\rho^O$外, $\psi(x)=0$, $0$到$at$的积分可以写为$0$到$\rho$的积分. 当$at>\rho$时
+\begin{align*}
+  |u(x,y,t)|
+   & =\left|\frac{1}{2\pi a}\frac{\partial}{\partial t}\int_0^{\rho}\int_0^{2\pi}\frac{\varphi(\xi,\eta)}{\sqrt{a^2t^2-r^2}}rd\theta dr+
+  \frac{1}{2\pi a}\int_0^{\rho}\int_0^{2\pi}\frac{\psi(\xi,\eta)}{\sqrt{a^2t^2-r^2}}rd\theta dr\right|\\
+  &\leqslant\frac{1}{2\pi a}\left|\frac{\partial}{\partial t}\int_0^{\rho}\int_0^{2\pi}\frac{C}{\sqrt{a^2t^2-r^2}}rd\theta dr\right|+
+   \frac{1}{2\pi a}\left|\int_0^{\rho}\int_0^{2\pi}\frac{C}{\sqrt{a^2t^2-r^2}}rd\theta dr \right|\\
+   &=\frac{1}{2\pi a}\left|\frac{\partial}{\partial t}\int_0^{\rho}\frac{2\pi Cr}{\sqrt{a^2t^2-r^2}}dr\right|+
+    \frac{1}{2\pi a}\left|\int_0^{\rho}\frac{2\pi Cr}{\sqrt{a^2t^2-r^2}}dr \right|\\
+    &=\frac{1}{2\pi a}\left|\frac{\partial}{\partial t}2\pi C\left(at-\sqrt{a^2t^2-\rho^2}\right)\right|+\frac{1}{2\pi a}\left|2\pi C\left(at-\sqrt{a^2t^2-\rho^2}\right)\right|\\
+    &=\frac{C}{a}\left|a-\frac{a^2t}{\sqrt{a^2t^2-\rho^2}}+\left(at-\sqrt{a^2t^2-\rho^2}\right)\right|.
+\end{align*}
+当$t\to+\infty$时
+$$\lim_{t\to+\infty}\frac{at}{\sqrt{a^2t^2-\rho^2}}=1,\quad \lim_{t\to+\infty}\frac{a^2t}{\sqrt{a^2t^2-\rho^2}}=a,$$
+$$\lim_{t\to+\infty}|u(x,y,t)|\leqslant \frac{C}{a}|a-a+0|=0.$$
+故取任意固定的$(x_0,y_0)\in \mathbf{R}^2$, 成立
+$$\lim_{t\to+\infty} u(x_0,y_0,t)=0.$$
 
 \section{1.6/1}
+\begin{problem}
+  对受摩擦力作用且具固定端点的有界弦振动, 满足方程
+  $$u_{tt}=a^2u_{xx}-cu_t,$$
+  其中常数$c>0$, 证明其能量是减少的, 并由此证明方程
+  $$u_{tt}=a^2u_{xx}-cu_t+f$$
+  的初边值问题解的唯一性以及关于初始条件及自由项的稳定性.
+\end{problem}
+
+弦的总能量可写成
+$$E(t)=\int_0^l(u_t^2+a^2u_x^2)dx.$$
+能量变化率为
+\begin{align*}
+  \frac{dE(t)}{dt}
+  &=2\int_0^l\left(u_tu_{tt}+a^2u_{x}u_{xt}\right)dx\\
+  &=2\int_0^l\left[u_t\left(a^2u_{xx}-cu_t\right)+a^2u_xu_{x_t}\right]dx\\
+  &=2\int_0^l\left(-cu_t^2+a^2\frac{\partial}{\partial x}u_tu_x\right)dx\\
+  &=\left.-2\int_0^lcu_t^2dx+2a^2u_tu_x\right|_0^l.
+\end{align*}
+由于端点是固定的
+$$2a^2u_tu_x\bigg|_0^l=0.$$
+故
+$$\frac{dE(t)}{dt}=-2\int_0^lcu_t^2dx\leqslant 0.$$
+要证明方程
+$$u_{tt}=a^2u_{xx}-cu_t+f$$
+的初边值问题解的唯一性, 只需证明零初始条件方程只有零解
+$$\left\{\begin{aligned}
+   & u_{tt}=a^2u_{xx}-cu_t,                                      \\
+   & u|_{x=0}=u|_{x=l}=0,\\
+   & u|_{t=0}=0,\quad u_t|_{t=0}=0.
+\end{aligned}\right.$$
+根据能量不等式得$$E(t)\leqslant E(0)=\int_0^l\left(u_t(x,0)^2+a^2u_x(x,0)^2\right)dx=0,$$
+$$u_t=u_x=0\Longrightarrow u=C.$$
+根据初始条件易知$u\equiv0$, 故初边值问题解的唯一性得证.
+
+对于方程的稳定性, 设
+$$E_0(t)=\int_0^lu^2dx,\quad E_1(t)=\int_0^lu_t^2+a^2u_x^2dx,$$
+$$\frac{dE_0(t)}{dt}=2\int_0^luu_tdx\leqslant\int_0^lu^2dx+\int_0^lu_t^2dx=E_0(t)+E_1(t),$$
+$$\frac{d}{dt}e^{-t}E_0(t)=-e^{-t}E_0(t)+e^{-t}\frac{dE_0(t)}{dt}\leqslant e^{-t}E_1(t),$$
+$$E_0(t)\leqslant e^t\int_0^t e^{-\tau}E_1(\tau)d\tau+e^t E_0(0)\leqslant e^tE_1(0)(1-{e^{-t}})+e^t E_0(0)=e^tE_0(0)+(e^t-1)E_1(0).$$
+
 \section{1.6/2}
 \section{1.6/5}
 
