@@ -1,0 +1,32 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{../ma319}
+\semester{Fall}
+\year{2019}
+\subtitlenumber{5}
+\author{刘逸灏 (515370910207)}
+
+\begin{document}
+\maketitle
+
+\section{1.5/2}
+\begin{problem}
+试说明: 对一维波动方程, 即使初始资料具有紧支集, 当$t\to+\infty$时其柯西问题的解没有衰减性.
+\end{problem}
+
+若初始资料$\varphi$, $\psi$具有紧支集, 则存在一个常数$\rho>0$, 使$\varphi$和$\psi$在以原点为中心, $\rho$为半径的区间$[-\rho,\rho]$外恒为零, 而在区间内成立
+$$|\varphi|,|\psi|\leqslant C.$$
+代入达朗贝尔公式得
+$$u(x,t)=\frac{\varphi(x-at)+\varphi(x+at)}{2}+\frac{1}{2a}\int_{x-at}^{x+at}\psi(\xi)d\xi.$$
+由于在$[-\rho,\rho]$外, $\psi(x)=0$, $x-at$到$x+at$的积分可以写为$-\rho$到$\rho$的积分
+$$\lim_{t\to+\infty}u(x,t)=\frac{C_1+C_2}{2}+\frac{1}{2a}\int_{-\rho}^{\rho}\psi(\xi)d\xi=\frac{C_1+C_2}{2}+C_3,$$
+$$|C_1|,|C_2|\leqslant C,\quad C_3\leqslant\frac{\rho C}{a}.$$
+故当$t\to+\infty$时其柯西问题的解趋于一个常数, 没有衰减性.
+
+\section{1.5/3}
+
+\section{1.6/1}
+\section{1.6/2}
+\section{1.6/5}
+
+
+\end{document}
