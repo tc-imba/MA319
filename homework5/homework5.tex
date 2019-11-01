@@ -24,8 +24,8 @@ $$|C_1|,|C_2|\leqslant C,\quad C_3\leqslant\frac{\rho C}{a}.$$
 
 \section{1.5/3}
 \begin{problem}
-  设$u$为初始资料$\varphi$及$\psi$具有紧支集的二维波动方程的解. 试证明: 对任意固定的$(x_0,y_0)\in \mathbf{R}^2$, 成立
-  $$\lim_{t\to+\infty} u(x_0,y_0,t)=0.$$
+设$u$为初始资料$\varphi$及$\psi$具有紧支集的二维波动方程的解. 试证明: 对任意固定的$(x_0,y_0)\in \mathbf{R}^2$, 成立
+$$\lim_{t\to+\infty} u(x_0,y_0,t)=0.$$
 \end{problem}
 
 若初始资料$\varphi$, $\psi$具有紧支集, 则存在一个常数$\rho>0$, 使$\varphi$和$\psi$在以原点为中心, $\rho$为半径的圆$C_\rho^O$外恒为零, 而在$C_\rho^O$内成立
@@ -34,7 +34,7 @@ $$|\varphi|,|\psi|\leqslant C.$$
 \begin{align*}
   u(x,y,t)
    & =\frac{1}{2\pi a}\frac{\partial}{\partial t}\iint\limits_{C_{at}^M}\frac{\varphi(\xi,\eta)d\xi d\eta}{\sqrt{a^2t^2-(\xi-x)^2-(\eta-y)^2}}+
-  \frac{1}{2\pi a}\iint\limits_{C_{at}^M}\frac{\psi(\xi,\eta)d\xi d\eta}{\sqrt{a^2t^2-(\xi-x)^2-(\eta-y)^2}}                                                 \\
+  \frac{1}{2\pi a}\iint\limits_{C_{at}^M}\frac{\psi(\xi,\eta)d\xi d\eta}{\sqrt{a^2t^2-(\xi-x)^2-(\eta-y)^2}}                                    \\
    & =\frac{1}{2\pi a}\frac{\partial}{\partial t}\int_0^{at}\int_0^{2\pi}\frac{\varphi(\xi,\eta)}{\sqrt{a^2t^2-r^2}}rd\theta dr+
   \frac{1}{2\pi a}\int_0^{at}\int_0^{2\pi}\frac{\psi(\xi,\eta)}{\sqrt{a^2t^2-r^2}}rd\theta dr.
 \end{align*}
@@ -42,13 +42,13 @@ $$|\varphi|,|\psi|\leqslant C.$$
 \begin{align*}
   |u(x,y,t)|
    & =\left|\frac{1}{2\pi a}\frac{\partial}{\partial t}\int_0^{\rho}\int_0^{2\pi}\frac{\varphi(\xi,\eta)}{\sqrt{a^2t^2-r^2}}rd\theta dr+
-  \frac{1}{2\pi a}\int_0^{\rho}\int_0^{2\pi}\frac{\psi(\xi,\eta)}{\sqrt{a^2t^2-r^2}}rd\theta dr\right|\\
-  &\leqslant\frac{1}{2\pi a}\left|\frac{\partial}{\partial t}\int_0^{\rho}\int_0^{2\pi}\frac{C}{\sqrt{a^2t^2-r^2}}rd\theta dr\right|+
-   \frac{1}{2\pi a}\left|\int_0^{\rho}\int_0^{2\pi}\frac{C}{\sqrt{a^2t^2-r^2}}rd\theta dr \right|\\
-   &=\frac{1}{2\pi a}\left|\frac{\partial}{\partial t}\int_0^{\rho}\frac{2\pi Cr}{\sqrt{a^2t^2-r^2}}dr\right|+
-    \frac{1}{2\pi a}\left|\int_0^{\rho}\frac{2\pi Cr}{\sqrt{a^2t^2-r^2}}dr \right|\\
-    &=\frac{1}{2\pi a}\left|\frac{\partial}{\partial t}2\pi C\left(at-\sqrt{a^2t^2-\rho^2}\right)\right|+\frac{1}{2\pi a}\left|2\pi C\left(at-\sqrt{a^2t^2-\rho^2}\right)\right|\\
-    &=\frac{C}{a}\left|a-\frac{a^2t}{\sqrt{a^2t^2-\rho^2}}+\left(at-\sqrt{a^2t^2-\rho^2}\right)\right|.
+  \frac{1}{2\pi a}\int_0^{\rho}\int_0^{2\pi}\frac{\psi(\xi,\eta)}{\sqrt{a^2t^2-r^2}}rd\theta dr\right|                                                                           \\
+   & \leqslant\frac{1}{2\pi a}\left|\frac{\partial}{\partial t}\int_0^{\rho}\int_0^{2\pi}\frac{C}{\sqrt{a^2t^2-r^2}}rd\theta dr\right|+
+  \frac{1}{2\pi a}\left|\int_0^{\rho}\int_0^{2\pi}\frac{C}{\sqrt{a^2t^2-r^2}}rd\theta dr \right|                                                                                 \\
+   & =\frac{1}{2\pi a}\left|\frac{\partial}{\partial t}\int_0^{\rho}\frac{2\pi Cr}{\sqrt{a^2t^2-r^2}}dr\right|+
+  \frac{1}{2\pi a}\left|\int_0^{\rho}\frac{2\pi Cr}{\sqrt{a^2t^2-r^2}}dr \right|                                                                                                 \\
+   & =\frac{1}{2\pi a}\left|\frac{\partial}{\partial t}2\pi C\left(at-\sqrt{a^2t^2-\rho^2}\right)\right|+\frac{1}{2\pi a}\left|2\pi C\left(at-\sqrt{a^2t^2-\rho^2}\right)\right| \\
+   & =\frac{C}{a}\left|a-\frac{a^2t}{\sqrt{a^2t^2-\rho^2}}+\left(at-\sqrt{a^2t^2-\rho^2}\right)\right|.
 \end{align*}
 当$t\to+\infty$时
 $$\lim_{t\to+\infty}\frac{at}{\sqrt{a^2t^2-\rho^2}}=1,\quad \lim_{t\to+\infty}\frac{a^2t}{\sqrt{a^2t^2-\rho^2}}=a,$$
@@ -58,11 +58,11 @@ $$\lim_{t\to+\infty} u(x_0,y_0,t)=0.$$
 
 \section{1.6/1}
 \begin{problem}
-  对受摩擦力作用且具固定端点的有界弦振动, 满足方程
-  $$u_{tt}=a^2u_{xx}-cu_t,$$
-  其中常数$c>0$, 证明其能量是减少的, 并由此证明方程
-  $$u_{tt}=a^2u_{xx}-cu_t+f$$
-  的初边值问题解的唯一性以及关于初始条件及自由项的稳定性.
+对受摩擦力作用且具固定端点的有界弦振动, 满足方程
+$$u_{tt}=a^2u_{xx}-cu_t,$$
+其中常数$c>0$, 证明其能量是减少的, 并由此证明方程
+$$u_{tt}=a^2u_{xx}-cu_t+f$$
+的初边值问题解的唯一性以及关于初始条件及自由项的稳定性.
 \end{problem}
 
 弦的总能量可写成
@@ -70,10 +70,10 @@ $$E(t)=\int_0^l(u_t^2+a^2u_x^2)dx.$$
 能量变化率为
 \begin{align*}
   \frac{dE(t)}{dt}
-  &=2\int_0^l\left(u_tu_{tt}+a^2u_{x}u_{xt}\right)dx\\
-  &=2\int_0^l\left[u_t\left(a^2u_{xx}-cu_t\right)+a^2u_xu_{x_t}\right]dx\\
-  &=2\int_0^l\left(-cu_t^2+a^2\frac{\partial}{\partial x}u_tu_x\right)dx\\
-  &=\left.-2\int_0^lcu_t^2dx+2a^2u_tu_x\right|_0^l.
+   & =2\int_0^l\left(u_tu_{tt}+a^2u_{x}u_{xt}\right)dx                     \\
+   & =2\int_0^l\left[u_t\left(a^2u_{xx}-cu_t\right)+a^2u_xu_{xt}\right]dx  \\
+   & =2\int_0^l\left(-cu_t^2+a^2\frac{\partial}{\partial x}u_tu_x\right)dx \\
+   & =\left.-2\int_0^lcu_t^2dx+2a^2u_tu_x\right|_0^l.
 \end{align*}
 由于端点是固定的
 $$2a^2u_tu_x\bigg|_0^l=0.$$
@@ -83,22 +83,96 @@ $$\frac{dE(t)}{dt}=-2\int_0^lcu_t^2dx\leqslant 0.$$
 $$u_{tt}=a^2u_{xx}-cu_t+f$$
 的初边值问题解的唯一性, 只需证明零初始条件方程只有零解
 $$\left\{\begin{aligned}
-   & u_{tt}=a^2u_{xx}-cu_t,                                      \\
-   & u|_{x=0}=u|_{x=l}=0,\\
-   & u|_{t=0}=0,\quad u_t|_{t=0}=0.
-\end{aligned}\right.$$
+     & u_{tt}=a^2u_{xx}-cu_t,         \\
+     & u|_{x=0}=u|_{x=l}=0,           \\
+     & u|_{t=0}=0,\quad u_t|_{t=0}=0.
+  \end{aligned}\right.$$
 根据能量不等式得$$E(t)\leqslant E(0)=\int_0^l\left(u_t(x,0)^2+a^2u_x(x,0)^2\right)dx=0,$$
 $$u_t=u_x=0\Longrightarrow u=C.$$
 根据初始条件易知$u\equiv0$, 故初边值问题解的唯一性得证.
 
 对于方程的稳定性, 设
-$$E_0(t)=\int_0^lu^2dx,\quad E_1(t)=\int_0^lu_t^2+a^2u_x^2dx,$$
-$$\frac{dE_0(t)}{dt}=2\int_0^luu_tdx\leqslant\int_0^lu^2dx+\int_0^lu_t^2dx=E_0(t)+E_1(t),$$
+$$E_0(t)=\int_0^lu^2dx,\quad E_1(t)=\int_0^l(u_t^2+a^2u_x^2)dx.$$
+对$E_1(t)$有
+$$\frac{dE_1(t)}{dt}=2\int_0^l\left[u_t\left(a^2u_{xx}-cu_t+f\right)+a^2u_xu_{xt}\right]dx=2\int_0^l(-cu_t^2+u_tf)dx\leqslant\int_0^l (u_t^2+f^2)dx \leqslant E_1(t)+\int_0^lf^2dx,$$
+$$\frac{d}{dt}e^{-t}E_1(t)=-e^{-t}E_1(t)+e^{-t}\frac{dE_1(t)}{dt}\leqslant e^{-t}\int_0^l f^2dx,$$
+$$E_1(t)\leqslant e^t\int_0^te^{-\tau}\int_0^l f^2dxd\tau+e^tE_1(0)\leqslant e^tE_1(0)+e^t\int_0^t\int_0^lf^2dxd\tau=\overline{E_1(t)}.$$
+对$E_0(t)$有
+$$\frac{dE_0(t)}{dt}=2\int_0^luu_tdx\leqslant\int_0^lu^2dx+\int_0^lu_t^2dx\leqslant E_0(t)+E_1(t),$$
 $$\frac{d}{dt}e^{-t}E_0(t)=-e^{-t}E_0(t)+e^{-t}\frac{dE_0(t)}{dt}\leqslant e^{-t}E_1(t),$$
-$$E_0(t)\leqslant e^t\int_0^t e^{-\tau}E_1(\tau)d\tau+e^t E_0(0)\leqslant e^tE_1(0)(1-{e^{-t}})+e^t E_0(0)=e^tE_0(0)+(e^t-1)E_1(0).$$
+$$E_0(t)\leqslant e^t\int_0^t e^{-\tau}E_1(\tau)d\tau+e^t E_0(0)\leqslant e^t\overline{E_1(t)}(1-{e^{-t}})+e^t E_0(0)=e^tE_0(0)+(e^t-1)\overline{E_1(t)},$$
+$$E_0(t)+E_1(t)\leqslant e^tE_0(0)+(e^t-1)\overline{E_1(t)}+E_1(t)\leqslant e^t(E_0(0)+\overline{E_1(t)})=e^tE_0(0)+e^{2t}E_1(0)+e^{2t}\int_0^t\int_0^lf^2dxd\tau.$$
+在$0\leqslant t\leqslant T$上
+$$E_0(t)+E_1(t)\leqslant e^TE_0(0)+e^{2T}E_1(0)+e^{2T}\int_0^T\int_0^lf^2dxd\tau\leqslant e^{2T}\left(E_0(0)+E_1(0)+\int_0^T\int_0^lf^2dxd\tau\right).$$
+存在$C$使得
+$$\sqrt{T(E_0(t)+E_1(t))}\leqslant \sqrt{Te^{2T}\left(E_0(0)+E_1(0)+\int_0^T\int_0^lf^2dxd\tau\right)}\leqslant C\eta,$$
+$$\sqrt{E_0(0)+E_1(0)+\int_0^T\int_0^lf^2dxd\tau}\leqslant\eta.$$
+任取$\varepsilon>0$, 可以找到$\eta=\dfrac{\varepsilon}{C}$, 使得
+$$\|\varphi_1-\varphi_2\|_{L^2(t)},\|\varphi_{1x}-\varphi_{2x}\|_{L^2(t)},\|\psi_1-\psi_2\|_{L^2(t)},\|f_1-f_2\|_{L^2((0,T)\times t)}\leqslant \sqrt{E_0(0)+E_1(0)+\int_0^T\int_0^lf^2dxd\tau}\leqslant \eta,$$
+$$\|u_1-u_2\|_{L^2(t)},\|u_{1x}-u_{2x}\|_{L^2(t)},\|u_{1t}-u_{2t}\|_{L^2(t)},\|u_1-u_2\|_{L^2((0,T)\times t)}\leqslant \sqrt{T(E_0(t)+E_1(t))}\leqslant \varepsilon.$$
+故初始条件和自由项都是稳定的.
 
 \section{1.6/2}
-\section{1.6/5}
+\begin{problem}
+证明函数$f(x,t)$在$G:0\leqslant x\leqslant l,0\leqslant t\leqslant T$作微笑改变时, 方程
+$$\frac{\partial^2u}{\partial t^2}=\frac{\partial}{\partial x}\left(k(x)\frac{\partial u}{\partial x}\right)-q(x)u+f(x,t)$$
+(其中$k(x)>0$, $q(x)>0$和$f(x,t)$都是一些充分光滑的函数)具固定端点边界条件的初边值问题的解在$G$内的改变也是很微小的.
+\end{problem}
+设
+$$E_0(t)=\int_0^lu^2dx,\quad E_1(t)=\int_0^l\left[u_t^2+k(x)u_x^2+q(x)u^2\right]dx.$$
+对$E_1(t)$有
+\begin{align*}
+  \frac{dE_1(t)}{dt}
+   & =2\int_0^l (u_tu_{tt}+k(x)u_xu_{xt}+q(x)uu_t)dx                              \\
+   & = 2\int_0^l \{u_t[u_{tt}-(k(x)u_x)_x+q(x)u]+u_t(k(x)u_x)_x+k(x)u_xu_{xt}\}dx \\
+   & = 2\int_0^l \left(u_tf(x,t)+\frac{\partial}{\partial x}k(x)u_xu_t\right)dx   \\
+   & = 2\int_0^l u_tf(x,t)dx+2k(x)u_xu_t\bigg|_0^l.
+\end{align*}
+由于端点是固定的
+$$2k(x)u_xu_t\bigg|_0^l=0.$$
+故
+$$\frac{dE_1(t)}{dt}=2\int_0^l u_tf(x,t)dx\leqslant\int_0^l(u_t^2+f^2)dx=E_1(t)+\int_0^lf^2dx,$$
+$$\frac{d}{dt}e^{-t}E_1(t)=-e^{-t}E_1(t)+e^{-t}\frac{dE_1(t)}{dt}\leqslant e^{-t}\int_0^l f^2dx,$$
+$$E_1(t)\leqslant e^t\int_0^te^{-\tau}\int_0^l f^2dxd\tau+e^tE_1(0)\leqslant e^tE_1(0)+e^t\int_0^t\int_0^lf^2dxd\tau=\overline{E_1(t)}.$$
+对$E_0(t)$有
+$$\frac{dE_0(t)}{dt}=2\int_0^luu_tdx\leqslant\int_0^lu^2dx+\int_0^lu_t^2dx\leqslant E_0(t)+E_1(t),$$
+$$\frac{d}{dt}e^{-t}E_0(t)=-e^{-t}E_0(t)+e^{-t}\frac{dE_0(t)}{dt}\leqslant e^{-t}E_1(t),$$
+$$E_0(t)\leqslant e^t\int_0^t e^{-\tau}E_1(\tau)d\tau+e^t E_0(0)\leqslant e^t\overline{E_1(t)}(1-{e^{-t}})+e^t E_0(0)=e^tE_0(0)+(e^t-1)\overline{E_1(t)},$$
+$$E_0(t)+E_1(t)\leqslant e^tE_0(0)+(e^t-1)\overline{E_1(t)}+E_1(t)\leqslant e^t(E_0(0)+\overline{E_1(t)})=e^tE_0(0)+e^{2t}E_1(0)+e^{2t}\int_0^t\int_0^lf^2dxd\tau.$$
+在$0\leqslant t\leqslant T$上
+$$E_0(t)+E_1(t)\leqslant e^TE_0(0)+e^{2T}E_1(0)+e^{2T}\int_0^T\int_0^lf^2dxd\tau\leqslant e^{2T}\left(E_0(0)+E_1(0)+\int_0^T\int_0^lf^2dxd\tau\right).$$
+设$u(x,t)$为齐次初边值问题的解, 有$E_0(0)=E(0)=0$, 则存在$C$使得
+$$\sqrt{TE_0(t)}\leqslant \sqrt{T(E_0(t)+E_1(t))}\leqslant \sqrt{Te^{2T}\int_0^T\int_0^lf^2dxd\tau}\leqslant C\eta,\quad\sqrt{\int_0^T\int_0^lf^2dxd\tau}\leqslant\eta$$
+任取$\varepsilon>0$, 可以找到$\eta=\dfrac{\varepsilon}{C}$, 使得
+$$\|f_1-f_2\|_{L^2((0,T)\times t)}\leqslant \sqrt{\int_0^T\int_0^lf^2dxd\tau}\leqslant \eta,$$
+$$\|u_1-u_2\|_{L^2(t)},\|u_1-u_2\|_{L^2((0,T)\times t)}\leqslant \sqrt{TE_0(t)}\leqslant \varepsilon.$$
+故自由项$f(x,t)$是稳定的.
 
+\section{1.6/5}
+\begin{problem}
+考虑波动方程的第三类边值问题
+$$\left\{\begin{aligned}
+     & u_{tt}-a^2(u_{xx}+u_{yy})=0,\quad t>0,(x,y)\in\Omega,                               \\
+     & u|_{t=0}=\varphi(x,y),\quad u_t|_{t=0}=\psi(x,y),                                   \\
+     & \left.\left(\frac{\partial u}{\partial \mathbf{n}}+\sigma u\right)\right|_\Gamma=0,
+  \end{aligned}\right.$$
+其中$\sigma>0$是常数, $\Gamma$为$\Omega$的边界, $\mathbf{n}$为$\Gamma$上的单位外法向量. 对于上述问题的解, 定义能量积分
+$$E(t)=\iint\limits_\Omega(u_t^2+a^2(u_x^2+u_y^2))dxdy+a^2\int_\Gamma\sigma u^2ds,$$
+试证明$E(t)\equiv$常数, 并由此证明上述定解问题解的唯一性.
+\end{problem}
+
+\begin{align*}
+  \frac{dE(t)}{dt}
+   & =2\iint\limits_\Omega(u_tu_{tt}+a^2(u_tu_{xt}+u_tu_{yt}))dxdy+2a^2\int_\Gamma\sigma uu_tds                                                                                            \\
+   & =2\iint\limits_\Omega\left[u_t(u_{tt}-a^2(u_{xx}+u_{yy}))+a^2(u_xu_{xt}+u_yu_{yt}+u_tu_{xx}+u_tu_{yy})\right]dxdy+2a^2\int_\Gamma\sigma uu_tds                                        \\
+   & =2\iint\limits_\Omega\left[u_t(u_{tt}-a^2(u_{xx}+u_{yy}))+a^2\left(\frac{\partial}{\partial x}u_xu_t+\frac{\partial}{\partial y}u_yu_t\right)\right]dxdy+2a^2\int_\Gamma\sigma uu_tds \\
+   & =2\iint\limits_\Omega\left[u_t(u_{tt}-a^2(u_{xx}+u_{yy}))\right]dxdy+2a^2\int_\Gamma\frac{\partial u}{\partial\mathbf{n}}u_tds+2a^2\int_\Gamma\sigma uu_tds                           \\
+   & =2\iint\limits_\Omega\left[u_t(u_{tt}-a^2(u_{xx}+u_{yy}))\right]dxdy+2a^2\int_\Gamma u_t\left(\frac{\partial u}{\partial \mathbf{n}}+\sigma u\right)ds                                \\
+   & =0.
+\end{align*}
+故$E(t)\equiv$常数. 要证明方程解的唯一性, 只需证明满足方程的解只有零解
+$$E(t)=E(0)=\iint\limits_\Omega(u_t(x,y,0)^2+a^2(u_x(x,y,0)^2+u_y(x,y,0)^2))dxdy+a^2\int_\Gamma\sigma u(x,y,0)^2ds=0,$$
+$$u_t=u_x=u_y=u=0.$$
+故得证.
 
 \end{document}
