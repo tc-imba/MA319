@@ -16,8 +16,58 @@ $$u_{tt}=a^2(u_{xx}+u_{yy})+f(x,y,t)$$
 $$(x-x_0)^2+(y-y_0)^2\leqslant(R-at)^2$$
 所表示的锥体.
 \end{problem}
+在$K$内任一截面$\Omega_t$上成立能量不等式
+$$E_0(\Omega_t)=\iint\limits_{\Omega_t}u^2dxdy,\quad E_1(\Omega_t)=\iint\limits_{\Omega_t}\left[u_t^2+a^2\left(u_x^2+u_y^2\right)\right]dxdy.$$
+对$E_1(t)$有
+\begin{align*}
+  \frac{dE_1(\Omega_t)}{dt}
+   & =\frac{d}{dt}\int_0^{R-at}\int_0^{2\pi r}\left[u_t^2+a^2\left(u_x^2+u_y^2\right)\right]dsdr                                        \\
+   & =2\int_0^{R-at}\int_0^{2\pi r}\left[u_tu_{tt}+a^2\left(u_xu_{xt}+u_yu_{yt}\right)\right]dsdr-
+  a\int_{\Gamma_t}\left[u_t^2+a^2\left(u_x^2+u_y^2\right)\right]ds.                                                                     \\
+   & =2\int_0^{R-at}\int_0^{2\pi r}u_t\left[u_{tt}-a^2\left(u_x^2+u_y^2\right)\right]dsdr                                               \\
+   & \quad+2\int_{\Gamma_t}\left\{a^2[u_xu_t\cos(n,x)+u_yu_t\sin(n,x)]-
+  \frac{a}{2}\left[u_t^2+a^2\left(u_x^2+u_y^2\right)\right]\right\}ds.                                                                  \\
+   & =2\iint\limits_{\Omega_t}u_tfdxdy-a\int_{\Gamma_t}\left[\left(au_x-u_t\cos(n,x)\right)^2+\left(au_y-u_t\cos(n,y)\right)^2\right]ds \\
+   & \leqslant 2\iint\limits_{\Omega_t}u_tfdxdy\leqslant \iint\limits_{\Omega_t}u_t^2dxdy+\iint\limits_{\Omega_t}f^2dxdy
+  \leqslant E_1(\Omega_t)+\iint\limits_{\Omega_t}f^2dxdy,
+\end{align*}
+$$\frac{d}{dt}e^{-t}E_1(\Omega_t)=-e^{-t}E_1(\Omega_t)+e^{-t}\frac{dE_1(\Omega_t)}{dt}\leqslant e^{-t}\iint\limits_{\Omega_t}f^2dxdy,$$
+$$E_1(\Omega_t)\leqslant e^t\int_0^te^{-\tau}\int_0^l f^2dxd\tau+e^tE_1(\Omega_0)\leqslant e^tE_1(\Omega_0)+e^t\int_0^t\iint\limits_{\Omega_t}f^2dxdyd\tau=\overline{E_1(\Omega_t)}.$$
+对$E_0(t)$有
+$$\frac{dE_0(\Omega_t)}{dt}=2\iint\limits_{\Omega_t}uu_tdxdy-a\int_{\Gamma_t}u^2ds\leqslant2\iint\limits_{\Omega_t}uu_tdxdy\leqslant\iint\limits_{\Omega_t}u^2dxdy+\iint\limits_{\Omega_t}u_t^2dxdy\leqslant E_0(\Omega_t)+E_1(\Omega_t),$$
+$$\frac{d}{dt}e^{-t}E_0(\Omega_t)=-e^{-t}E_0(\Omega_t)+e^{-t}\frac{dE_0(\Omega_t)}{dt}\leqslant e^{-t}E_1(\Omega_t),$$
+$$E_0(\Omega_t)\leqslant e^t\int_0^t e^{-\tau}E_1(\Omega_\tau)d\tau+e^t E_0(\Omega_0)\leqslant e^t\overline{E_1(\Omega_t)}(1-{e^{-t}})+e^t E_0(\Omega_0)=e^tE_0(\Omega_0)+(e^t-1)\overline{E_1(\Omega_t)},$$
+\begin{align*}
+  E_0(\Omega_t)+E_1(\Omega_t)
+   & \leqslant e^tE_0(\Omega_0)+(e^t-1)\overline{E_1(\Omega_t)}+E_1(\Omega_t)\leqslant e^t(E_0(\Omega_0)+\overline{E_1(\Omega_t)}) \\
+   & =e^tE_0(\Omega_0)+e^{2t}E_1(\Omega_0)+e^{2t}\int_0^t\iint\limits_{\Omega_t}f^2dxdyd\tau.
+\end{align*}
+在$0\leqslant t\leqslant T$上
+\begin{align*}
+  E_0(\Omega_t)+E_1(\Omega_t)
+   & \leqslant e^TE_0(\Omega_0)+e^{2T}E_1(\Omega_0)+e^{2T}\int_0^T\iint\limits_{\Omega_t}f^2dxdyd\tau      \\
+   & \leqslant e^{2T}\left(E_0(\Omega_0)+E_1(\Omega_0)+\int_0^T\iint\limits_{\Omega_t}f^2dxdyd\tau\right).
+\end{align*}
+存在$C$使得
+$$\sqrt{T(E_0(\Omega_t)+E_1(\Omega_t))}\leqslant \sqrt{Te^{2T}\left(E_0(\Omega_0)+E_1(\Omega_0)+\int_0^T\iint\limits_{\Omega_t}f^2dxdyd\tau\right)}\leqslant C\eta,$$
+$$\sqrt{E_0(\Omega_0)+E_1(\Omega_0)+\int_0^T\iint\limits_{\Omega_t}f^2dxdyd\tau}\leqslant\eta.$$
+任取$\varepsilon>0$, 可以找到$\eta=\dfrac{\varepsilon}{C}$, 使得
+$$\|f_1-f_2\|_{L^2(K)}\leqslant \sqrt{E_0(\Omega_0)+E_1(\Omega_0)+\int_0^T\iint\limits_{\Omega_t}f^2dxdyd\tau}\leqslant \eta,$$
+$$\|u_1-u_2\|_{L^2(K)}\leqslant \sqrt{T(E_0(\Omega_t)+E_1(\Omega_t))}\leqslant \varepsilon.$$
+故自由项$f$在$L^2(K)$意义下作微小改变时, 对应的柯西问题的解$u$在$L^2(K)$意义下改变也是微小的.
 
 \section{2.1/2}
+\begin{problem}
+试直接推导扩散过程所满足的微分方程.
+\end{problem}
+设$N(x,y,t)$表示扩散物质的浓度, $dm$表示在无穷小时段$dt$内沿法线方向$\mathbf{n}$经过一个无穷小面积$dS$的扩散物质的质量, $D(x,y,t)$为扩散系数, 其总取正值, 则
+$$dm=-D(x,y,t)\frac{\partial N(x,y,t)}{\partial \mathbf{n}}dSdt.$$
+故从$t_1$到$t_2$进入扩散面为$\Gamma$的区域$\Omega$的质量为
+$$\int_{t_1}^{t_2}\iint\limits_{\Gamma}-dm=\int_{t_1}^{t_2}\iint\limits_{\Gamma}D\frac{\partial N}{\partial t}dSdt=\int_{t_1}^{t_2}\iiint\limits_{\Omega}\left[\frac{\partial}{\partial x}\left(D\frac{\partial N}{\partial x}\right)+\frac{\partial}{\partial y}\left(D\frac{\partial N}{\partial y}\right)+\frac{\partial}{\partial z}\left(D\frac{\partial N}{\partial z}\right)\right]dxdydzdt.$$
+区域$\Omega$内, 从$t_1$到$t_2$物质的增加量也可表示为
+$$\iiint\limits_{\Omega}\left[N(x,y,z,t_2)-N(x,y,z,t_1)\right]dxdydz=\iiint\limits_{\Omega}\int_{t_1}^{t_2}\frac{\partial N}{\partial t}dtdxdydz=\int_{t_1}^{t_2}\iiint\limits_{\Omega}\frac{\partial N}{\partial t}dxdydzdt.$$
+由于这两个质量相等, 且$t_1$, $t_2$, $\Omega$的取值时任意的, 可得
+$$\frac{\partial N}{\partial t}=\frac{\partial}{\partial x}\left(D\frac{\partial N}{\partial x}\right)+\frac{\partial}{\partial y}\left(D\frac{\partial N}{\partial y}\right)+\frac{\partial}{\partial z}\left(D\frac{\partial N}{\partial z}\right).$$
 
 \section{2.2/1}
 
