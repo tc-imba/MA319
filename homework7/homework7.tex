@@ -1,0 +1,74 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{../ma319}
+\semester{Fall}
+\year{2019}
+\subtitlenumber{7}
+\author{刘逸灏 (515370910207)}
+
+\begin{document}
+
+\maketitle
+
+\section{2.2/3}
+
+
+
+\section{2.2/4}
+\begin{problem}
+  在区域$t>0$, $0<x<l$中求解如下的定解问题:
+  $$\left\{\begin{aligned}
+       & \frac{\partial u}{\partial t}=\frac{\partial^2u}{\partial x^2}-\beta(u-u_0),\\
+       & u(0,t) = u(1,t)=u_0,\\
+       & u(x,0)=f(x),
+    \end{aligned}\right.$$
+    其中$a$, $\beta$, $u_0$均为常数, $f(x)$为已知函数.
+\end{problem}
+
+设
+$$u(x,t)=u_0+v(x,t)e^{-\beta t}.$$
+
+则
+$$\frac{\partial u}{\partial t}-\frac{\partial^2u}{\partial x^2}+\beta(u-u_0)=\frac{\partial v}{\partial t}e^{-\beta t}-\beta ve^{-\beta t}-\frac{\partial^2v}{\partial x^2}e^{-\beta t}+\beta ve^{-\beta t}=e^{-\beta t}\left(\frac{\partial v}{\partial t}-\frac{\partial^2v}{\partial x^2}\right)=0,$$
+$$v(0,t)e^{-\beta t}=v(l,t)e^{-\beta t}=u(0,t)-u_0=u(l,t)-u_0=0,$$
+$$v(x,0)=u(x,0)-u_0=f(x)-u_0.$$
+
+故可以先求解如下定解问题:
+$$\left\{\begin{aligned}
+     & \frac{\partial v}{\partial t}=\frac{\partial^2v}{\partial x^2},\\
+     & v(0,t) = v(1,t)=0,\\
+     & v(x,0)=f(x)-u_0.
+  \end{aligned}\right.$$
+
+方程的特征值和对应的特征函数为
+$$\lambda=\lambda_k=\frac{k^2\pi^2}{l^2},\quad X_k(x)=C_k\sin\sqrt{\lambda}x=C_k\sin\frac{k\pi}{l} x,\quad k=1,2,\cdots.$$
+
+方程的通解为
+$$v(x,t)=\sum_{k=1}^\infty A_ke^{-a^2\lambda t}\sin\sqrt{\lambda}x=\sum_{k=1}^\infty A_ke^{-\frac{k^2\pi^2}{l^2}a^2t}\sin \frac{k\pi}{l} x.$$
+
+代入初值条件得
+$$v(x,0)=\sum_{k=1}^\infty A_k\sin\sqrt{\lambda}x=\sum_{k=1}^\infty A_k\sin \frac{k\pi}{l} x=f(x)-u_0.$$
+
+解得
+$$A_k=\frac{2}{l}\int_0^l [f(x)-u_0]\sin\sqrt{\lambda}xdx=\frac{2}{l}\int_0^l [f(x)-u_0]\sin \frac{k\pi}{l} xdx
+=\frac{2}{l}\int_0^l f(x)\sin \frac{k\pi}{l} xdx-\frac{2u_0(1-\cos k\pi)}{k\pi}.$$
+
+化简得
+$$A_k=\frac{2}{l}\int_0^l f(x)\sin \frac{k\pi}{l} xdx+\frac{2u_0[(-1)^k-1]}{k\pi}.$$
+
+故
+$$v(x,t)=\sum_{k=1}^\infty \left\{\frac{2}{l}\int_0^l f(x)\sin \frac{k\pi}{l} xdx+\frac{2u_0[(-1)^k-1]}{k\pi}\right\} e^{-\frac{k^2\pi^2}{l^2}a^2t}\sin \frac{k\pi}{l} x,$$
+$$u(x,t)=u_0+e^{-\beta t}\sum_{k=1}^\infty \left\{\frac{2}{l}\int_0^l f(x)\sin \frac{k\pi}{l} xdx+\frac{2u_0[(-1)^k-1]}{k\pi}\right\} e^{-\frac{k^2\pi^2}{l^2}a^2t}\sin \frac{k\pi}{l} x.$$
+
+\section{2.2/5}
+
+\section{2.3/1}
+
+\subsection*{(1)}
+\subsection*{(2)}
+
+\section{2.3/2}
+
+
+
+
+\end{document}

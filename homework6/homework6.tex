@@ -73,7 +73,7 @@ $$\frac{\partial N}{\partial t}=\frac{\partial}{\partial x}\left(D\frac{\partial
 \begin{problem}
 用分离变量法求下列定解问题的解:
 $$\left\{\begin{aligned}
-     & \frac{\partial u}{\partial t}=a^2\frac{\partial^2u}{\partial t^2}\quad (t>0,0<x<\pi), \\
+     & \frac{\partial u}{\partial t}=a^2\frac{\partial^2u}{\partial x^2}\quad (t>0,0<x<\pi), \\
      & u(0,t)=\frac{\partial u}{\partial x}(\pi,t)=0\quad (t>0),                             \\
      & u(x,0)=f(x)\quad (0<x<\pi).
   \end{aligned}\right.$$
@@ -85,9 +85,55 @@ $$X(x)=C_1\cos\sqrt{\lambda}x+C_2\sin\sqrt{\lambda}x,$$
 
 代入$X(0)=0$, $X'(\pi)=0$得
 $$C_1=0,\quad C_2\sqrt{\lambda}\cos\sqrt{\lambda}\pi=0,$$
-$$\lambda=\lambda_k=\frac{(2k-1)^2}{4},\quad X_k(x)=C_k\sin\frac{(2k-1)}{2}x,\quad k=1,2,\cdots.$$
+$$\lambda=\lambda_k=\frac{(2k-1)^2\pi^2}{4l^2}=\frac{(2k-1)^2}{4},\quad X_k(x)=C_k\sin\frac{(2k-1)}{2}x,\quad k=1,2,\cdots.$$
+
+方程的通解为
+$$u(x,t)=\sum_{k=1}^\infty A_ke^{-a^2\lambda t}\sin\sqrt{\lambda}x=\sum_{k=1}^\infty A_k e^{-\frac{(2k-1)^2}{4}a^2 t}\sin\frac{2k-1}{2}x.$$
+
+代入初值条件得
+$$u(x,0)=\sum_{k=1}^\infty A_k\sin\sqrt{\lambda}x=\sum_{k=1}^\infty A_k\sin\frac{2k-1}{2}x=f(x).$$
+
+解得
+$$A_k=\frac{2}{l}\int_0^l f(x)\sin\sqrt{\lambda}xdx=\frac{2}{\pi}\int_0^\pi f(x)\sin\frac{2k-1}{2}xdx.$$
+
+故
+$$u(x,t)=\sum_{k=1}^\infty \frac{2}{\pi}\int_0^\pi f(x)\sin\frac{2k-1}{2}xdx \cdot e^{-\frac{(2k-1)^2}{4}a^2 t}\sin\frac{2k-1}{2}x.$$
 
 \section{2.2/2}
+
+\begin{problem}
+用分离变量法求解热传导方程的初边值问题:
+$$\left\{\begin{aligned}
+     & \frac{\partial u}{\partial t}=\frac{\partial^2u}{\partial x^2}\quad (t>0,0<x<1), \\
+     & u(x,0)=\left\{\begin{aligned}
+       &x,\quad &0<x\leqslant\frac{1}{2},\\
+       &1-x,\quad &\frac{1}{2}<x<1,
+     \end{aligned}\right.                           \\
+     & u(0,t) = u(1,t)=0.
+  \end{aligned}\right.$$
+\end{problem}
+
+方程的特征值和对应的特征函数为
+$$\lambda=\lambda_k=\frac{k^2\pi^2}{l^2}=k^2\pi^2,\quad X_k(x)=C_k\sin\sqrt{\lambda}x=C_k\sin k\pi x,\quad k=1,2,\cdots.$$
+
+方程的通解为
+$$u(x,t)=\sum_{k=1}^\infty A_ke^{-a^2\lambda t}\sin\sqrt{\lambda}x=\sum_{k=1}^\infty A_ke^{-k^2\pi^2 t}\sin k\pi x.$$
+
+代入初值条件得
+$$u(x,0)=\sum_{k=1}^\infty A_k\sin\sqrt{\lambda}x=\sum_{k=1}^\infty A_k\sin k\pi x=\left\{\begin{aligned}
+  &x,\quad &0<x\leqslant\frac{1}{2},\\
+  &1-x,\quad &\frac{1}{2}<x<1.
+\end{aligned}\right.=f(x).$$
+
+解得
+$$A_k=\frac{2}{l}\int_0^l f(x)\sin\sqrt{\lambda}xdx=2\int_0^1 f(x)\sin k\pi xdx
+=2\left(\frac{-k\pi\cos\frac{k\pi}{2}+2\sin\frac{k\pi}{2}+k\pi\cos\frac{k\pi}{2}+2\sin\frac{k\pi}{2}-2\sin k\pi}{2k^2\pi^2}\right).$$
+
+化简得
+$$A_k=\frac{4}{k^2\pi^2}\sin\frac{k\pi}{2}=\left\{\begin{aligned}&\frac{4(-1)^{(k-1)/2}}{k^2\pi^2}, & k = 2n-1 \\ &0, & k=2n \end{aligned}\right.,\quad n=1,2,\cdots.$$
+
+故
+$$u(x,t)=\sum_{n=1}^\infty \frac{4(-1)^{n-1}}{(2n-1)^2\pi^2} e^{-(2n-1)^2\pi^2 t}\sin (2n-1)\pi x.$$
 
 
 \end{document}
