@@ -10,18 +10,55 @@
 \maketitle
 
 \section{2.2/3}
+\begin{problem}
+如果有一长度为$l$的均匀细棒, 其周围及两端$x=0$, $x=l$均为绝热, 初始温度分布为$u(x,0)=f(x)$, 问以后时刻的温度分布如何? 且证明当$f(x)$等于常数$u_0$时, 恒有$u(x,t)=u_0$.
+\end{problem}
 
+题目可归结为求解如下的定解问题:
+$$\left\{\begin{aligned}
+     & \frac{\partial u}{\partial t}=a^2\frac{\partial^2u}{\partial x^2},        \\
+     & \frac{\partial u}{\partial x}(0,t) =\frac{\partial u}{\partial x}(l,t)=0, \\
+     & u(x,0)=f(x).
+  \end{aligned}\right.$$
 
+方程的特征值和对应的特征函数为
+$$X''(x)+\lambda X(x)=0,$$
+$$X(x)=C_1\cos\sqrt{\lambda}x+C_2\sin\sqrt{\lambda}x,$$
+
+代入$X'(0)=0$, $X'(l)=0$得
+$$C_2=0,\quad C_1\sqrt{\lambda}\sin\sqrt{\lambda}l=0,$$
+$$\lambda=\lambda_k=\frac{k^2\pi^2}{l^2},\quad X_k(x)=C_k\cos\frac{k\pi}{l}x,\quad k=0,1,2,\cdots.$$
+
+方程的通解为
+$$u(x,t)=\frac{1}{2}A_0+\sum_{k=1}^\infty A_ke^{-a^2\lambda t}\cos\sqrt{\lambda}x=\frac{1}{2}A_0+\sum_{k=1}^\infty A_k e^{-\frac{k^2\pi^2}{l^2}a^2 t}\cos\frac{k\pi}{l}x.$$
+
+代入初值条件得
+$$u(x,0)=\frac{1}{2}A_0+\sum_{k=1}^\infty A_k\cos\sqrt{\lambda}x=\frac{1}{2}A_0+\sum_{k=1}^\infty A_k\cos\frac{k\pi}{l}x=f(x).$$
+
+解得
+$$A_k=\frac{2}{l}\int_0^l f(x)\cos\sqrt{\lambda}xdx=\frac{2}{l}\int_0^l f(x)\cos\frac{k\pi}{l}xdx.$$
+
+故
+$$u(x,t)=\frac{1}{l}\int_0^l f(x)dx+\sum_{k=1}^\infty \frac{2}{l}\int_0^l f(x)\cos\frac{k\pi}{l}xdx \cdot e^{-\frac{k^2\pi^2}{l^2}a^2 t}\cos\frac{k\pi}{l}x.$$
+
+当$f(x)$等于常数$u_0$时
+$$A_k=\left\{\begin{aligned}
+     & 2u_0,\quad                         & k=0, \\
+     & \frac{u_0l\sin k\pi}{k\pi}=0,\quad & k>0.
+  \end{aligned}\right.$$
+
+故
+$$u(x,t)=\frac{1}{2}A_0=u_0.$$
 
 \section{2.2/4}
 \begin{problem}
-  在区域$t>0$, $0<x<l$中求解如下的定解问题:
-  $$\left\{\begin{aligned}
-       & \frac{\partial u}{\partial t}=\frac{\partial^2u}{\partial x^2}-\beta(u-u_0),\\
-       & u(0,t) = u(1,t)=u_0,\\
-       & u(x,0)=f(x),
-    \end{aligned}\right.$$
-    其中$a$, $\beta$, $u_0$均为常数, $f(x)$为已知函数.
+在区域$t>0$, $0<x<l$中求解如下的定解问题:
+$$\left\{\begin{aligned}
+     & \frac{\partial u}{\partial t}=\frac{\partial^2u}{\partial x^2}-\beta(u-u_0), \\
+     & u(0,t) = u(1,t)=u_0,                                                         \\
+     & u(x,0)=f(x),
+  \end{aligned}\right.$$
+其中$a$, $\beta$, $u_0$均为常数, $f(x)$为已知函数.
 \end{problem}
 
 设
@@ -34,8 +71,8 @@ $$v(x,0)=u(x,0)-u_0=f(x)-u_0.$$
 
 故可以先求解如下定解问题:
 $$\left\{\begin{aligned}
-     & \frac{\partial v}{\partial t}=\frac{\partial^2v}{\partial x^2},\\
-     & v(0,t) = v(1,t)=0,\\
+     & \frac{\partial v}{\partial t}=\frac{\partial^2v}{\partial x^2}, \\
+     & v(0,t) = v(1,t)=0,                                              \\
      & v(x,0)=f(x)-u_0.
   \end{aligned}\right.$$
 
@@ -50,7 +87,7 @@ $$v(x,0)=\sum_{k=1}^\infty A_k\sin\sqrt{\lambda}x=\sum_{k=1}^\infty A_k\sin \fra
 
 解得
 $$A_k=\frac{2}{l}\int_0^l [f(x)-u_0]\sin\sqrt{\lambda}xdx=\frac{2}{l}\int_0^l [f(x)-u_0]\sin \frac{k\pi}{l} xdx
-=\frac{2}{l}\int_0^l f(x)\sin \frac{k\pi}{l} xdx-\frac{2u_0(1-\cos k\pi)}{k\pi}.$$
+  =\frac{2}{l}\int_0^l f(x)\sin \frac{k\pi}{l} xdx-\frac{2u_0(1-\cos k\pi)}{k\pi}.$$
 
 化简得
 $$A_k=\frac{2}{l}\int_0^l f(x)\sin \frac{k\pi}{l} xdx+\frac{2u_0[(-1)^k-1]}{k\pi}.$$
@@ -60,6 +97,35 @@ $$v(x,t)=\sum_{k=1}^\infty \left\{\frac{2}{l}\int_0^l f(x)\sin \frac{k\pi}{l} xd
 $$u(x,t)=u_0+e^{-\beta t}\sum_{k=1}^\infty \left\{\frac{2}{l}\int_0^l f(x)\sin \frac{k\pi}{l} xdx+\frac{2u_0[(-1)^k-1]}{k\pi}\right\} e^{-\frac{k^2\pi^2}{l^2}a^2t}\sin \frac{k\pi}{l} x.$$
 
 \section{2.2/5}
+\begin{problem}
+长度为$l$的均匀细杆的初始温度为$0^\circ C$, 端点$x=0$保持常温$u_0$, 而在$x=l$和侧面上, 热量可以发散到周围的介质中去, 介质的温度为$^\circ C$, 此时杆上的温度分布函数$u(x,t)$满足下述定解问题:
+$$\left\{\begin{aligned}
+     & \frac{\partial u}{\partial t}=a^2\frac{\partial^2u}{\partial x^2}-b^2u,              \\
+     & u(0,t)=u_0,\quad \left.\left(\frac{\partial u}{\partial x}+Hu\right)\right|_{x=l}=0, \\
+     & u(x,0)=0,
+  \end{aligned}\right.$$
+其中$a,b,H$均为常数, 试求出$u(x,t)$.
+\end{problem}
+
+设
+$$u(x,t)=v(x,t)e^{-b^2t}+f(x).$$
+
+则
+$$\frac{\partial u}{\partial t}-a^2\frac{\partial^2u}{\partial x^2}+b^2u=\frac{\partial v}{\partial t}e^{-b^2t}-b^2ve^{-b^2t}-a^2\frac{\partial^2v}{\partial x^2}e^{-b^2t}-a^2f''(x)+b^2ve^{-b^2t}+b^2f(x)=0,$$
+$$v(0,t)e^{-b^2t}+f(0)=u_0,\quad \left.\left(\frac{\partial v}{\partial x}+Hv\right)\right|_{x=l}+f'(l)+Hf(l)=0,$$
+$$v(x,0)+f(x)=0.$$
+
+可找到$f(x)$使以下成立
+$$\left(\frac{\partial v}{\partial t}-\frac{\partial^2v}{\partial x^2}\right)e^{-b^2t}=0,\quad f''(x)-\frac{b^2}{a^2}f(x)=0,$$
+$$v(0,t)e^{-b^2t}=0,\quad f(0)=u_0,\quad \left.\left(\frac{\partial v}{\partial x}+Hv\right)\right|_{x=l}=0,\quad f'(l)+Hf(l)=0.$$
+
+故$f(x)$的通解为
+$$f(x)=C_1e^{\frac{b}{a}x}+C_2e^{-\frac{b}{a}x}.$$
+代入初值条件得
+$$f(0)=C_1+C_2=u_0,$$
+$$f'(l)+Hf(l)=\frac{b}{a}\left(C_1e^{\frac{bl}{a}}-C_2e^{-\frac{bl}{a}}\right)+H\left(C_1e^{\frac{bl}{a}}+C_2e^{-\frac{bl}{a}}\right)=0.$$
+解得
+$$$$
 
 \section{2.3/1}
 
