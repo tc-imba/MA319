@@ -191,9 +191,19 @@ $$F[f](\lambda+h)-F[f](\lambda)=\int_{-\infty}^{\infty}f(\xi)e^{-i\lambda\xi}d\x
 $$|F[f](\lambda+h)-F[f](\lambda)|=\left|\int_{-\infty}^{\infty}f(\xi)e^{-i\lambda\xi}(1-e^{-ih\xi})d\xi\right|\leqslant\int_{-\infty}^{\infty}|f(\xi)|\left|e^{-i\lambda\xi}\right|\left|1-e^{-ih\xi}\right|d\xi.$$
 易知当$\xi\in\mathbf{R}$时,
 $$\left|e^{-i\lambda\xi}\right|=\sqrt{\cos^2\lambda\xi+\sin^2\lambda\xi}=1,\quad \left|1-e^{-ih\xi}\right|=\sqrt{(1-\cos h\xi)^2+\sin^2h\xi}=\sqrt{2}\cdot\sqrt{1-\cos h\xi},$$
-$$|F[f](\lambda+h)-F[f](\lambda)|\leqslant\int_{-\infty}^{\infty}|f(\xi)|\sqrt{2}\cdot\sqrt{1-\cos h\xi}d\xi\leqslant\sqrt{2}\int_{-\infty}^{\infty}|f(\xi)|d\xi.$$
-
-
-
+$$|F[f](\lambda+h)-F[f](\lambda)|\leqslant\int_{-\infty}^{\infty}|f(\xi)|\sqrt{2}\cdot\sqrt{1-\cos h\xi}d\xi.$$
+现只需证明, 任取$\varepsilon>0$, 存在$h>0$使得$|F[f](\lambda+h)-F[f](\lambda)|\leqslant\varepsilon$. 将上式拆分为三个区间的积分
+$$|F[f](\lambda+h)-F[f](\lambda)|\leqslant\sqrt{2}\left(\int_{-\infty}^{A}|f(\xi)|\sqrt{1-\cos h\xi}d\xi+\int_{A}^{B}|f(\xi)|\sqrt{1-\cos h\xi}d\xi+\int_{B}^{\infty}|f(\xi)|\sqrt{1-\cos h\xi}d\xi\right).$$
+由于$f(x)$在$(-\infty,\infty)$上绝对可积, 可找到$A<0$, $B>0$使得
+$$\sqrt{2}\int_{-\infty}^{A}|f(\xi)|\sqrt{1-\cos h\xi}d\xi\leqslant\sqrt{2}\int_{-\infty}^{A}|f(\xi)|d\xi\leqslant\frac{\varepsilon}{3},$$
+$$\sqrt{2}\int_{B}^{\infty}|f(\xi)|\sqrt{1-\cos h\xi}d\xi\leqslant\sqrt{2}\int_{B}^{\infty}|f(\xi)|d\xi\leqslant\frac{\varepsilon}{3}.$$
+设
+$$C=\max\{-A,B\},\quad M=\sup\limits_{x\in[A,B]}|f(x)|,\quad L=B-A,$$
+$$\sqrt{2}\int_{A}^{B}|f(\xi)|\sqrt{1-\cos h\xi}d\xi\leqslant\sqrt{2}(B-A)\sup\limits_{x\in[A,B]}|f(x)|\sup\limits_{x\in[A,B]}\sqrt{1-\cos hx}=\sqrt{2}ML\sqrt{1-\cos hC}.$$
+令$$h\leqslant\frac{1}{C}\arccos\left(1-\frac{\varepsilon^2}{18M^2L^2}\right),$$
+则
+$$\sqrt{2}\int_{A}^{B}|f(\xi)|\sqrt{1-\cos h\xi}d\xi\leqslant\frac{\varepsilon}{3},$$
+$$|F[f](\lambda+h)-F[f](\lambda)|\leqslant\varepsilon.$$
+故得证.
 
 \end{document}
