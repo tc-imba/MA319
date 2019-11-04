@@ -125,14 +125,73 @@ $$f(x)=C_1e^{\frac{b}{a}x}+C_2e^{-\frac{b}{a}x}.$$
 $$f(0)=C_1+C_2=u_0,$$
 $$f'(l)+Hf(l)=\frac{b}{a}\left(C_1e^{\frac{bl}{a}}-C_2e^{-\frac{bl}{a}}\right)+H\left(C_1e^{\frac{bl}{a}}+C_2e^{-\frac{bl}{a}}\right)=0.$$
 解得
-$$$$
+$$C_1=\frac{u_0(b-a H)}{a H e^{\frac{2 b l}{a}}+b e^{\frac{2 b l}{a}}-a H+b},\quad C_2=\frac{u_0(a H+b) e^{\frac{2 b l}{a}}}{a H e^{\frac{2 b l}{a}}+b e^{\frac{2 b l}{a}}-a H+b},$$
+$$f(x)=\frac{u_0 e^{-\frac{b x}{a}} \left[a H \left(e^{\frac{2 b l}{a}}-e^{\frac{2 b x}{a}}\right)+b \left(e^{\frac{2 b l}{a}}+e^{\frac{2 b x}{a}}\right)\right]}{a H \left(e^{\frac{2 b l}{a}}-1\right)+b \left(e^{\frac{2 b l}{a}}+1\right)}=\frac{u_0 \left[a H \sinh \left(\frac{b (l-x)}{a}\right)+b \cosh \left(\frac{b (l-x)}{a}\right)\right]}{a H \sinh \left(\frac{b l}{a}\right)+b \cosh \left(\frac{b l}{a}\right)}.$$
+
+故可以先求解如下定解问题:
+$$\left\{\begin{aligned}
+     & \frac{\partial v}{\partial t}=a^2\frac{\partial^2v}{\partial x^2},                 \\
+     & v(0,t)=0,\quad \left.\left(\frac{\partial v}{\partial x}+Hv\right)\right|_{x=l}=0, \\
+     & v(x,0)=-f(x).
+  \end{aligned}\right.$$
+
+方程的特征值和对应的特征函数为
+$$X''(x)+\lambda X(x)=0,$$
+$$X(x)=C_1\cos\sqrt{\lambda}x+C_2\sin\sqrt{\lambda}x,$$
+
+代入$X(0)=0$, $X'(l)+HX(l)=0$得
+$$C_1=0,\quad C_2(\sqrt{\lambda}\cos\sqrt{\lambda}l+H\sin\sqrt{\lambda}l)=0,$$
+$$v=\sqrt{\lambda}l,\quad \tan v=-\frac{\sqrt{\lambda}}{H}.$$
+存在无数个正根$v_k>0$, 满足
+$$\left(k-\frac{1}{2}\right)\pi<v_k<k\pi,\quad \lambda_k=\left(\frac{v_k}{l}\right)^2,\quad X_k(x)=C_k\sin\frac{v_k}{l}x,\quad k=1,2,\cdots$$
+
+方程的通解为
+$$v(x,t)=\sum_{k=1}^\infty A_ke^{-a^2\lambda t}\sin\sqrt{\lambda}x=\sum_{k=1}^\infty A_ke^{-\frac{v_k^2}{l^2}a^2t}\sin \frac{v_k}{l} x.$$
+
+代入初值条件得
+$$v(x,0)=\sum_{k=1}^\infty A_k\sin\sqrt{\lambda}x=\sum_{k=1}^\infty A_k\sin \frac{v_k}{l} x=-f(x).$$
+
+由固有函数系$\{X_k\}=\{\sin\sqrt{\lambda_k}x\}$的正交性可得
+$$M_k=\int_0^l\sin^2\sqrt{\lambda_k}xdx=\frac{l}{2}+\frac{H}{2(H^2+\lambda_k)}=\frac{l}{2}+\frac{Hl^2}{2(H^2l^2+v_k^2)},$$
+$$A_k=\frac{1}{M_k}\int_0^l -f(x)\sin\sqrt{\lambda_k}xdx=-\frac{1}{M_k}\int_0^l f(x)\sin\frac{v_k}{l}xdx.$$
+
+故
+$$v(x,t)=-\sum_{k=1}^\infty \frac{1}{M_k}\int_0^l f(\xi)\sin\frac{v_k}{l}\xi d\xi \cdot e^{-\frac{v_k^2}{l^2}a^2t}\sin \frac{v_k}{l} x,$$
+$$u(x,t)=-e^{-b^2t}\sum_{k=1}^\infty \frac{1}{M_k}\int_0^l f(\xi)\sin\frac{v_k}{l}\xi d\xi \cdot e^{-\frac{v_k^2}{l^2}a^2t}\sin \frac{v_k}{l} x+\frac{u_0 \left[a H \sinh \left(\frac{b (l-x)}{a}\right)+b \cosh \left(\frac{b (l-x)}{a}\right)\right]}{a H \sinh \left(\frac{b l}{a}\right)+b \cosh \left(\frac{b l}{a}\right)}.$$
 
 \section{2.3/1}
+\begin{problem}
+求下列函数的傅里叶变换:
+\begin{enumerate}
+  \item $e^{-\eta x^2}\quad (\eta>0)$;
+  \item $e^{-a|x|}\quad (a>0)$.
+\end{enumerate}
+\end{problem}
 
 \subsection*{(1)}
+$$g(\lambda)=\int_{-\infty}^{\infty}f(\xi)e^{-i\lambda\xi}d\xi=\int_{-\infty}^{\infty}e^{-\eta\xi^2-i\lambda\xi}d\xi=\int_{-\infty}^{\infty}e^{-\eta\xi^2-i\lambda\xi+\frac{\lambda^2}{4\eta}-\frac{\lambda^2}{4\eta}}d\xi=e^{-\frac{\lambda^2}{4\eta}}\int_{-\infty}^{\infty}e^{-\eta\left(\xi+\frac{i\lambda}{2\eta}\right)^2}d\xi.$$
+设$$\int_{-\infty}^\infty e^{-\eta x^2}dx=\int_{-\infty}^\infty e^{-\eta y^2}dy=A,$$
+$$A^2=\int_{-\infty}^\infty e^{-\eta x^2}dx\int_{-\infty}^\infty e^{-\eta y^2}dy=\int_{-\infty}^\infty\int_{-\infty}^\infty e^{-\eta(x^2+y^2)^2}dxdy.$$
+令$r^2=x^2+y^2$
+$$A^2=\int_0^{2\pi}\int_0^\infty e^{-\eta r^2}rdrd\theta=2\pi\int_0^\infty-\frac{1}{2\eta}e^{-\eta r^2}d(-\eta r^2)=\frac{\pi}{\eta}\int_{-\infty}^0 e^sds=\frac{\pi}{\eta},$$
+$$g(\lambda)=e^{-\frac{\lambda^2}{4\eta}}\int_{-\infty}^{\infty}e^{-\eta\left(\xi+\frac{i\lambda}{2\eta}\right)^2}d\left(\xi+\frac{i\lambda}{2\eta}\right)=e^{-\frac{\lambda^2}{4\eta}}\int_{-\infty}^{\infty}e^{-\eta x^2}dx=Ae^{-\frac{\lambda^2}{4\eta}}=\sqrt{\frac{\pi}{\eta}}e^{-\frac{\lambda^2}{4\eta}}.$$
+
 \subsection*{(2)}
+$$g(\lambda)=\int_{-\infty}^{\infty}f(\xi)e^{-i\lambda\xi}d\xi=\int_{-\infty}^{\infty}e^{-a|\xi|-i\lambda\xi}d\xi=\int_{-\infty}^{\infty}e^{-a|\xi|}\cos\lambda\xi d\xi+\int_{-\infty}^{\infty}e^{-a|\xi|}i\sin\lambda\xi d\xi.$$
+由于$e^{-a|\xi|}$, $\cos\lambda\xi$是偶函数, $i\sin\lambda\xi$是奇函数,
+$$\int_{-\infty}^{\infty}e^{-a|\xi|}\cos\lambda\xi d\xi=2\int_0^\infty e^{-a\xi}\cos\lambda\xi d\xi,\quad \int_{-\infty}^{\infty}e^{-a|\xi|}i\sin\lambda\xi d\xi=0,$$
+$$g(\lambda)=2\int_0^\infty e^{-a\xi}\cos\lambda\xi d\xi=\left.\frac{e^{-a \xi } (\lambda  \sin (\lambda  \xi )-a \cos (\lambda  \xi ))}{a^2+\lambda ^2}\right|_0^{\infty}=\frac{a}{a^2+\lambda^2}.$$
 
 \section{2.3/2}
+\begin{problem}
+证明: 当$f(x)$在$(-\infty,\infty)$上绝对可积时, $F[f]$为连续函数.
+\end{problem}
+
+$$F[f](\lambda+h)-F[f](\lambda)=\int_{-\infty}^{\infty}f(\xi)e^{-i\lambda\xi}d\xi-\int_{-\infty}^{\infty}f(\xi)e^{-i(\lambda+h)\xi}d\xi=\int_{-\infty}^{\infty}f(\xi)e^{-i\lambda\xi}(1-e^{-ih\xi})d\xi,$$
+$$|F[f](\lambda+h)-F[f](\lambda)|=\left|\int_{-\infty}^{\infty}f(\xi)e^{-i\lambda\xi}(1-e^{-ih\xi})d\xi\right|\leqslant\int_{-\infty}^{\infty}|f(\xi)|\left|e^{-i\lambda\xi}\right|\left|1-e^{-ih\xi}\right|d\xi.$$
+易知当$\xi\in\mathbf{R}$时,
+$$\left|e^{-i\lambda\xi}\right|=\sqrt{\cos^2\lambda\xi+\sin^2\lambda\xi}=1,\quad \left|1-e^{-ih\xi}\right|=\sqrt{(1-\cos h\xi)^2+\sin^2h\xi}=\sqrt{2}\cdot\sqrt{1-\cos h\xi},$$
+$$|F[f](\lambda+h)-F[f](\lambda)|\leqslant\int_{-\infty}^{\infty}|f(\xi)|\sqrt{2}\cdot\sqrt{1-\cos h\xi}d\xi\leqslant\sqrt{2}\int_{-\infty}^{\infty}|f(\xi)|d\xi.$$
 
 
 
