@@ -10,6 +10,40 @@
 \maketitle
 
 \section{2.3/5}
+\begin{problem}
+求解热传导方程(3.17)的柯西问题, 已知
+\begin{enumerate}
+  \item $u|_{t=0}=\sin x$,
+  \item 用延拓法求解半有界直线上的热传导方程(3.17), 假设
+        $$\left\{\begin{aligned}
+             & u(x,0)=\varphi(x)\quad(0<x<\infty), \\
+             & u(0,t)=0.
+          \end{aligned}\right.$$
+\end{enumerate}
+\end{problem}
+
+\subsection*{(i)}
+初值条件为
+$$\varphi(x)=u|_{t=0}=\sin x.$$
+故
+\begin{align*}
+  u(x,t)
+   & =\frac{1}{2a\sqrt{\pi t}}\int_{-\infty}^\infty\varphi(\xi)e^{-\frac{(x-\xi)^2}{4a^2t}}d\xi                                                               \\
+   & =\frac{1}{2a\sqrt{\pi t}}\int_{-\infty}^\infty\varphi(x+2a\sqrt{t}\eta)e^{-\eta^2}d(x+2a\sqrt{t}\eta)                                                    \\
+   & =\frac{1}{\sqrt{\pi}}\int_{-\infty}^\infty\sin(x+2a\sqrt{t}\eta)e^{-\eta^2}d\eta                                                                         \\
+   & =\frac{1}{\sqrt{\pi}}\int_{-\infty}^\infty\left[\sin x\cos(2a\sqrt{t}\eta)+\cos x\sin(2a\sqrt{t}\eta)\right]e^{-\eta^2}d\eta                             \\
+   & =\frac{\sin x}{\sqrt{\pi}}\int_{-\infty}^\infty\cos(2a\sqrt{t}\eta)e^{-\eta^2}d\eta                                                                      \\
+   & =\frac{\sin x}{2\sqrt{\pi}}\int_{-\infty}^\infty \left[e^{-\eta^2+i2a\sqrt{t}\eta}+e^{-\eta^2-i2a\sqrt{t}\eta}\right]d\eta                               \\
+   & =\frac{\sin x}{2\sqrt{\pi}}e^{-a^2t}\left[\int_{-\infty}^\infty e^{-(\eta-ia\sqrt{t})^2}d\eta+\int_{-\infty}^\infty e^{-(\eta+ia\sqrt{t})^2}d\eta\right] \\
+   & =\frac{\sin x}{\sqrt{\pi}}e^{-a^2t}\int_{-\infty}^\infty e^{-\chi^2}d\chi                                                                                \\
+   & =e^{-a^2t}\sin x.
+\end{align*}
+
+\subsection*{(2)}
+
+
+
+
 \section{2.3/7}
 \section{2.3/8}
 \section{2.4/2}
