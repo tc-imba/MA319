@@ -41,12 +41,90 @@ $$\varphi(x)=u|_{t=0}=\sin x.$$
 
 \subsection*{(2)}
 
-
-
+使用奇延拓
+$$u(x,0)=\left\{\begin{aligned}
+     & \varphi(x)   & \quad(0<x<\infty),  \\
+     & 0            & \quad (x=0),        \\
+     & -\varphi(-x) & \quad(-\infty<x<0).
+  \end{aligned}\right.$$
+带入公式可得
+\begin{align*}
+  u(x,t)
+   & =\frac{1}{2a\sqrt{\pi t}}\int_{-\infty}^\infty u(\xi,0)e^{-\frac{(x-\xi)^2}{4a^2t}}d\xi                   \\
+   & =\frac{1}{2a\sqrt{\pi t}}\left(\int_0^\infty\varphi(\xi)e^{-\frac{(x-\xi)^2}{4a^2t}}d\xi
+  +\int_{-\infty}^0-\varphi(-\xi)e^{-\frac{(x-\xi)^2}{4a^2t}}d\xi\right)                                       \\
+   & =\frac{1}{2a\sqrt{\pi t}}\left(\int_0^\infty\varphi(\xi)e^{-\frac{(x-\xi)^2}{4a^2t}}d\xi
+  +\int_0^\infty-\varphi(\xi)e^{-\frac{(x+\xi)^2}{4a^2t}}d\xi\right)                                           \\
+   & =\frac{1}{2a\sqrt{\pi t}}\int_0^\infty\varphi(\xi)e^{-\frac{x^2+\xi^2}{4a^2t}}
+  \left(e^{\frac{2x\xi}{4a^2t}}-e^{-\frac{2x\xi}{4a^2t}}\right)d\xi                                            \\
+   & =\frac{1}{a\sqrt{\pi t}}\int_0^\infty\varphi(\xi)e^{-\frac{x^2+\xi^2}{4a^2t}}\sinh\frac{x\xi}{2a^2t}d\xi.
+\end{align*}
 
 \section{2.3/7}
+\begin{problem}
+证明: 如果$u_1(x,t)$, $u_2(x,t)$分别是下述两个定解问题的解:
+$$\left\{\begin{aligned}
+     & \frac{\partial u_1}{\partial t}=a^2\frac{\partial^2u_1}{\partial x^2}, \\
+     & u_1|_{t=0}=\varphi_1(x);
+  \end{aligned}\qquad\right\{\begin{aligned}
+     & \frac{\partial u_2}{\partial t}=a^2\frac{\partial^2u_2}{\partial y^2}, \\
+     & u_2|_{t=0}=\varphi_2(y).
+  \end{aligned}$$
+则$u(x,y,t)=u_1(x,t)u_2(y,t)$是定解问题
+$$\left\{\begin{aligned}
+     & \frac{\partial u}{\partial t}=a^2\left(\frac{\partial^2u}{\partial x^2}+\frac{\partial^2u}{\partial y^2}\right), \\
+     & u|_{t=0}=\varphi_1(x)\varphi_2(y)
+  \end{aligned}\right.$$
+的解.
+\end{problem}
+
+由$u(x,y,t)=u_1(x,t)u_2(y,t)$可得
+$$\frac{\partial u}{\partial t}=\frac{\partial u_1}{\partial t}u_2+\frac{\partial u_2}{\partial t}u_1=a^2\left(\frac{\partial^2u_1}{\partial x^2}u_2+\frac{\partial^2u_2}{\partial y^2}u_1\right)=a^2\left(\frac{\partial^2u_1u_2}{\partial x^2}+\frac{\partial^2u_1u_2}{\partial y^2}\right)=a^2\left(\frac{\partial^2u}{\partial x^2}+\frac{\partial^2u}{\partial y^2}\right),$$
+$$u|_{t=0}=u_1|_{t=0}\cdot u_2|_{t=0}=\varphi_1(x)\varphi_2(y).$$
+故得证.
+
 \section{2.3/8}
+\begin{problem}
+导出下列热传导方程柯西问题的解的表达式:
+$$\left\{\begin{aligned}
+     & \frac{\partial u}{\partial t}=a^2\left(\frac{\partial^2u}{\partial x^2}+\frac{\partial^2u}{\partial y^2}\right), \\
+     & u|_{t=0}=\sum_{i=0}^n\alpha_i(x)\beta_i(y).
+  \end{aligned}\right.$$
+\end{problem}
+
+由上题结论易知
+$$\left\{\begin{aligned}
+     & \frac{\partial u_i}{\partial t}=a^2\left(\frac{\partial^2u_i}{\partial x^2}+\frac{\partial^2u_i}{\partial y^2}\right), \\
+     & u_i|_{t=0}=\alpha_i(x)\beta_i(y).
+  \end{aligned}\right.$$
+的解$u_i(x,y,t)$为
+\begin{align*}
+  u_i(x,y,t)
+   & =u_{i1}(x,t)y_{i2}(y,t)                                                                                                                    \\
+   & =\frac{1}{2a\sqrt{\pi}t}\int_{-\infty}^\infty\alpha_i(\xi)e^{-\frac{(x-\xi)^2}{4a^2t}}d\xi
+  \cdot\frac{1}{2a\sqrt{\pi}t}\int_{-\infty}^\infty\beta_i(\eta)e^{-\frac{(y-\eta)^2}{4a^2t}}d\eta                                              \\
+   & =\frac{1}{4\pi a^2t}\int_{-\infty}^\infty\int_{-\infty}^\infty\alpha_i(\xi)\beta_i(\eta)e^{-\frac{(x-\xi)^2+(y-\eta)^2}{4a^2t}}d\xi d\eta.
+\end{align*}
+
+根据叠加原理
+$$u(x,y,t)=\sum_{i=0}^n u_i(x,y,t)=\sum_{i=0}^n\frac{1}{4\pi a^2t}\int_{-\infty}^\infty\int_{-\infty}^\infty\alpha_i(\xi)\beta_i(\eta)e^{-\frac{(x-\xi)^2+(y-\eta)^2}{4a^2t}}d\xi d\eta.$$
+
 \section{2.4/2}
+\begin{problem}
+利用证明热传导方程极值原理的方法, 证明满足方程$\dfrac{\partial^2u}{\partial x^2}+\dfrac{\partial^2u}{\partial y^2}=0$的函数在有界闭区域上的最大值不会超过它在边界上的最大值.
+\end{problem}
+
 \section{2.4/3}
+\begin{problem}
+导出初边值问题
+$$\left\{\begin{aligned}
+     & u_t-a^2u_{xx}=f(x,t),                                                                                        \\
+     & u|_{x=0}=\mu_1(x),\quad \left.\left(\frac{\partial u}{\partial x}+hu\right)\right|_{x=l}=\mu_2(t)\quad (h>0) \\
+     & u|_{t=0}=\varphi(x)
+  \end{aligned}\right.$$
+的解$u(x,t)$在$R_T:\{0\leqslant t\leqslant T,0\leqslant x\leqslant l\}$中满足的估计.
+$$u(x,t)\leqslant e^{\lambda T}\max\left(0,\max_{0\leqslant x\leqslant l}\varphi(x),\max_{0\leqslant t\leqslant T}\left(e^{-\lambda t}\mu_1(t),\frac{e^{-\lambda r}\mu_2(t)}{h}\right),\frac{1}{\lambda}\max_{R_T}(e^{-\lambda t}f)\right),$$
+其中$\lambda>0$为任意正常数.
+\end{problem}
 
 \end{document}
