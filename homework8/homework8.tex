@@ -47,7 +47,7 @@ $$u(x,0)=\left\{\begin{aligned}
      & 0            & \quad (x=0),        \\
      & -\varphi(-x) & \quad(-\infty<x<0).
   \end{aligned}\right.$$
-带入公式可得
+代入公式可得
 \begin{align*}
   u(x,t)
    & =\frac{1}{2a\sqrt{\pi t}}\int_{-\infty}^\infty u(\xi,0)e^{-\frac{(x-\xi)^2}{4a^2t}}d\xi                   \\
@@ -113,6 +113,17 @@ $$u(x,y,t)=\sum_{i=0}^n u_i(x,y,t)=\sum_{i=0}^n\frac{1}{4\pi a^2t}\int_{-\infty}
 \begin{problem}
 利用证明热传导方程极值原理的方法, 证明满足方程$\dfrac{\partial^2u}{\partial x^2}+\dfrac{\partial^2u}{\partial y^2}=0$的函数在有界闭区域上的最大值不会超过它在边界上的最大值.
 \end{problem}
+
+设$u(x,y)$在区域$\Omega$内连续, 并且在区域内部满足方程$\dfrac{\partial^2u}{\partial x^2}+\dfrac{\partial^2u}{\partial y^2}=0$, 且$\Gamma$为区域$\Omega$的边界. 设$M$为$\Omega$内$u(x,y)$的最大值, $m$为$\Gamma$上$u(x,y)$的最大值. 使用反证法, 如果命题不真, 那么$M>m$. 此时在$\Omega$内一定存在着一点$(x^*,y^*)$, 使函数$u(x,y)$在该点取值$M$. 作函数
+$$V(x,y)=u(x,y)+\frac{M-m}{4R^2}[(x-x^*)^2+(y-y^*)^2],$$
+其中$R^2>(x-x^*)^2+(y-y^*)^2$. 由于在$\Gamma$上
+$$V(x,y)<m+\frac{M-m}{4}=\frac{M}{4}+\frac{3}{4}m=\theta M\quad (0<\theta<1),$$
+而$$V(x^*,y^*)=M,$$
+因此, 函数$V(x,y)$和$u(x,y)$一样, 它不在$\Gamma$上取到最大值. 设$V(x,y)$在$\Omega$中的某一点$(x_1,y_1)$上取到最大值, 则在此点应有$\dfrac{\partial^2 V}{\partial x^2}\leqslant0$, $\dfrac{\partial^2 V}{\partial y^2}\leqslant0$, 因此在点$(x_1,y_1)$处
+$$\frac{\partial^2 V}{\partial x^2}+\frac{\partial^2 V}{\partial y^2}\leqslant 0.$$
+但由直接计算方程可得
+$$\frac{\partial^2 V}{\partial x^2}+\frac{\partial^2 V}{\partial y^2}=\frac{\partial^2 u}{\partial x^2}+\frac{M-m}{2R^2}+\frac{\partial^2 u}{\partial y^2}+\frac{M-m}{2R^2}=\frac{\partial^2 u}{\partial x^2}+\frac{\partial^2 u}{\partial y^2}+\frac{M-m}{R^2}>0,$$
+这就得到矛盾. 这说明原先的假设时不正确的, 证毕.
 
 \section{2.4/3}
 \begin{problem}
