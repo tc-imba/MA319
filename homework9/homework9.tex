@@ -1,0 +1,155 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{../ma319}
+\semester{Fall}
+\year{2019}
+\subtitlenumber{9}
+\author{刘逸灏 (515370910207)}
+
+\begin{document}
+
+\maketitle
+
+\section{2.5/1}
+\begin{problem}
+证明下列热传导方程初边值问题
+$$\left\{\begin{aligned}
+     & u_t-a^2u_{xx}=0,     \\
+     & u|_{x=0}=u|_{x=l}=0, \\
+     & u|_{t=0}=\varphi(x)
+  \end{aligned}\right.$$
+的解当$t\to+\infty$时指数地衰减为零, 其中$\varphi\in C^2$, 且$\varphi(0)=\varphi(l)=0$.
+\end{problem}
+
+方程的解是
+$$u(x,t)=\sum_{k=1}^\infty A_ke^{-\frac{k^2\pi^2a^2}{l^2}t}\sin\frac{k\pi}{l}x,\quad A_k=\frac{2}{l}\int_0^l\varphi(x)\sin\frac{k\pi}{l}xdx.$$
+其中
+$$\left|\sin\frac{k\pi}{l}x\right|\leqslant1,$$
+$$|A_k|\leqslant\frac{2}{l}\cdot l\cdot\max_{0\leqslant x\leqslant l}\left|\varphi(x)\sin\frac{k\pi}{l}x\right|\leqslant 2\max_{0\leqslant x\leqslant l}|\varphi(x)|=C$$
+由$\varphi\in C^2$且$\varphi(0)=\varphi(l)=0$可知$C$是一个确定的正常数.
+$$|u(x,t)|\leqslant\sum_{k=1}^\infty Ce^{-\frac{k^2\pi^2a^2}{l^2}t}=C\left(1+\sum_{k=2}^\infty e^{-\frac{(k^2-1)\pi^2a^2}{l^2}t}\right)e^{-\frac{\pi^2a^2}{l^2}t}.$$
+当$t\to+\infty$时
+$$\sum_{k=2}^\infty e^{-\frac{(k^2-1)\pi^2a^2}{l^2}t}\leqslant \sum_{k=1}^\infty e^{-\frac{k^2\pi^2a^2}{l^2}t}\leqslant\int_0^\infty e^{-\frac{k^2\pi^2a^2}{l^2}t}dk=\frac{\sqrt{\pi}}{2}\sqrt{\frac{l^2}{\pi^2a^2t}}\leqslant C_1.$$
+设$C_2=C(1+C_1)$即可得
+$$|u(x,t)|\leqslant C_2e^{-\frac{\pi^2a^2}{l^2}t}.$$
+
+\section{2.5/2}
+\begin{problem}
+证明: 当$\varphi(x,y)$为$\mathbf{R}^2$上的有界连续函数, 且$\varphi\in L^1(\mathbf{R}^2)$时, 二维热传导方程柯西问题的解, 当$t\to+\infty$时, 以$t^{-1}$衰减率趋于零.
+\end{problem}
+
+方程的解是
+$$u(x,y,t)=\frac{1}{4\pi a^2t}\int_{-\infty}^\infty\int_{-\infty}^\infty\varphi(\xi,\eta)e^{-\frac{(x-\xi)^2+(y-\eta)^2}{4a^2t}}d\xi d\eta.$$
+由$\varphi(x,y)$为$\mathbf{R}^2$上的有界连续函数, 且$\varphi\in L^1(\mathbf{R}^2)$可知
+$$\int_{-\infty}^\infty\int_{-\infty}^\infty|\varphi(\xi,\eta)|d\xi d\eta\leqslant C.$$
+当$t\to+\infty$时
+$$\left|e^{-\frac{(x-\xi)^2+(y-\eta)^2}{4a^2t}}\right|\leqslant1,$$
+$$|u(x,y,t)|\leqslant \frac{1}{4\pi a^2t}\int_{-\infty}^\infty\int_{-\infty}^\infty\left|\varphi(\xi,\eta)e^{-\frac{(x-\xi)^2+(y-\eta)^2}{4a^2t}}\right|d\xi d\eta\leqslant\frac{C}{4\pi a^2t}.$$
+设$C_1=\dfrac{C}{4\pi a^2}$即可得
+$$|u(x,y,t)|\leqslant C_1t^{-1}.$$
+
+\section{2.5/3}
+\begin{problem}
+证明: 当$\varphi(x,y,z)$为$\mathbf{R}^3$上的有界连续函数, 且$\varphi\in L^1(\mathbf{R}^3)$时, 三维热传导方程柯西问题的解, 当$t\to+\infty$时, 以$t^{-\frac{3}{2}}$衰减率趋于零.
+\end{problem}
+
+方程的解是
+$$u(x,y,z,t)=\frac{1}{8a^3\sqrt{\pi t}^3}\int_{-\infty}^\infty\int_{-\infty}^\infty\int_{-\infty}^\infty\varphi(\xi,\eta,\zeta)e^{-\frac{(x-\xi)^2+(y-\eta)^2+(z-\zeta)^2}{4a^2t}}d\xi d\eta d\zeta.$$
+由$\varphi(x,y,z)$为$\mathbf{R}^2$上的有界连续函数, 且$\varphi\in L^1(\mathbf{R}^3)$可知
+$$\int_{-\infty}^\infty\int_{-\infty}^\infty\int_{-\infty}^\infty|\varphi(\xi,\eta,\zeta)|d\xi d\eta d\zeta\leqslant C.$$
+当$t\to+\infty$时
+$$\left|e^{-\frac{(x-\xi)^2+(y-\eta)^2+(z-\zeta)^2}{4a^2t}}\right|\leqslant1,$$
+$$|u(x,y,t)|\leqslant \frac{1}{8a^3\sqrt{\pi t}^3}\int_{-\infty}^\infty\int_{-\infty}^\infty\int_{-\infty}^\infty\left|\varphi(\xi,\eta,\zeta)e^{-\frac{(x-\xi)^2+(y-\eta)^2+(z-\zeta)^2}{4a^2t}}\right|d\xi d\eta d\zeta\leqslant\frac{C}{8a^3\sqrt{\pi t}^3}.$$
+设$C_1=\dfrac{C}{8a^3\sqrt{\pi}^3}$即可得
+$$|u(x,y,t)|\leqslant C_1t^{-\frac{3}{2}}.$$
+
+\section{3.1/1}
+\begin{problem}
+设$u(x_1,\cdots,x_n)=f(r)$(其中$r=\sqrt{x_1^2+\cdots+x_n^2}$)是$n$维调和函数(即满足方程$\dfrac{\partial^2u}{\partial x_1^2}+\cdots+\dfrac{\partial^2u}{\partial x_n^2}=0$), 试证明
+$$f(r)=c_1+\frac{c_2}{r^{n-2}}\quad(n\neq 2),$$
+$$f(r)=c_1+c_2\ln\frac{1}{r}\quad(n=2),$$
+其中$c_1$, $c_2$为任意常数.
+\end{problem}
+
+$$\frac{\partial r}{\partial x_i}=\frac{\partial}{\partial x_i}\sqrt{x_1^2+\cdots+x_n^2}=\frac{1}{2\sqrt{x_1^2+\cdots+x_n^2}}\cdot 2x_i=\frac{x_i}{r},$$
+$$\frac{\partial u}{\partial x_i}=\frac{\partial f(r)}{\partial r}\cdot\frac{\partial r}{\partial x_i}=f'(r)\frac{x_i}{r},$$
+$$\frac{\partial^2u}{\partial x_i^2}=f'(r)\frac{1}{r}\frac{\partial x_i}{\partial x_i}+x_i\frac{\partial}{\partial r}\left[f'(r)\frac{1}{r}\right]\frac{\partial r}{\partial x_i}=f'(r)\frac{1}{r}+\left[f''(r)\frac{x_i}{r}-f'(r)\frac{x_i}{r^2}\right]\frac{x_i}{r}=f''(r)\frac{x_i^2}{r^2}+\left(\frac{1}{r}-\frac{x_i^2}{r^3}\right)f'(r),$$
+$$\sum_{i=1}^n\frac{\partial^2u}{\partial x_i^2}=f''(r)+\frac{n-1}{r}f'(r)=0,$$
+$$\frac{f''(r)}{f'(r)}=\frac{\frac{df'(r)}{dr}}{f'(r)}=-\frac{n-1}{r},$$
+$$\frac{df'(r)}{f'(r)}=-\frac{n-1}{r}dr.$$
+两边积分得
+$$\int\frac{1}{f'(r)}df'(r)=-\int\frac{n-1}{r}dr,$$
+$$\ln f'(r)=-(n-1)\ln r+c_0,$$
+$$f'(r)=c_0e^{-(n-1)\ln r}=\frac{c_0}{r^{n-1}}.$$
+再次积分得
+$$f(r)=\left\{\begin{aligned}
+     & c_1+\frac{c_2}{r^{n-2}} & \quad (n\neq2), \\
+     & c_1+c_2\ln\frac{1}{r}   & \quad (n=2).    \\
+  \end{aligned}\right.$$
+
+\section{3.1/3}
+\begin{problem}
+证明: 拉普拉斯算子在柱坐标$(r,\theta,z)$下可以写为
+$$\Delta u=\frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial u}{\partial r}\right)+\frac{1}{r^2}\frac{\partial^2u}{\partial\theta^2}+\frac{\partial^2u}{\partial z^2}.$$
+\end{problem}
+
+$$r=\sqrt{x^2+y^2},\quad \theta=\arctan\frac{y}{x},$$
+$$\frac{\partial r}{\partial x}=\frac{x}{r}=\cos\theta,\quad\frac{\partial r}{\partial y}=\frac{y}{r}=\sin\theta,$$
+$$\frac{\partial\theta}{\partial x}=-\frac{y}{x^2+y^2}=-\frac{y}{r^2}=-\frac{\sin\theta}{r},\quad\frac{\partial\theta}{\partial y}=\frac{x}{x^2+y^2}=\frac{x}{r^2}=\frac{\cos\theta}{r}.$$
+则
+$$\frac{\partial u}{\partial x}=\frac{\partial u}{\partial r}\frac{\partial r}{\partial x}+\frac{\partial u}{\partial\theta}\frac{\partial\theta}{\partial x}=\frac{\partial u}{\partial r}\cos\theta-\frac{\partial u}{\partial \theta}\frac{\sin\theta}{r},$$
+$$\frac{\partial u}{\partial y}=\frac{\partial u}{\partial r}\frac{\partial r}{\partial y}+\frac{\partial u}{\partial\theta}\frac{\partial\theta}{\partial y}=\frac{\partial u}{\partial r}\sin\theta+\frac{\partial u}{\partial \theta}\frac{\cos\theta}{r}.$$
+\begin{align*}
+  \frac{\partial^2u}{\partial x^2}
+   & =\frac{\partial}{\partial r}\left(\frac{\partial u}{\partial x}\right)\frac{\partial r}{\partial x}-\frac{\partial}{\partial\theta}\left(\frac{\partial u}{\partial x}\right)\frac{\partial\theta}{\partial x}                                                                                                 \\
+   & =\frac{\partial^2u}{\partial r^2}\cos^2\theta-\frac{\partial^2u}{\partial r\partial\theta}\frac{\sin\theta\cos\theta}{r}+\frac{\partial u}{\partial\theta}\frac{\sin\theta\cos\theta}{r^2}
+  -\frac{\partial^2u}{\partial r\partial\theta}\frac{\sin\theta\cos\theta}{r}+\frac{\partial u}{\partial r}\frac{\sin^2\theta}{r}+\frac{\partial^2u}{\partial\theta^2}\frac{\sin^2\theta}{r^2}+\frac{\partial u}{\partial\theta}\frac{\sin\theta\cos\theta}{r^2}                                                    \\
+   & =\frac{\partial^2u}{\partial r^2}\cos^2\theta-\frac{\partial^2u}{\partial r\partial\theta}\frac{2\sin\theta\cos\theta}{r}+\frac{\partial^2u}{\partial\theta^2}\frac{\sin^2\theta}{r^2}+\frac{\partial u}{\partial r}\frac{\sin^2\theta}{r}+\frac{\partial u}{\partial\theta}\frac{2\sin\theta\cos\theta}{r^2},
+\end{align*}
+\begin{align*}
+  \frac{\partial^2u}{\partial y^2}
+   & =\frac{\partial}{\partial r}\left(\frac{\partial u}{\partial y}\right)\frac{\partial r}{\partial y}-\frac{\partial}{\partial\theta}\left(\frac{\partial u}{\partial y}\right)\frac{\partial\theta}{\partial y}                                                                                                 \\
+   & =\frac{\partial^2u}{\partial r^2}\sin^2\theta+\frac{\partial^2u}{\partial r\partial\theta}\frac{\sin\theta\cos\theta}{r}-\frac{\partial u}{\partial\theta}\frac{\sin\theta\cos\theta}{r^2}
+  +\frac{\partial^2u}{\partial r\partial\theta}\frac{\sin\theta\cos\theta}{r}+\frac{\partial u}{\partial r}\frac{\cos^2\theta}{r}+\frac{\partial^2u}{\partial\theta^2}\frac{\cos^2\theta}{r^2}-\frac{\partial u}{\partial\theta}\frac{\sin\theta\cos\theta}{r^2}                                                    \\
+   & =\frac{\partial^2u}{\partial r^2}\sin^2\theta+\frac{\partial^2u}{\partial r\partial\theta}\frac{2\sin\theta\cos\theta}{r}+\frac{\partial^2u}{\partial\theta^2}\frac{\cos^2\theta}{r^2}+\frac{\partial u}{\partial r}\frac{\cos^2\theta}{r}-\frac{\partial u}{\partial\theta}\frac{2\sin\theta\cos\theta}{r^2}.
+\end{align*}
+故
+$$\Delta u=\frac{\partial^2u}{\partial x^2}+\frac{\partial^2u}{\partial y^2}+\frac{\partial^2u}{\partial z^2}
+  =\frac{\partial^2u}{\partial r^2}+\frac{\partial^2u}{\partial\theta^2}\frac{1}{r^2}+\frac{\partial u}{\partial r}\frac{1}{r}+\frac{\partial^2u}{\partial z^2}
+  =\frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial u}{\partial r}\right)+\frac{1}{r^2}\frac{\partial^2u}{\partial\theta^2}+\frac{\partial^2u}{\partial z^2}.$$
+
+\section{3.1/5}
+证明用极坐标表示的下列函数都满足调和方程:
+\begin{problem}
+\begin{enumerate}
+  \item $\ln r$和$\theta$;
+  \item $r^n\cos n\theta$和$r^n\sin n\theta$;
+  \item $r\ln r\cos\theta-r\theta\sin\theta$和$r\ln r\sin\theta+r\theta\cos\theta$.
+\end{enumerate}
+\end{problem}
+
+由上题易知拉普拉斯算子在极坐标系$(r,\theta)$下可以写为
+$$\Delta u=\frac{\partial^2u}{\partial x^2}+\frac{\partial^2u}{\partial y^2}=\frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial u}{\partial r}\right)+\frac{1}{r^2}\frac{\partial^2u}{\partial\theta^2}.$$
+
+\subsection*{(1)}
+$$\left(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}\right)\ln r=\frac{1}{r}\frac{\partial}{\partial r}(1)=0,$$
+$$\left(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}\right)\theta=\frac{1}{r^2}\frac{\partial}{\partial\theta}(1)=0.$$
+
+\subsection*{(2)}
+$$\left(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}\right)r^n\cos n\theta=\frac{1}{r}\frac{\partial}{\partial r}nr^n\cos n\theta-\frac{1}{r^2}\frac{\partial}{\partial\theta}nr^n\sin n\theta=n^2r^{n-2}\cos n\theta-n^2r^{n-2}\cos n\theta=0,$$
+$$\left(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}\right)r^n\sin n\theta=\frac{1}{r}\frac{\partial}{\partial r}nr^n\sin n\theta+\frac{1}{r^2}\frac{\partial}{\partial\theta}nr^n\cos n\theta=n^2r^{n-2}\sin n\theta-n^2r^{n-2}\sin n\theta=0.$$
+
+\subsection*{(3)}
+\begin{align*}
+    & \left(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}\right)(r\ln r\cos\theta-r\theta\sin\theta)                                                                   \\
+  = & \frac{1}{r}\frac{\partial}{\partial r}r(\cos\theta+\cos\theta\ln r-\theta\sin\theta)+\frac{1}{r^2}\frac{\partial}{\partial\theta}(-r\theta\cos\theta-r\sin\theta-r\ln r\sin\theta) \\
+  = & \frac{2\cos\theta+\cos\theta\ln r-\theta\sin\theta}{2}-\frac{2\cos\theta+\cos\theta\ln r-\theta\sin\theta}{2}                                                                      \\
+  = & 0,
+\end{align*}
+\begin{align*}
+    & \left(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}\right)(r\ln r\cos\theta-r\theta\sin\theta)                                                                   \\
+  = & \frac{1}{r}\frac{\partial}{\partial r}r(\sin\theta+\sin\theta\ln r+\theta\cos\theta)+\frac{1}{r^2}\frac{\partial}{\partial\theta}(-r\theta\sin\theta+r\cos\theta+r\ln r\cos\theta) \\
+  = & \frac{2\sin\theta+\sin\theta\ln r+\theta\cos\theta}{2}-\frac{2\sin\theta+\sin\theta\ln r+\theta\cos\theta}{2}                                                                      \\
+  = & 0.
+\end{align*}
+
+\end{document}

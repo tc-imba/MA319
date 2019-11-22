@@ -100,7 +100,7 @@ $$\left\{\begin{aligned}
 的解$u_i(x,y,t)$为
 \begin{align*}
   u_i(x,y,t)
-   & =u_{i1}(x,t)y_{i2}(y,t)                                                                                                                    \\
+   & =u_{i_1}(x,t)u_{i_2}(y,t)                                                                                                                  \\
    & =\frac{1}{2a\sqrt{\pi}t}\int_{-\infty}^\infty\alpha_i(\xi)e^{-\frac{(x-\xi)^2}{4a^2t}}d\xi
   \cdot\frac{1}{2a\sqrt{\pi}t}\int_{-\infty}^\infty\beta_i(\eta)e^{-\frac{(y-\eta)^2}{4a^2t}}d\eta                                              \\
    & =\frac{1}{4\pi a^2t}\int_{-\infty}^\infty\int_{-\infty}^\infty\alpha_i(\xi)\beta_i(\eta)e^{-\frac{(x-\xi)^2+(y-\eta)^2}{4a^2t}}d\xi d\eta.
@@ -134,8 +134,40 @@ $$\left\{\begin{aligned}
      & u|_{t=0}=\varphi(x)
   \end{aligned}\right.$$
 的解$u(x,t)$在$R_T:\{0\leqslant t\leqslant T,0\leqslant x\leqslant l\}$中满足的估计.
-$$u(x,t)\leqslant e^{\lambda T}\max\left(0,\max_{0\leqslant x\leqslant l}\varphi(x),\max_{0\leqslant t\leqslant T}\left(e^{-\lambda t}\mu_1(t),\frac{e^{-\lambda r}\mu_2(t)}{h}\right),\frac{1}{\lambda}\max_{R_T}(e^{-\lambda t}f)\right),$$
+$$u(x,t)\leqslant e^{\lambda T}\max\left(0,\max_{0\leqslant x\leqslant l}\varphi(x),\max_{0\leqslant t\leqslant T}\left(e^{-\lambda t}\mu_1(t),\frac{e^{-\lambda t}\mu_2(t)}{h}\right),\frac{1}{\lambda}\max_{R_T}(e^{-\lambda t}f)\right),$$
 其中$\lambda>0$为任意正常数.
 \end{problem}
+
+设$$v(x,t)=u(x,t)e^{-\lambda t}.$$
+则
+$$u_t-a^2u_{xx}-f(x,t)=v_te^{\lambda t}+\lambda ve^{\lambda t}-a^2v_{xx}e^{\lambda t}-f(x,t)=v_t-a^2v_{xx}+\lambda v-f(x,t)e^{-\lambda t}=0,$$
+$$v|_{x=0}=(ue^{-\lambda t})|_{x=0}=\mu_1(x)e^{-\lambda t},\quad \left.\left(\frac{\partial v}{\partial x}+hv\right)\right|_{x=l}=\left.\left(\frac{\partial u}{\partial x}e^{-\lambda t}+hue^{-\lambda t}\right)\right|_{x=l}=\mu_2(t)e^{-\lambda t},$$
+$$v|_{t=0}=(ue^{-\lambda t})|_{t=0}=\varphi(x).$$
+故可以先求以下初边值问题$v(x,t)$在$R_T$中满足的估计:
+$$\left\{\begin{aligned}
+     & v_t-a^2v_{xx}+\lambda v=f(x,t)e^{-\lambda t},                                                                                            \\
+     & v|_{x=0}=\mu_1(x)e^{-\lambda t},\quad \left.\left(\frac{\partial v}{\partial x}+hv\right)\right|_{x=l}=\mu_2(t)e^{-\lambda t}\quad (h>0) \\
+     & v|_{t=0}=\varphi(x)
+  \end{aligned}\right.$$
+若$v$在$(x^*,t^*)$取正的极大值, 则$v(x^*,t^*)>0$, 由极值原理知$v$的极大值只能在边界$x=0$, $x=l$或$t=0$上取到.
+
+在$(x^*,t^*)\in\{x=0\}$或$\{t=0\}$的情形, 可知
+$$v(x^*,t^*)\leqslant\max_{0\leqslant t\leqslant T}e^{-\lambda t}\mu_1(t),$$
+$$v(x^*,t^*)\leqslant\max_{0\leqslant x\leqslant l}\varphi(x).$$
+
+在$(x^*,t^*)\in\{x=l\}$的情形, 由$\dfrac{\partial v}{\partial x}\geqslant 0$可得
+$$hv\leqslant e^{-\lambda t}\mu_2(t),$$
+$$v(x^*,t^*)\leqslant\max_{0\leqslant t\leqslant T}\frac{e^{-\lambda t}\mu_2(t)}{h}.$$
+
+又由于在正的极大值点, $v_t\leqslant0$, $v_{xx}\leqslant0$, 可得
+$$\lambda v\leqslant f(x,t)e^{-\lambda t},$$
+$$v(x^*,t^*)\leqslant\frac{1}{\lambda}\max_{R_T}(e^{-\lambda}f).$$
+
+综上可得
+$$v(x,t)\leqslant \max\left(0,\max_{0\leqslant x\leqslant l}\varphi(x),\max_{0\leqslant t\leqslant T}\left(e^{-\lambda t}\mu_1(t),\frac{e^{-\lambda t}\mu_2(t)}{h}\right),\frac{1}{\lambda}\max_{R_T}(e^{-\lambda t}f)\right).$$
+
+故
+$$u(x,t)=e^{\lambda t}v(x,t)\leqslant e^{\lambda T}v(x,t)\leqslant e^{\lambda T}\max\left(0,\max_{0\leqslant x\leqslant l}\varphi(x),\max_{0\leqslant t\leqslant T}\left(e^{-\lambda t}\mu_1(t),\frac{e^{-\lambda t}\mu_2(t)}{h}\right),\frac{1}{\lambda}\max_{R_T}(e^{-\lambda t}f)\right).$$
+
 
 \end{document}
