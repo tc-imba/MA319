@@ -1,0 +1,216 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{../ma319}
+\semester{Fall}
+\year{2019}
+\subtitlenumber{10}
+\author{刘逸灏 (515370910207)}
+
+\begin{document}
+
+\maketitle
+
+\section{3.1/6}
+\begin{problem}
+用分离变量法求解由下述调和方程的第一边值问题所描述的矩形平板($0\leqslant x\leqslant a$, $0\leqslant y\leqslant b$)上的稳定温度分布:
+$$\left\{\begin{aligned}
+     & \frac{\partial^2u}{\partial x^2}+\frac{\partial^2u}{\partial y^2}=0, \\
+     & u(0,y)=u(a,y)=0,                                                     \\
+     & u(x,0)=\sin\frac{\pi x}{a},\quad u(x,b)=0.
+  \end{aligned}\right.$$
+\end{problem}
+
+设$u(x,y)=X(x)Y(y)$, 代入得
+$$X''(x)Y(y)+X(x)Y''(y)=0,$$
+$$\frac{X''(x)}{X(x)}=-\frac{Y''(y)}{Y(y)}=-\lambda.$$
+
+则有两个常微分方程
+$$X''(x)+\lambda X(x)=0,$$
+$$Y''(y)-\lambda Y(y)=0.$$
+
+关于$x$的方程的特征值和特征函数为
+$$X(x)=C_1\cos\sqrt{\lambda}x+C_2\sin\sqrt{\lambda}x.$$
+
+代入$X(0)=0$, $X(a)=0$得
+$$C_1=0,\quad C_2\sin\sqrt{\lambda}a=0,$$
+$$\lambda=\lambda_k=\frac{k^2\pi^2}{a^2},\quad X_k(x)=C_k\sin\sqrt{\lambda}x=C_k\sin\frac{k\pi}{a}x,\quad k=1,2,\cdots.$$
+
+代入关于$y$的常微分方程可得
+$$Y''(y)-\frac{k^2\pi^2}{a^2} Y(y)=0,$$
+$$Y(y)=A_ke^{\frac{k\pi}{a}y}+B_ke^{-\frac{k\pi}{a}y}.$$
+
+方程的通解为
+$$u(x,y)=\sum_{k=1}^\infty X(x)Y(y)=\sum_{k=1}^\infty\left(A_ke^{\frac{k\pi}{a}y}+B_ke^{-\frac{k\pi}{a}y}\right)\sin\frac{k\pi}{a}x.$$
+
+代入初值条件得
+$$u(x,0)=\sum_{k=1}^\infty(A_k+B_k)\sin\frac{k\pi}{a}x=\sin\frac{\pi x}{a},$$
+$$u(x,b)=\sum_{k=1}^\infty\left(A_ke^{\frac{k\pi}{a}b}+B_ke^{-\frac{k\pi}{a}b}\right)\sin\frac{k\pi}{a}x=0.$$
+
+解得
+$$A_k+B_k=\left\{\begin{aligned}
+    1 & \quad k=1, \\ 0 &\quad k>1,
+  \end{aligned}\right.$$
+$$A_ke^{\frac{k\pi}{a}b}+B_ke^{-\frac{k\pi}{a}b}=0.$$
+
+化简得
+$$A_k=\left\{\begin{aligned}
+     & -\frac{e^{-\frac{\pi}{a}b}}{e^{\frac{\pi}{a}b}-e^{-\frac{\pi}{a}b}} & \quad k=1, \\ &0 &\quad k>1,
+  \end{aligned}\qquad B_k=
+  \right\{\begin{aligned}
+     & \frac{e^{\frac{\pi}{a}b}}{e^{\frac{\pi}{a}b}-e^{-\frac{\pi}{a}b}} & \quad k=1, \\ &0 &\quad k>1.
+  \end{aligned}$$
+
+故
+$$u(x,y)=\frac{-e^{-\frac{\pi}{a}(b-y)}+e^{\frac{\pi}{a}(b-y)}}{e^{\frac{\pi}{a}b}-e^{-\frac{\pi}{a}b}}\sin\frac{\pi}{a}x=\frac{\sinh\frac{\pi}{a}(b-y)}{\sinh\frac{\pi}{a}b}\sin\frac{\pi}{a}x.$$
+
+\section{3.1/7}
+\begin{problem}
+在膜形扁壳渠道闸门的设计中, 为了考察闸门在水压力作用下的受力情况, 要在矩形区域$0\leqslant x\leqslant a$, $0\leqslant y\leqslant b$上求解如下的非齐次调和方程的边值问题:
+$$\left\{\begin{aligned}
+     & \Delta u=py+q\quad(p<0,q>0\text{常数})                               \\
+     & \left.\frac{\partial u}{\partial x}\right|_{x=0}=0,\quad u|_{x=a}=0, \\
+     & u|_{y=0,y=b}=0.
+  \end{aligned}\right.$$
+试求解之.
+\end{problem}
+
+设$$v(x,y)=u(x,y)+(x^2-a^2)(fy+g).$$
+则
+$$\Delta v=\frac{\partial^2v}{\partial x^2}+\frac{\partial^2v}{\partial y^2}=\frac{\partial^2u}{\partial x^2}+2(fy+g)+\frac{\partial^2v}{\partial y^2}=\Delta u+2(fy+g).$$
+令$f=-\dfrac{p}{2}$, $g=-\dfrac{q}{2}$可使$\Delta v=0$, 此时
+$$v(x,y)=u(x,y)-\frac{1}{2}(x^2-a^2)(py+q),$$
+$$\left.\frac{\partial v}{\partial x}\right|_{x=0}=\left.\left[\frac{\partial u}{\partial x}+2x(fy+g)\right]\right|_{x=0}=0,\quad v|_{x=a}=\left[u+(x^2-a^2)(fy+g)\right]|_{x=a}=0,$$
+$$v|_{y=0}=\left[u+(x^2-a^2)(fy+g)\right]|_{y=0}=-\frac{q}{2}(x^2-a^2),\quad v|_{y=b}=\left[u+(x^2-a^2)(fy+g)\right]|_{y=b}=-\frac{pb+q}{2}(x^2-a^2).$$
+
+故可以先求解齐次调和方程的边值问题:
+$$\left\{\begin{aligned}
+     & \Delta v=0                                                              \\
+     & \left.\frac{\partial v}{\partial x}\right|_{x=0}=0,\quad v|_{x=a}=0,    \\
+     & v|_{y=0}=-\frac{q}{2}(x^2-a^2),\quad v|_{y=b}=-\frac{pb+q}{2}(x^2-a^2).
+  \end{aligned}\right.$$
+
+设$v(x,y)=X(x)Y(y)$, 代入得
+$$X''(x)Y(y)+X(x)Y''(y)=0,$$
+$$\frac{X''(x)}{X(x)}=-\frac{Y''(y)}{Y(y)}=-\lambda.$$
+
+则有两个常微分方程
+$$X''(x)+\lambda X(x)=0,$$
+$$Y''(y)-\lambda Y(y)=0.$$
+
+关于$x$的方程的特征值和特征函数为
+$$X(x)=C_1\cos\sqrt{\lambda}x+C_2\sin\sqrt{\lambda}x.$$
+
+代入$X'(0)=0$, $X(a)=0$得
+$$C_2=0,\quad C_1\cos\sqrt{\lambda}a=0,$$
+$$\lambda=\lambda_k=\frac{(2k-1)^2\pi^2}{4a^2},\quad X_k(x)=C_k\cos\sqrt{\lambda}x=C_k\cos\frac{(2k-1)\pi}{2a}x,\quad k=1,2,\cdots.$$
+
+代入关于$y$的常微分方程可得
+$$Y''(y)-\frac{(2k-1)^2\pi^2}{4a^2} Y(y)=0,$$
+$$Y(y)=A_ke^{\frac{(2k-1)\pi}{2a}y}+B_ke^{-\frac{(2k-1)\pi}{2a}y}.$$
+
+方程的通解为
+$$v(x,y)=\sum_{k=1}^\infty X(x)Y(y)=\sum_{k=1}^\infty\left(A_ke^{\frac{(2k-1)\pi}{2a}y}+B_ke^{-\frac{(2k-1)\pi}{2a}y}\right)\cos\frac{(2k-1)\pi}{2a}x.$$
+
+代入初值条件得
+$$v(x,0)=\sum_{k=1}^\infty(A_k+B_k)\cos\frac{(2k-1)\pi}{2a}x=-\frac{q}{2}(x^2-a^2),$$
+$$v(x,b)=\sum_{k=1}^\infty\left(A_ke^{\frac{(2k-1)\pi}{2a}b}+B_ke^{-\frac{(2k-1)\pi}{2a}b}\right)\cos\frac{(2k-1)\pi}{2a}x=-\frac{pb+q}{2}(x^2-a^2).$$
+
+解得
+$$\frac{2}{a}\int_0^a(x^2-a^2)\cos\frac{(2k-1)\pi}{2a}xdx=\frac{16a^2[2\cos k\pi+(2k-1)\pi\sin k\pi]}{(2k-1)^3\pi^3}=(-1)^k\frac{32a^2}{(2k-1)^3\pi^3},$$
+$$A_k+B_k=\frac{2}{a}\int_0^a-\frac{q}{2}(x^2-a^2)\cos\frac{(2k-1)\pi}{2a}xdx=(-1)^{k+1}\frac{16qa^2}{(2k-1)^3\pi^3},$$
+$$A_ke^{\frac{(2k-1)\pi}{2a}b}+B_ke^{-\frac{(2k-1)\pi}{2a}b}=\frac{2}{a}\int_0^a-\frac{pb+q}{2}(x^2-a^2)\cos\frac{(2k-1)\pi}{2a}xdx=(-1)^{k+1}\frac{16(pb+q)a^2}{(2k-1)^3\pi^3}.$$
+
+化简得
+$$A_k=(-1)^{k+1}\frac{(2k-1)^3\pi^3}{16(pb+q)a^2}\cdot\frac{pb+q-qe^{-\frac{(2k-1)\pi}{2a}b}}{e^{\frac{(2k-1)\pi}{2a}b}-e^{-\frac{(2k-1)\pi}{2a}b}},$$
+$$B_k=(-1)^{k+1}\frac{(2k-1)^3\pi^3}{16(pb+q)a^2}\cdot\frac{-(pb+q)+qe^{\frac{(2k-1)\pi}{2a}b}}{e^{\frac{(2k-1)\pi}{2a}b}-e^{-\frac{(2k-1)\pi}{2a}b}}.$$
+
+故
+\begin{align*}
+  v(x,y)
+   & =\sum_{k=1}^\infty\left((-1)^{k+1}\frac{(2k-1)^3\pi^3}{16(pb+q)a^2}\cdot\frac{pb+q-qe^{-\frac{(2k-1)\pi}{2a}b}}{e^{\frac{(2k-1)\pi}{2a}b}-e^{-\frac{(2k-1)\pi}{2a}b}}e^{\frac{(2k-1)\pi}{2a}y}\right.                  \\
+   & \quad +\left.(-1)^{k+1}\frac{(2k-1)^3\pi^3}{16(pb+q)a^2}\cdot\frac{-(pb+q)+qe^{\frac{(2k-1)\pi}{2a}b}}{e^{\frac{(2k-1)\pi}{2a}b}-e^{-\frac{(2k-1)\pi}{2a}b}}e^{-\frac{(2k-1)\pi}{2a}y}\right)\cos\frac{(2k-1)\pi}{2a}x \\
+   & =\sum_{k=1}^\infty(-1)^{k+1}\frac{(2k-1)^3\pi^3}{16(pb+q)a^2}\cdot\frac{(pb+q)\sinh\frac{(2k-1)\pi}{2a}y+q\sinh\frac{(2k-1)\pi}{2a}(b-y)}{\sinh\frac{(2k-1)\pi}{2a}b}\cos\frac{(2k-1)\pi}{2a}x.                        \\
+  u(x,y)
+   & =v(x,y)+\frac{1}{2}(x^2-a^2)(py+q).
+\end{align*}
+
+\section{3.1/8}
+\begin{problem}
+举例说明在二维调和方程的狄利克雷外问题中, 如对解$u(x,y)$不加在无穷远点为有界的限制, 那么定解问题的解就不是唯一的.
+\end{problem}
+设$$u(x,y)=f(r),$$
+根据3.1/1可知
+$$u(x,y)=c_1+c_2\ln\frac{1}{r}.$$
+此时只需令$$u|_{r=1}=c_1,$$
+由$c_2$的任意性即可知$u$有无数个解.
+
+\section{2.2/6}
+\begin{problem}
+半径为$a$的半圆形平板, 其表面绝热, 在板的圆周边界上保持常温$u_0$, 而在直径边界上保持常温$u_1$, 求圆板稳恒状态(即与时间$t$无关的状态)的温度分布.
+\end{problem}
+根据题意可列出定解问题为
+$$\left\{\begin{aligned}
+     & \frac{\partial^2u}{\partial x^2}
+    +\frac{\partial^2u}{\partial y^2}=0,
+    \quad x^2+y^2\leqslant a^2,
+    \quad 0<y<a,                        \\
+     & u(x,0)=u_1,                      \\
+     & u(\sqrt{a^2-y^2},y)=u_0.
+  \end{aligned}\right.$$
+
+设
+$$u(x,y)=v(x,y)+u_1.$$
+坐标变换为极坐标系可得
+$$\left\{\begin{aligned}
+     & \frac{\partial^2v}{\partial r^2}
+    +\frac{1}{r}\frac{\partial v}{\partial r}
+    +\frac{1}{r^2}\frac{\partial^2v}{\partial \theta^2}=0,
+    \quad 0\leqslant r\leqslant a,
+    \quad 0<\theta<\pi ,                \\
+     & v(r,0)=v(r,\pi)=0,               \\
+     & v(a,\theta)=u_0-u_1.
+  \end{aligned}\right.$$
+
+设$v(r,\theta)=R(r)\Theta(\theta)$, 代入得
+$$R''(r)\Theta(\theta)+\frac{1}{r}R'(r)\Theta(\theta)+\frac{1}{r^2}R(r)\Theta''(\theta)=0,$$
+$$-\frac{r^2R''(r)+rR'(r)}{R(r)}=\frac{\Theta''(\theta)}{\Theta(\theta)}=-\lambda.$$
+
+则有两个常微分方程
+$$r^2R''(r)+rR'(r)-\lambda R(r)=0,$$
+$$\Theta''(\theta)+\lambda \Theta(\theta)=0.$$
+
+关于$\theta$的方程的特征值和特征函数为
+$$\Theta(\theta)=C_1\cos\sqrt{\lambda}\theta+C_2\sin\sqrt{\lambda}\theta.$$
+
+代入$\Theta(0)=0$, $\Theta(\pi)=0$得
+$$C_1=0,\quad C_2\sin\sqrt{\lambda}\pi=0,$$
+$$\lambda=\lambda_k=k^2,\quad \Theta_k(\theta)=C_k\sin\sqrt{\lambda}\theta=C_k\sin k\theta,\quad k=1,2,\cdots.$$
+
+代入关于$r$的常微分方程可得
+$$r^2R''(r)+rR'(r)-k^2R(r)=0,$$
+$$Y(y)=A_kr^k+B_kr^{-k}.$$
+
+方程的通解为
+$$v(r,\theta)=\sum_{k=1}^\infty R(r)\Theta(\theta)=\sum_{k=1}^\infty\left(A_kr^k+B_kr^{-k}\right)\sin k\theta.$$
+
+由于
+$$\lim_{r\to0}r^{-k}\to\infty$$
+可推出
+$$B_k=0.$$
+
+代入初值条件得
+$$v(a,\theta)=\sum_{k=1}^\infty A_ka^k\sin k\theta=u_0-u_1.$$
+
+解得
+$$A_k=\frac{2(u_0-u_1)}{a^k\pi}\int_0^\pi\sin k\theta d \theta=\frac{2(u_0-u_1)}{a^k\pi}\cdot\frac{1-\cos k\pi}{k}=\left\{\begin{aligned}
+     & \frac{4(u_0-u_1)}{a^kk\pi}, & \quad k=2n-1 \\
+     & 0,                          & \quad k=2n
+  \end{aligned}\right.,\quad n=1,2,\cdots.$$
+
+故
+$$v(k,\theta)=\sum_{n=1}^\infty \frac{4(u_0-u_1)}{a^{2n-1}(2n-1)\pi}r^{2n-1}\sin(2n-1)\theta,$$
+$$u(x,y)=u_1+\sum_{n=1}^\infty \frac{4(u_0-u_1)}{a^{2n-1}(2n-1)\pi}\sqrt{x^2+y^2}^{2n-1}\sin\left[(2n-1)\arctan\frac{y}{x}\right].$$
+
+其中
+$$\arctan\frac{y}{x}\in[0,\pi].$$
+
+\end{document}
