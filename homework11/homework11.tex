@@ -1,0 +1,133 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{../ma319}
+\semester{Fall}
+\year{2019}
+\subtitlenumber{11}
+\author{刘逸灏 (515370910207)}
+
+\begin{document}
+
+\maketitle
+\section{3.3/2}
+\begin{problem}
+证明格林函数的对称性: $G(M_1,M_2)=G(M_2,M_1)$.
+\end{problem}
+设区域$\Omega$的边界为$\Gamma$, $K_1=B(M_1,r)$, $\Gamma_1$为$K_1$的边界, $K_2=B(M_2,r)$, $\Gamma_2$为$K_2$的边界, $u=G(M,M_2)$, $v=G(M,M_2)$, 根据格林函数的性质1, 2可知
+$$\Delta u=\Delta v=0, \quad M\neq M_1,\quad M\neq M_2,$$
+$$u=v=0, \quad M\in\Gamma.$$
+根据格林第二公式可得
+$$\iiint\limits_{\Omega-K_1-K_2}(u\Delta v-v\Delta u) d\Omega=\iint\limits_{\Gamma+\Gamma_1+\Gamma_2}\left(u\frac{\partial v}{\partial\mathbf{n}}-v\frac{\partial u}{\partial\mathbf{n}}\right)dS.$$
+在$\Omega-K_1-K_2$中满足$\Delta u=\Delta v=0$, 在$\Gamma$中满足$u=v=0$, 故
+$$\iint\limits_{\Gamma_1+\Gamma_2}\left(u\frac{\partial v}{\partial\mathbf{n}}-v\frac{\partial u}{\partial\mathbf{n}}\right)dS=\iint\limits_{\Gamma_1+\Gamma_2}\left[G(M,M_1)\frac{\partial G(M,M_2)}{\partial\mathbf{n}}-G(M,M_2)\frac{\partial G(M,M_1)}{\partial\mathbf{n}}\right]dS=0.$$
+
+$$\left|\iint\limits_{\Gamma_1}G(M,M_1)\frac{\partial G(M,M_2)}{\partial\mathbf{n}}dS\right|\leqslant\sup_{\Gamma_1}|G(M,M_1)|\sup_{\Gamma_1}\left|\frac{\partial G(M,M_2)}{\partial\mathbf{n}}\right|\iint\limits_{\Gamma_1}dS.$$
+当$r\to0$时, 根据格林函数的性质3可知$G(M,M_1)<\dfrac{1}{4\pi r}$, 且由$G(M,M_2)$在$\Gamma_1$上调和可知$\dfrac{\partial G(M,M_2)}{\partial\mathbf{n}}$有界, 故
+$$\lim_{r\to0}\left|\iint\limits_{\Gamma_1}G(M,M_1)\frac{\partial G(M,M_2)}{\partial\mathbf{n}}dS\right|\leqslant \lim_{r\to0}\left( C\cdot \frac{1}{4\pi r} \cdot 4\pi r^2\right)=\lim_{r\to0} Cr= 0.$$
+
+$$\iint\limits_{\Gamma_1}G(M,M_2)\frac{\partial G(M,M_1)}{\partial\mathbf{n}}dS=\iint\limits_{\Gamma_1}G(M,M_2)\left[\frac{\partial}{\partial\mathbf{n}}\frac{1}{4\pi r_{M_1M}}-\frac{\partial g(M,M_1)}{\partial\mathbf{n}}\right]dS.$$
+当$r\to0$时, 由$g(M,M_1)$在$\Gamma_1$上调和可知$\dfrac{\partial g(M,M_1)}{\partial\mathbf{n}}$有界, 故
+$$\lim_{r\to0}\left|\iint\frac{\partial g(M,M_1)}{\partial\mathbf{n}}dS\right|\leqslant \lim_{r\to 0}\left(\sup_{\Gamma_1}\left|\frac{\partial G(M,M_2)}{\partial\mathbf{n}}\right|\iint\limits_{\Gamma_1}dS\right)=\lim_{r\to0}(C\cdot 4\pi r^2)=0,$$
+$$\iint\limits_{\Gamma_1}\frac{\partial}{\partial\mathbf{n}}\frac{1}{4\pi r_{M_1M}}dS=\frac{1}{4\pi r^2}\cdot 4\pi r^2=1,$$
+$$\lim_{r\to 0}\iint\limits_{\Gamma_1}G(M,M_2)\frac{\partial G(M,M_1)}{\partial\mathbf{n}}dS=G(M_1,M_2)\lim_{r\to 0}\iint\limits_{\Gamma_1}\frac{\partial G(M,M_1)}{\partial\mathbf{n}}dS=G(M_1,M_2).$$
+综上并根据对称性可得,
+$$\iint\limits_{\Gamma_1}\left[G(M,M_1)\frac{\partial G(M,M_2)}{\partial\mathbf{n}}-G(M,M_2)\frac{\partial G(M,M_1)}{\partial\mathbf{n}}\right]dS=-G(M_1,M_2),$$
+$$\iint\limits_{\Gamma_2}\left[G(M,M_1)\frac{\partial G(M,M_2)}{\partial\mathbf{n}}-G(M,M_2)\frac{\partial G(M,M_1)}{\partial\mathbf{n}}\right]dS=G(M_2,M_1).$$
+故
+$$G(M_1,M_2)=G(M_2,M_1).$$
+
+\section{3.3/5}
+\begin{problem}
+求半圆区域上狄利克雷问题的格林函数.
+\end{problem}
+圆的格林函数为
+$$G(M,M_0)=\frac{1}{2\pi}\left(\ln\frac{1}{r_{M_0M}}-\ln\frac{R}{\rho_0}\frac{1}{r_{M_1M}}\right)=-\frac{1}{4\pi}\ln R^2\frac{\rho_0^2+\rho^2-2\rho_0\rho\cos(\theta-\theta_0)}{R^4+\rho_0\rho^2-2R^2\rho_1\rho\cos(\theta-\theta_0)},$$
+其中$R$为圆的半径, $\rho=r_{OM}$, $\rho_0=r_{OM_1}$, $\theta$为$OM$的幅角, $\theta_0$为$OM_0$的幅角.
+
+现只需取镜像点$M_0'$, 使得$\rho_0'=\rho_0$, $\theta_0'=-\theta_0$, 即可得半圆的格林函数为
+$$G(M,M_0)-G(M,M_0')=\frac{1}{4\pi}\left[\ln\frac{\rho_0^2+\rho^2-2\rho_0\rho\cos(\theta+\theta_0)}{R^4+\rho_0\rho^2-2R^2\rho_1\rho\cos(\theta+\theta_0)}-\ln\frac{\rho_0^2+\rho^2-2\rho_0\rho\cos(\theta-\theta_0)}{R^4+\rho_0\rho^2-2R^2\rho_1\rho\cos(\theta-\theta_0)}\right].$$
+
+\section{3.3/9}
+\begin{problem}
+试求一函数$u$, 使其在半径为$a$的圆内部是调和的, 而且在圆周$C$上取下列的值:
+\begin{enumerate}
+  \item $u|_C=A\cos\varphi$,
+  \item $u|_C=A+B\sin\varphi$,
+\end{enumerate}
+其中$A$, $B$都是常数.
+\end{problem}
+
+\subsection*{(1)}
+根据习题3.1/5可知$Cr\cos\varphi$为调和函数, 代入边界条件可得
+$$u=\frac{A}{a}r\cos\varphi.$$
+
+\subsection*{(1)}
+根据习题3.1/5可知$C_1+C_2r\sin\varphi$为调和函数, 代入边界条件可得
+$$u=A+\frac{B}{a}r\sin\varphi.$$
+
+\section{3.3/10}
+\begin{problem}
+试用静电源像法导出二维调和方程在半平面上的狄利克雷问题:
+$$\Delta u=u_{xx}+u_{yy}=0,\quad y>0,$$
+$$u|_{y=0}=f(x)$$
+的解.
+\end{problem}
+
+平面的格林函数为
+$$G(M,M_0)=\frac{1}{2\pi}\ln\frac{1}{r_{M_0M}}=\frac{1}{4\pi}\ln\frac{1}{(x-x_0)^2+(y-y_0^2)},$$
+其中$M$的坐标为$(x,y)$, $M_0$的坐标为$(x_0,y_0)$.
+
+现只需取镜像点$M_0'$, 使得$x_0'=x_0$, $y_0'=-y_0$, 即可得半平面的格林函数为
+$$G(M,M_0)-G(M,M_0')=\frac{1}{4\pi}\ln\frac{(x-x_0)^2+(y+y_0)^2}{(x-x_0)^2+(y-y_0)^2}.$$
+
+对于半平面$y>0$来讲, 直线$y=0$的外法线方向是与$y$轴相反的方向, 即$\dfrac{\partial}{\partial\mathbf{n}}=-\dfrac{\partial}{\partial y}$. 此外, 对于半平面的情形, 只要对调和函数$u(x,y)$加上在无穷远处的条件:
+$$u(M)=O\left(\ln\frac{1}{r_{OM}}\right),\quad\frac{\partial u}{\partial\mathbf{n}}=O\left(\frac{1}{r_{OM}}\right)\quad (r_{OM}\to\infty),$$
+则仍可证明该公式成立:
+$$u(M_0)=-\frac{1}{2\pi}\int\limits_{\Gamma}\left[u(M)\frac{\partial}{\partial\mathbf{n}}\left(\ln\frac{1}{r_{M_0M}}\right)-\ln\frac{1}{r_{M_0M}}\frac{\partial u(M)}{\partial\mathbf{n}}\right]dS_M.$$
+故狄利克雷方程的求解式也成立
+\begin{align*}
+  u(x_0,y_0)
+   & =-\int\limits_{\Gamma}f(x)\frac{\partial G(M,M_0)}{\partial\mathbf{n}}dS_M                                                                  \\
+   & =\int_{-\infty}^\infty f(x)\frac{\partial}{\partial y}\left.\frac{1}{4\pi}\ln\frac{(x-x_0)^2+(y+y_0)^2}{(x-x_0)^2+(y-y_0)^2}\right|_{y=0}dx \\
+   & =\frac{y_0}{\pi}\int_{-\infty}^\infty f(x)\left.\frac{(x-x_0^2)-y^2+y_0^2}{[(x-x_0)^2+(y+y_0)^2][(x-x_0)^2+(y-y_0)^2]}\right|_{y=0}dx       \\
+   & =\frac{y_0}{\pi}\int_{-\infty}^\infty \frac{f(x)}{(x-x_0)^2+y_0^2}dx.
+\end{align*}
+
+\section{3.3/14}
+\begin{problem}
+证明处处满足平均值公式的连续函数一定是调和函数.
+\end{problem}
+
+设连续函数$u$在$\Omega$内处处满足平均值公式, 设$K=B(M_0,r)\subseteq\Omega$, 其边界为$\Gamma$, 则在$K$内可以有狄利克雷问题
+$$\Delta v=0,\quad v|_{\Gamma}=u|_{\Gamma}.$$
+易知$v$有唯一解, 且$v$是$K$内的调和函数, 故$u-v$在$K$内处处满足平均值公式, 也成立极值原理. 由于$(u-v)|_\Gamma=0$, $u-v$在$K$内的最大值和最小值都为0, 故$u=v$. 由$v$是调和函数和$M_0$的任意性可知$u$是调和函数.
+
+\section*{例题}
+
+\subsection*{(1)}
+\begin{problem}
+求区域$\Omega=\{x^2+y^2\leqslant 1,\quad x\geqslant0,\quad y\geqslant 0\}$的格林函数.
+\end{problem}
+由习题3.3/5可知上半单位圆的格林函数为
+$$G(M,M_0)=\frac{1}{4\pi}\left[\ln\frac{\rho_0^2+\rho^2-2\rho_0\rho\cos(\theta+\theta_0)}{1+\rho_0\rho^2-2\rho_1\rho\cos(\theta+\theta_0)}-\ln\frac{\rho_0^2+\rho^2-2\rho_0\rho\cos(\theta-\theta_0)}{1+\rho_0\rho^2-2\rho_1\rho\cos(\theta-\theta_0)}\right],$$
+其中$\rho=r_{OM}$, $\rho_0=r_{OM_1}$, $\theta$为$OM$的幅角, $\theta_0$为$OM_0$的幅角.
+
+现只需取镜像点$M_0'$, 使得$\rho_0'=\rho_0$, $\theta_0'=\pi-\theta_0$, 即可得右上四分之一单位圆的格林函数为
+\begin{align*}
+  G(M,M_0)-G(M,M_0')
+   & =\frac{1}{4\pi}\left[\ln\frac{\rho_0^2+\rho^2-2\rho_0\rho\cos(\theta+\theta_0)}{1+\rho_0\rho^2-2\rho_1\rho\cos(\theta+\theta_0)}-\ln\frac{\rho_0^2+\rho^2-2\rho_0\rho\cos(\theta-\theta_0)}{1+\rho_0\rho^2-2\rho_1\rho\cos(\theta-\theta_0)}\right]                      \\
+   & \quad-\frac{1}{4\pi}\left[\ln\frac{\rho_0^2+\rho^2-2\rho_0\rho\cos(\theta+\pi-\theta_0)}{1+\rho_0\rho^2-2\rho_1\rho\cos(\theta+\pi-\theta_0)}-\ln\frac{\rho_0^2+\rho^2-2\rho_0\rho\cos(\theta-\pi+\theta_0)}{1+\rho_0\rho^2-2\rho_1\rho\cos(\theta-\pi+\theta_0)}\right] \\
+   & =\frac{1}{4\pi}\left[\ln\frac{\rho_0^2+\rho^2-2\rho_0\rho\cos(\theta+\theta_0)}{1+\rho_0\rho^2-2\rho_1\rho\cos(\theta+\theta_0)}-\ln\frac{\rho_0^2+\rho^2-2\rho_0\rho\cos(\theta-\theta_0)}{1+\rho_0\rho^2-2\rho_1\rho\cos(\theta-\theta_0)}\right.                      \\
+   & \qquad\left.-\ln\frac{\rho_0^2+\rho^2+2\rho_0\rho\cos(\theta-\theta_0)}{1+\rho_0\rho^2+2\rho_1\rho\cos(\theta-\theta_0)}+\ln\frac{\rho_0^2+\rho^2+2\rho_0\rho\cos(\theta+\theta_0)}{1+\rho_0\rho^2+2\rho_1\rho\cos(\theta+\theta_0)}\right].
+\end{align*}
+
+\subsection*{(2)}
+\begin{problem}
+$$\left\{\begin{aligned}
+     & \Delta_2 u=0,\quad 0\leqslant r\leqslant R,\quad 0<\theta\leqslant 2\pi \\
+     & u|_{r=R}=\cos^2\theta+1.
+  \end{aligned}\right.$$
+\end{problem}
+$$\cos^2\theta+1=\frac{1}{2}\cos2\theta+\frac{3}{2}.$$
+根据习题3.1/5可知$C_1+C_2r^2\cos2\theta$为调和函数, 代入边界条件可得
+$$u=\frac{3}{2}+\frac{1}{2R^2}r^2\cos2\theta.$$
+\end{document}
