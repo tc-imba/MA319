@@ -1,0 +1,117 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{../ma319}
+\semester{Fall}
+\year{2019}
+\subtitlenumber{12}
+\author{刘逸灏 (515370910207)}
+
+\begin{document}
+
+\maketitle
+\section{3.3/1}
+\begin{problem}
+证明格林函数的性质3及性质5.
+\end{problem}
+
+\subsection*{性质3}
+\begin{problem}
+在区域$\Omega$中成立着不等式:
+$$0<G(M,M_0)<\frac{1}{4\pi r_{M_0M}}.$$
+\end{problem}
+
+$$G(M,M_0)=\frac{1}{4\pi r_{M_0M}}-g(M,M_0).$$
+% 故只需证明
+% $$0<g(M,M_0)<\frac{1}{4\pi r_{M_0M}}.$$
+由于$g(M,M_0)$是$\Omega$内的调和函数, 根据极值原理可知$g(M,M_0)$在$\Omega$内无法达到边界$\Gamma$的下界. 又因为
+$$g(M,M_0)|_\Gamma=\frac{1}{4\pi r_{M_0M}}>0,$$
+易知在$\Omega$内$$g(M,M_0)>g(M,M_0)|_\Gamma>0.$$
+故$$G(M,M_0)<\frac{1}{4\pi r_{M_0M}}.$$
+再取$K=B(M_0,r)$使得$K\subset\Omega$, $G(M,M_0)$是$\Omega\setminus K$内的调和函数, 根据极值原理可知$G(M,M_0)$在$\Omega\setminus K$内无法达到边界$\Gamma$的下界. 又因为
+$$G(M,M_0)|_\Gamma=0,$$
+易知在$\Omega\setminus K$内$$G(M,M_0)|_\Gamma>0.$$
+当$r\to0$时即可得
+$$0<G(M,M_0)<\frac{1}{4\pi r_{M_0M}}.$$
+
+\subsection*{性质5}
+\begin{problem}
+$$\iint\limits_{\Gamma}\frac{\partial G(M,M_0)}{\partial\mathbf{n}}dS_M=-1.$$
+\end{problem}
+取$K=B(M_0,r)$使得$K\subset\Omega$, $G(M,M_0)$是$\Omega\setminus K$内的调和函数, 设$K$的边界为$\Gamma_K$
+$$\iint\limits_{\Gamma+\Gamma_K}\frac{\partial G(M,M_0)}{\partial\mathbf{n}}dS_M=0,$$
+$$\iint\limits_{\Gamma}\frac{\partial G(M,M_0)}{\partial\mathbf{n}}dS_M=-\iint\limits_{\Gamma_K}\frac{\partial G(M,M_0)}{\partial\mathbf{n}}dS_M=-\iint\limits_{\Gamma_K}\left[\frac{\partial}{\partial\mathbf{n}}\frac{1}{4\pi r_{M_0M}}-\frac{\partial g(M,M_0)}{\partial\mathbf{n}}\right]dS_M.$$
+当$r\to0$时, 由$g(M,M_1)$在$\Gamma_K$上调和可知$\dfrac{\partial g(M,M_1)}{\partial\mathbf{n}}$有界, 故
+$$\lim_{r\to0}\left|\iint\frac{\partial g(M,M_1)}{\partial\mathbf{n}}dS\right|\leqslant \lim_{r\to 0}\left(\sup_{\Gamma_1}\left|\frac{\partial g(M,M_2)}{\partial\mathbf{n}}\right|\iint\limits_{\Gamma_1}dS\right)=\lim_{r\to0}(C\cdot 4\pi r^2)=0,$$
+$$\lim_{r\to0}\iint\limits_{\Gamma_1}\frac{\partial}{\partial\mathbf{n}}\frac{1}{4\pi r_{M_1M}}dS=\frac{1}{4\pi r^2}\cdot 4\pi r^2=1.$$
+故
+$$\iint\limits_{\Gamma}\frac{\partial G(M,M_0)}{\partial\mathbf{n}}dS_M=-1.$$
+
+\section{3.3/3}
+\begin{problem}
+写出球的外部区域的格林函数, 并由此导出对调和方程求解球的狄利克雷问题的泊松公式.
+\end{problem}
+使用静电源像法, 设球面$K=B(O,R)$, 在点$M_0(x_0,y_0,z_0)$放置一单位电荷, 在射线$OM_0$上截线段$OM_1$, 使$$\rho_0\rho_1=R^2,$$ 其中$\rho_0=r_{OM_0}$, $\rho_1=r_{OM_1}$, 设$P$是球面$K$上任意一点, 则
+$$r_{M_0P}=\frac{R}{\rho_1}r_{M_1P}.$$
+假想$M_0$处有一点电荷, 为了使它产生的电势在球面$K$上和$M_1$产生的抵消, 必须假设$M_0$处的电量为$-\dfrac{R}{\rho_1}$, 因此
+$$g(M,M_1)=\frac{1}{4\pi}\frac{R}{\rho_1}\frac{1}{r_{M_0M}},$$
+$$G(M,M_1)=\frac{1}{4\pi}\left(\frac{1}{r_{M_1M}}-
+  \frac{R}{\rho_1}\frac{1}{r_{M_0M}}\right).$$
+注意到
+$$\frac{1}{r_{M_0M}}=\frac{1}{\sqrt{\rho_0^2+\rho^2-2\rho_0\rho\cos\gamma}},$$
+$$\frac{1}{r_{M_1M}}=\frac{1}{\sqrt{\rho_1^2+\rho^2-2\rho_1\rho\cos\gamma}},$$
+其中$\rho=r_{OM}$, $\theta$为$OM$的幅角, $\theta_1$为$OM_1$的幅角, $\cos\gamma=\cos(\varphi-\varphi_1)$, 代入得
+$$G(M,M_1)=\frac{1}{4\pi}\left(\frac{1}{\sqrt{\rho_1^2+\rho^2-2\rho_1\rho\cos\gamma}}-\frac{R}{\sqrt{R^4+\rho_1^2\rho^2-2R^2\rho_1\rho\cos\gamma}}\right).$$
+易知在球面$K$上
+\begin{align*}
+  \left.\frac{\partial G(M,M_1)}{\partial\mathbf{n}}\right|_{\rho=R}
+   & =-\left.\frac{\partial G(M,M_1)}{\partial\pmb{\rho}}\right|_{\rho=R}                                                           \\
+   & =\left.\frac{1}{4\pi}\left[\frac{\rho-\rho_1\cos\gamma}{(\rho_1^2+\rho^2-2\rho_1\rho\cos\gamma)^{\frac{3}{2}}}
+    -\frac{R(\rho_1^2\rho-R^2\rho_1\cos\gamma)}{(R^4+\rho_1^2\rho^2-2R^2\rho_1\rho\cos\gamma)^{\frac{3}{2}}}\right]\right|_{\rho=R} \\
+   & =\frac{1}{4\pi R}\frac{R^2-\rho_1^2}{(R^2+\rho_1^2-2R\rho_1\cos\gamma)^{\frac{3}{2}}}.
+\end{align*}
+根据狄利克雷方程的求解式可得
+$$u(M_1)=-\iint\limits_{\Gamma}f\frac{\partial G}{\partial\mathbf{n}}dS_M=\frac{1}{4\pi R}\iint\limits_K\frac{\rho_1^2-R^2}{(R^2+\rho_1^2-2R\rho_1\cos\gamma)^{\frac{3}{2}}}f(M)dS_M.$$
+
+\section{3.3/7}
+\begin{problem}
+证明二维调和函数的奇点可去性定理: 若$A$是调和函数$u(M)$的孤立奇点, 在$A$点邻域中成立着
+$$u(M)=o\left(\ln\frac{1}{r_{AM}}\right),$$
+则此时可以重新定义$u(M)$在$M=A$的值, 使它在$A$点亦是调和的.
+\end{problem}
+
+设$K$是一个以$A$点为圆心, $R$为半径的圆, 它整个地包含在点$A$的邻域内. 以$u$在$K$上的值为边界条件, 在$K$内求解拉普拉斯方程的解, 它可由泊松公式给出, 记为$u_1$. 现要证明在整个圆$K$内除点$A$外$u\equiv u_1$, 这样就可以重新定义$u$在$A$处的值为$u_1$在$A$处的值, 且重新定义的$u$在$A$点调和. 记$\omega=u-u_1$, 函数$\omega$在整个圆$K$内除点$A$外是调和函数, 而在点$A$有
+$$\lim_{M\to A}\omega(M)=o\left(\ln\frac{1}{r_{AM}}\right),$$
+且在圆周$\Gamma$上$\omega=0$. 现在证明在整个圆$K$内除点$A$外$\omega\equiv0$. 为此, 作函数
+$$\omega_\varepsilon(M)=\varepsilon\left(\ln\frac{1}{r_{AM}}-\ln\frac{1}{R}\right).$$
+则根据极值原理可得
+$$\omega_\varepsilon(M)|_{\Gamma}=0,\quad \omega_\varepsilon(M)|_{K\setminus\Gamma}>0,$$
+且$\omega_\varepsilon$在圆$r=\delta$和$r=R$所包围的同心圆壳$D$内是调和函数, 这里$\delta$是一个任意小的正数.
+
+对任意给定的点$M^*\in K\setminus A$以及正数$\varepsilon$, 总可以找到适当小的$\delta>0$, 使在圆周$r=\delta$上有
+$$|\omega|\leqslant\omega_\varepsilon,$$
+而在$\Gamma$上, 函数$\omega$和$\omega_\varepsilon$都等于零. 于是由极值原理可得区域$D$中任何点都有$|\omega|\leqslant\omega_\varepsilon$成立. 所以对点$M^*$有
+$$|\omega(M^*)|\leqslant\omega_\varepsilon(M^*),$$
+$$\lim_{\varepsilon \to0}|\omega(M^*)|\leqslant\lim_{\varepsilon \to0}\omega_\varepsilon(M^*)=0,$$
+$$\omega(M^*)=0.$$
+由$M^*$的任意性可知整个圆$K$内除点$A$外$\omega\equiv0$, 故得证.
+
+\section*{例题}
+\begin{problem}
+证明
+$$\left\{\begin{aligned}
+     & \Delta u=u^3,    \\
+     & u|_{x^2+y^2=1}=0
+  \end{aligned}\right.$$
+只有零解.
+\end{problem}
+
+根据格林第一公式可得
+$$\iint\limits_\Omega u\Delta ud\Omega=\int\limits_\Gamma u\frac{\partial u}{\partial\mathbf{n}}dS-\iint\limits_\Omega\left[\left(\frac{\partial u}{\partial x}\right)^2+\left(\frac{\partial u}{\partial y}\right)^2\right]d\Omega.$$
+其中设$\Gamma$为$x^2+y^2=1$, $\Omega$为$x^2+y^2\leqslant 1$, 则
+$$\int\limits_\Gamma u\frac{\partial u}{\partial\mathbf{n}}dS=0,$$
+$$\iint\limits_\Omega\left[\left(\frac{\partial u}{\partial x}\right)^2+\left(\frac{\partial u}{\partial y}\right)^2\right]d\Omega=-\iint\limits_\Omega u\Delta ud\Omega=-\iint\limits_\Omega u^4 d\Omega\leqslant0.$$
+故
+$$\frac{\partial u}{\partial x}=\frac{\partial u}{\partial y}=0,$$
+$$u\equiv 0.$$
+
+
+\end{document}
