@@ -1,0 +1,68 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{../ma319}
+\semester{Fall}
+\year{2019}
+\subtitlenumber{13}
+\author{刘逸灏 (515370910207)}
+
+\begin{document}
+
+\maketitle
+
+\section{3.3/8}
+\begin{problem}
+证明: 如果三维调和函数$u(M)$在奇点$A$附近能表示为$\dfrac{N}{r^\alpha_{AM}}$, 其中常数$0<a\leqslant1$, 而$N$是不为零的光滑函数, 则当$M\to A$时它趋于无穷大的阶数必与$\dfrac{1}{r_{AM}}$同阶, 即$\alpha=1$.
+\end{problem}
+$$u(M)=\frac{N(M)}{r_{AM}^\alpha}$$
+$$\lim_{M\to A}r_{AM}\cdot u(M)=\lim_{M\to A}N(M)\cdot r^{1-\alpha}_{AM}=N(A)\lim_{M\to A}r^{1-\alpha}_{AM}.$$
+当$0<a<1$时
+$$\lim_{M\to A}r_{AM}\cdot u(M)=0.$$
+此时$A$为可去奇点. 由于题设中$A$不为可去奇点, 只能有$\alpha=1$.
+
+\section{3.4/1}
+\begin{problem}
+试用强极值原理证明极值原理.
+\end{problem}
+
+假设非常值函数$u$在区域$\Omega$内调和, 点$M$在$\Omega$内且$u(M)$是$u$的最大值. 取$B(M,r)\subset\Omega$, 可以证明在整个$B(M,r)$内$u=u(M)$. 假设$M_0\in B(M,R)$, $u(M_0)<u(M)$, 且$r_{MM_0}<r$, 可找到$B(M_0,r_0)$使得$0<r_0<r/2$且存在$M_1\in\partial B(M_0,r_0)$, $u(M_1)=u(M)$.
+在$M_1$处$\dfrac{\partial u}{\partial\mathbf{n}}=0$, 与强极值原理矛盾, 故假设不成立, $u=u(M)$. 用类似方法可知$\Omega$内的所有点都等于$u(M)$, 故$u$为常数, 这就证明了极值原理.
+
+
+\section{3.4/2}
+\begin{problem}
+利用极值原理及强极值原理证明: 当区域$\Omega$的边界$\Gamma$满足定理4.2中的条件时, 调和方程第三边值问题
+$$\left.\left(\frac{\partial u}{\partial\mathbf{n}}+\sigma u\right)\right|_{\Gamma}=f\quad (\sigma>0)$$
+的解的唯一性.
+\end{problem}
+
+假设解不是唯一的, 即存在$u_1$, $u_2$都满足条件, 设$u=u_1-u_2$, 可知$u$为不为常数的调和函数且
+$$\left.\left(\frac{\partial u}{\partial\mathbf{n}}+\sigma u\right)\right|_{\Gamma}=0.$$
+由极值原理得$u$的最大值和最小值都在边界$\Gamma$上取到, 分别为$u(m)$和$u(M)$. 由强极值原理可得
+$$\frac{\partial u}{\partial\mathbf{n}}(m)<0,\quad\frac{\partial u}{\partial\mathbf{n}}(M)>0.$$
+由边界条件可得
+$$u(m)=-\frac{1}{\sigma}\frac{\partial u}{\partial\mathbf{n}}(m)>0,\quad u(M)=-\frac{1}{\sigma}\frac{\partial u}{\partial\mathbf{n}}(M)<0.$$
+但显然应该有$u(m)<u(M)$, 故产生矛盾, 假设不成立, 得证解是唯一的.
+
+\section{3.4/3}
+\begin{problem}
+说明在证明强极值原理过程中, 不可能作出一个满足条件(1)和(3)的辅助函数$v(x,y,z)$, 使它在整个球$x^2+y^2+z^2\leqslant R^2$内满足$\Delta v>0$.
+\end{problem}
+
+由$\Delta v>0$可知在整个球上成立可得$v$在球内无法取得最大值, 只能在边界上取得最大值. 由条件(1)中边界上$v=0$可知在整个球上$v\leqslant 0$. 由条件(3)中$\dfrac{dv}{dr}<0$, 可知边界上可以取到最小值, 故在整个球上$v\geqslant 0$. 综上可知$v\equiv 0$, 此时$\Delta v=0$与条件矛盾, 故得证不可能作出这样的$v$.
+
+\section{3.4/4}
+\begin{problem}
+设$\Omega$为$\mathbf{R}^3$的有界区域, 边界为$\Gamma$, $u$为定解问题
+$$\left\{\begin{aligned}
+     & -\Delta u+cu=f,\quad                                                                 & \text{其中}\ c>0,f>0      \\
+     & \left[\frac{\partial u}{\partial\mathbf{n}}+\sigma u\right]_{\partial\Omega}=g,\quad & \text{其中}\ \sigma>0,g>0
+  \end{aligned}\right.$$
+的解. 证明在$\overline{\Omega}$上$u>0$.
+\end{problem}
+
+假设在$\overline{\Omega}$上$u\leqslant0$, 则在$\Omega$内$\Delta u=cu-f<0$, 可知在$\Omega$内$u$无法取得最小值, 只能在边界$\partial\Omega$上取得最小值. 由边界条件可得
+$$\frac{\partial u}{\partial\mathbf{n}}=g-\sigma u>0.$$
+这说明边界上不可能存在最小值点, 故产生矛盾, 假设不成立, 得证在$\overline{\Omega}$上$u>0$.
+
+
+\end{document}
