@@ -57,7 +57,13 @@ $$\frac{\partial^2 u}{\partial t^2}=\frac{\partial^2 u}{\partial x^2}+\frac{\par
 
 \section{1.2/1}
 \begin{problem}
-
+证明方程
+$$\frac{\partial}{\partial x}\left[\left(1-\frac{x}{h}\right)^2\frac{\partial u}{\partial x}\right]=\frac{1}{a^2}\left(1-\frac{x}{h}\right)^2\frac{\partial^2u}{\partial t^2}\quad(h>0,\text{常数})$$
+的通解可以写成
+$$u=\frac{F(x-at)+G(x+at)}{h-x},$$
+其中$F$, $G$为任意的具有二阶连续导数的单变量函数, 并由此求它满足初始条件:
+$$t=0:\quad u=\varphi(x),\frac{\partial u}{\partial t}=\psi(x)$$
+的初值问题的解.
 \end{problem}
 
 $$\left(1-\frac{x}{h}\right)^2\frac{\partial^2 u}{\partial t^2}=a^2\frac{\partial}{\partial x}\left[\left(1-\frac{x}{h}\right)^2\frac{\partial u}{\partial x}\right],$$
@@ -84,6 +90,9 @@ $$v(x,t)=\frac{(h-x+at)\varphi(x-at)+(h-x-at)\varphi(x+at)}{2}+\frac{1}{2a}\int_
 $$u(x,t)=\frac{(h-x+at)\varphi(x-at)+(h-x-at)\varphi(x+at)}{2(h-x)}+\frac{1}{2a(h-x)}\int_{x-at}^{x+at}(h-\alpha)\psi(\alpha)d\alpha.$$
 
 \section{1.2/2}
+\begin{problem}
+问初始条件$\varphi(x)$和$\psi(x)$满足怎样的条件时, 齐次波动方程初值问题的解仅由右传播波组成?
+\end{problem}
 
 齐次波动方程初值问题的解仅由右传播波组成时
 $$G(x+at)=C_1,$$
@@ -94,12 +103,13 @@ $$\varphi(x)+\frac{1}{a}\int_{x_0}^x\psi(\alpha)d\alpha=C_2.$$
 其中$C$, $C_1$, $C_2$为常数.
 
 \section*{例题}
-
+\begin{problem}
 $$\left\{\begin{aligned}
      & \frac{\partial^2u}{\partial x\partial y}=0,\quad |x|<1,\quad |y|<1 \\
-     & u\mid_{y=x^2}=\varphi(x)                                           \\
-     & u_y\mid_{y=x^2}=\psi(x)
+     & u|_{y=x^2}=\varphi(x)                                              \\
+     & u_y|_{y=x^2}=\psi(x)
   \end{aligned}\right..$$
+\end{problem}
 
 方程的通解为
 $$u(x,y)=F(x)+G(y)+C,$$

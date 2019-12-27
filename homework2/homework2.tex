@@ -9,6 +9,14 @@
 \maketitle
 
 \section{1.2/3}
+\begin{problem}
+利用传播波法, 求解波动方程的古尔萨问题:
+$$\left\{\begin{aligned}
+     & \frac{\partial^2 u}{\partial t^2}=a^2\frac{\partial^2u}{\partial x^2}, \\
+     & u|_{x-at=0}=\varphi(x),                                                \\
+     & u|_{x+at=0}=\psi(x),\quad \varphi(0)=\psi(0).
+  \end{aligned}\right.$$
+\end{problem}
 
 方程的通解为
 $$u(x,t)=F(x-at)+G(x+at),$$
@@ -25,6 +33,13 @@ $$\varphi(0)=\psi(0)=F(0)+G(0).$$
 $$u(x,t)=F(x-at)+G(x+at)=\psi\left(\frac{x-at}{2}\right)+\varphi\left(\frac{x+at}{2}\right)-\varphi(0).$$
 
 \section{1.2/4}
+\begin{problem}
+对非齐次波动方程的初值问题(2.5), (2.6), 证明: 当$f(x,t)$不变时,
+\begin{enumerate}
+  \item 如果初始条件在$x$轴的区间$[x_1,x_2]$发生变化, 那么对应的解在区间$[x_1,x_2]$的影响区域以外不发生变化;
+  \item 在$x$轴区间$[x_1,x_2]$上所给的初始条件唯一地确定区间$[x_1,x_2]$的决定区域中解的数值.
+\end{enumerate}
+\end{problem}
 
 非齐次初值问题的解为
 $$u(x,t)=\frac{\varphi(x-at)+\varphi(x+at)}{2}+\frac{1}{2a}\int_{x-at}^{x+at}\psi(\alpha)d\alpha+\frac{1}{2a}\int_0^t\int_{x-a(t-\tau)}^{x+a(t-\tau)}f(\xi,\tau)d\xi d\tau.$$
@@ -49,6 +64,16 @@ $$u(x,t)=\frac{\varphi(x-at)+\varphi(x+at)}{2}+\frac{1}{2a}\int_{x-at}^{x+at}\ps
 故$[x_1,x_2]$上所给的初始条件唯一地确定该区间解的数值.
 
 \section{1.2/5}
+\begin{problem}
+求解
+$$\left\{\begin{aligned}
+     & u_{tt}-a^2u_{xx}=0,\quad x>0,t>0,       \\
+     & u|_{t=0}=\varphi(x),\quad u_t|_{t=0}=0, \\
+     & u_x-ku_t|_{x=0}=0,
+  \end{aligned}\right. $$
+其中$k$为正常数.
+\end{problem}
+
 方程的通解为
 $$u(x,t)=F(x-at)+G(x+at),$$
 
@@ -87,6 +112,16 @@ $$u(x,t)=\frac{1}{2}\varphi(x+at)+\left\{\begin{aligned}
   \end{aligned}\right..$$
 
 \section{1.2/6}
+\begin{problem}
+求解初边值问题
+$$\left\{\begin{aligned}
+     & u_{tt}-u_{xx}=0,\quad 0<t<kx,k>1,          \\
+     & u|_{t=0}=\varphi_0(x),\quad x\geqslant0,   \\
+     & u_t|_{t=0}=\varphi_1(x),\quad x\geqslant0, \\
+     & u|_{t=kx}=\psi(x),
+  \end{aligned}\right.$$
+其中$\varphi_0(0)=\psi(0)$.
+\end{problem}
 
 方程的通解为
 $$u(x,t)=F(x-t)+G(x+t),$$
@@ -123,6 +158,15 @@ $$u(x,t)=\left\{\begin{aligned}
   \end{aligned}\right..$$
 
 \section{1.2/7}
+\begin{problem}
+求边值问题
+$$\left\{\begin{aligned}
+     & u_{tt}-u_{xx}=0,\quad f(t)<x<t, \\
+     & u|_{x=t}=\varphi(t),            \\
+     & u|_{x=f(t)}=\psi(t)
+  \end{aligned}\right.$$
+的解, 其中$\varphi(0)=\psi(x)$, $x=f(t)$为由原点出发的, 介于$x=t$和$x=-t$之间的光滑曲线, 且$|f'(t)|\neq1$对一切$t$成立.
+\end{problem}
 
 方程的通解为
 $$u(x,t)=F(x-t)+G(x+t),$$
@@ -147,6 +191,13 @@ $$F(x)=\psi(g^{-1}(x))-\varphi\left(g^{-1}(x)-\frac{x}{2}\right)+F(0).$$
 \end{align*}
 
 \section{1.2/8}
+\begin{problem}
+求解波动方程的初值问题
+$$\left\{\begin{aligned}
+     & \frac{\partial^2u}{\partial t^2}-\frac{\partial^2u}{\partial x^2}=t\sin x, \\
+     & u|_{t=0}=0,\quad \left.\frac{\partial u}{\partial t}\right|_{t=0}=\sin x.
+  \end{aligned}\right.$$
+\end{problem}
 
 代入Kirchhoff公式得
 \begin{align*}
@@ -157,6 +208,14 @@ $$F(x)=\psi(g^{-1}(x))-\varphi\left(g^{-1}(x)-\frac{x}{2}\right)+F(0).$$
 \end{align*}
 
 \section{1.2/9}
+\begin{problem}
+求解波动方程的初值问题
+$$\left\{\begin{aligned}
+     & u_{tt}=a^2u_{xx}+\frac{tx}{(1+x^2)^2}, \\
+     & u|_{t=0}=0,                            \\
+     & u_t|_{t=0}=\frac{1}{1+x^2}.
+  \end{aligned}\right.$$
+\end{problem}
 
 代入Kirchhoff公式得
 \begin{align*}
